@@ -1,0 +1,30 @@
+body {
+    padding-top:5px;
+}
+
+#navbar {
+    padding-bottom:0px;
+    margin-bottom:0px;
+}
+
+#middle {
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+#address {
+    
+}
+
+#aboutus {
+    margin-left:60px;
+}
+
+#status {
+    display:none;
+}
+
+#rememberme {
+    color:white;
+    font-weight:400;
+}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+<!-- the part of other link -->
+{% block link %}
+<link rel="stylesheet" href="/static/css/logreg/validatemail.css">
+{% endblock %}
+
+<!-- the part of title -->
+{% block title %}
+omret
+{% endblock %}
+
+<!-- the part of body -->
+{% block body %}
+ 
+<div id="outcontainer" class="container-fluid">
+    <div id="email-container">
+	<div>
+	    <div id="picture" style="float:left">
+	    </div>
+	    <div id="description" style="float:right">
+		<h1>Hello {{username}} !</h1>
+		<p>
+		    <br>帐户验证邮件已发送!
+		    <br>请检查邮箱,
+		    <br>点击邮箱中的链接即可完成注册!
+		</p>
+	    </div>
+	</div>
+	
+	<div>
+	    <div id="cloud">
+		
+	    </div>
+	    <div id="cloudback">
+	    </div>
+	</div>
+    </div>
+</div>
+
+</div>
+
+<!-- 
+<script src="/static/js/logreg/validatemail.js"></script>
+-->
+<script>
+    function adjustHeight(){
+	var winheight = $(window).height();
+	if(winheight > 659){
+	    $("#email-container").height(winheight);
+	}
+    };
+    $(function(){
+        adjustHeight();
+    });
+    $(window).resize(function(){
+        adjustHeight();
+    });
+</script>
+{% endblock %}
