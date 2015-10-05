@@ -1,23 +1,26 @@
 from django.db import models
-from omret.logret import models as logret_models
+from omret.logreg import models as logreg_models
 
 # Create your models here.
 
 ##------the part of the omret user-----------
 ##------user profile table----------
 class UserProfile(models.Model):
-    user = models.OneToOneField(logret_models.User)
+    user = models.OneToOneField(logreg_models.User)
     realname = models.CharField(max_length=30)
-    sex = models.BooleanField()
+    sex = models.CharField(choices=(('F','Female'),('M','Male')),max_length=5)
     birthday = models.DateField(auto_now=False,auto_now_add=False)
     signature = models.TextField(max_length=120)
     resume = models.TextField()
 
     def __str__(self):
-        return self.name
+        return self.user.name
 
 ##------user relationship------
 class UserRelationship(models.Model):
-    user =
-    user_follow =
-    user_followers =
+    user = models.ForeignKey(logreg_models.User)
+    user_follow = models.IntegerField()
+    user_followers = models.IntegerField()
+
+    def __str__(self):
+        return self.user.name + 'follow: ' + user_follow + 'followers: ' + user_followers
