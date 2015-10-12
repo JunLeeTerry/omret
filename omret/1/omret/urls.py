@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     
     #-------test-------
-    #url(r'test/$',views.test),
+    url(r'test/$',views.test),
 
     #----------logreg part ---------
     url(r'^signup/$',logreg_views.signup),

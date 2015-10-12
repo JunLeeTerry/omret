@@ -22,15 +22,16 @@
 	    <div class="navbar navbar-inverse navbar-default">
 		<div class="container">
 		    <div class="navbar-header">
-			<a class="navbar-brand" href="/home">
+			<a class="navbar-brand" href="/">
 			    <strong>Omret</strong>&nbsp;<small>beta</small>
 			</a>
 		    </div>
 		</div>
 	    </div>
 	</div>
+	{% block body %}{% endblock %}
       </div>
-      {% block body %}{% endblock %}
+  
       <!-- bootstrap core js -->
       <script src="/static/bootstrap-3.3.5/js/bootstrap.min.js"></script>
     </body>
