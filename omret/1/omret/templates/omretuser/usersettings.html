@@ -12,10 +12,11 @@ Settings
 <div class="row-fluid">
     <div class="span4">
 	<div >
-	    <nav class="nav-collapse">
-		<ul>
-		    <li>
+	    <nav class="navbar navbar-default" role="navigation">
+		<ul class="nav navbar-nav">
+		    <li><a href="#">
 			个人设置
+		    </a>
 		    </li>
 		    <li>
 			个人资料
@@ -36,7 +37,5 @@ Settings
 
 {% endblock %}
 {% block body_script %}
-<script>
-    var navigation = responsiveNav(".nav-collapse");
-</script>
+
 {% endblock %}
