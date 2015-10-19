@@ -11,24 +11,32 @@ Settings
 {% block body %}
 <div class="row-fluid">
     <div class="span4">
-	<div>
-	    <ul class="nav nav-tabs nav-stacked">
-		<li>
-		    个人设置
-		</li>
-		<li>
-		    个人资料
-		</li>
-		<li>
-		    安全设置
-		</li>
-	    </ul>
+	<div >
+	    <nav class="nav-collapse">
+		<ul>
+		    <li>
+			个人设置
+		    </li>
+		    <li>
+			个人资料
+		    </li>
+		    <li>
+			安全设置
+		    </li>
+		</ul>
+	    </nav>
 	</div>
     </div>
     <div class="span8">
 	<div>
+	   
 	</div>                                                            
     </div>
 </div>
 
+{% endblock %}
+{% block body_script %}
+<script>
+    var navigation = responsiveNav(".nav-collapse");
+</script>
 {% endblock %}
