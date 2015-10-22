@@ -5,6 +5,10 @@ li{
     padding-bottom:10px;
 }
 
+a:hover{
+    text-decoration:none;
+}
+
 #navi{
     border-style:solid;
     border-width:1px;
@@ -30,6 +34,13 @@ ul{
     background-color:#337ab7;
 }
 
-li :hover{
+li:hover{
     background-color:#f7f7f7;
+}
+
+.omret-setting{
+    border-style:solid;
+    border-width:1px;
+    border-color:#d8d8d8;
+    border
 }
