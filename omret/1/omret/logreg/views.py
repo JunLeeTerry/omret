@@ -213,11 +213,14 @@ def login(req):
             if status == u'success':
                 ##-----get rememberme checkbox value------
                 rmbme = req.POST.get("rmbme")
+
+                ##-----gen the session and store into the cookie------
+                req.session['uid'] = uuid.uuid1()
+                              
                 #print rmbme                
                 response = render_to_response('index.html',{})
-                ##-----gen the session and store into the cookie------
-                req.session['sessionid']=
 
+            
                 ##----place userinfo into cookie----
                 ##-----if the rmbme box is checked,set values into cookies-----
                 if rmbme == 'rmbme':
