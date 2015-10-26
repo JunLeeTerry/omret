@@ -215,6 +215,7 @@ def login(req):
                 rmbme = req.POST.get("rmbme")
 
                 ##-----gen the session and store into the cookie------
+                ##-----the session type is set in the settings.py-------
                 req.session['uid'] = uuid.uuid1()
                               
                 #print rmbme                
