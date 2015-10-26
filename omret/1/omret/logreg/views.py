@@ -196,7 +196,7 @@ def login(req):
             #print account_type
             if account_type == 0:
                 try:
-                    User.objects.get(name=account,password=encrypted_password)
+                    user = User.objects.get(name=account,password=encrypted_password)
                     status = u'success'
                 except Exception,e:
                     status = u'error'
@@ -216,8 +216,13 @@ def login(req):
 
                 ##-----gen the session and store into the cookie------
                 ##-----the session type is set in the settings.py-------
-                req.session['uid'] = uuid.uuid1()
-                              
+                uid = uuid.uuid1().hex
+                req.session['uid'] = uid
+                user.uid = uid
+                #print uid
+                user.save()
+                #print req.session.get('uid')
+              
                 #print rmbme                
                 response = render_to_response('index.html',{})
 

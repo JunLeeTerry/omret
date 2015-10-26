@@ -5,10 +5,12 @@ from django.core.mail import send_mail,EmailMultiAlternatives
 
 # Create your models here.
 class User(models.Model):
+    uid = models.CharField(max_length=50,unique=True)
     name = models.CharField(max_length=50,unique = True)
     password = models.CharField(max_length=200)
     email = models.EmailField(blank=False,unique = True)
-    
+    is_active = models.BooleanField()
+
     def __str__(self):
         return self.name
     
@@ -16,7 +18,7 @@ class User(models.Model):
         if self.is_active == False:
             self.password = hashlib.sha1(self.password).hexdigest()
         #test password
-        print 'sql_password: '+self.password
+        #print 'sql_password: '+self.password
         super(User,self).save(*args,**kwargs)
 
 class UserActivationCode(models.Model):
