@@ -18,6 +18,6 @@ def settings(req):
     if(user == None):
         return HttpResponseRedirect('/')
     else:
-        response = render_to_response('usersettings.html',{username:user.name})
+        response = render_to_response('usersettings.html',{"username":user.name})
     
     return response
