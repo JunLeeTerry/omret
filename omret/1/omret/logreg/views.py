@@ -224,8 +224,8 @@ def login(req):
                 #print req.session.get('uid')
               
                 #print rmbme                
-                response = render_to_response('index.html',{})
-
+                #response = render_to_response('index.html',{})
+                return HttpResponseRedirect('/index/')
             
                 ##----place userinfo into cookie----
                 ##-----if the rmbme box is checked,set values into cookies-----

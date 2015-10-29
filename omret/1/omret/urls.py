@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from omret.logreg import views as logreg_views
 from omret.omretuser import views as omretuser_views
+from omret.omretnews import views as omretnews_views
 from omret import views
 
 # Uncomment the next two lines to enable the admin:
@@ -35,4 +36,7 @@ urlpatterns = patterns('',
 
     ##------omretuser part-----------
     url(r'^settings/$',omretuser_views.settings),
+
+    ##------omretnews part-----------
+    url(r'^index/$',omretnews_views.index),
 )

@@ -7,17 +7,15 @@ from django.http import HttpResponse,HttpResponseRedirect
 
 ##-------user setting page --------
 def settings(req):
-    ##------get user session info------
-    uid = req.session.get('uid')
-    ##------if theres no session,turn to the home page-----
-    if (uid == None):
-        return HttpResponseRedirect('/')
 
-    user = User.objects.get(uid=uid)
+    try:
+        ##------get user session info------
+        uid = req.session.get('uid')
+        user = User.objects.get(uid=uid)
+    ##------if theres no session,turn to the home page-----
     ##------uf no user, turn to the home page----
-    if(user == None):
+    except:
         return HttpResponseRedirect('/')
-    else:
-        response = render_to_response('usersettings.html',{"username":user.name})
     
+    response = render_to_response('usersettings.html',{'username':user.name})
     return response
