@@ -26,6 +26,7 @@ urlpatterns = patterns('',
     url(r'^signup/$',logreg_views.signup),
     #url(r'^login/$',logreg_views.login),
     url(r'^ver_signup/$',logreg_views.ver_signup),                      
+    url(r'^logout/$',logreg_views.logout),
 
     ##------the login view changed to home page now-------
     url(r'^$',logreg_views.login),
@@ -35,6 +36,7 @@ urlpatterns = patterns('',
     #url(r'^$',views.test),
 
     ##------omretuser part-----------
+    url(r'^userhome/$',omretuser_views.userhome),
     url(r'^settings/$',omretuser_views.settings),
 
     ##------omretnews part-----------

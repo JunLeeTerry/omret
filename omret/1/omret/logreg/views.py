@@ -276,3 +276,20 @@ def ver_signup(req):
             return HttpResponse(json.dumps({"msg":"success"}))
    
     return HttpResponse(json.dumps({"msg":""}))
+
+
+#####################
+#      log out      #
+#####################
+def logout(req):
+    ##---------delete the uid session--------
+    ##----try there is no session before logging out------
+    try:
+        del req.session['uid']
+    except:
+        pass
+    ##---------delete the coolie--------
+    response = HttpResponseRedirect('/')
+    response.delete_cookie('username')
+    response.delete_cookie('id')
+    return response

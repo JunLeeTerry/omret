@@ -9,3 +9,11 @@
 #nav_popupmenu{
     line-height:50px;
 }
+
+#username:hover{
+    text-decoration:none;
+}
+
+#username{
+    text-decoration:none;
+}

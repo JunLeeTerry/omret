@@ -19,3 +19,14 @@ def settings(req):
     
     response = render_to_response('usersettings.html',{'username':user.name})
     return response
+
+##--------click omret brand-------
+def userhome(req):
+    try:
+        uid = req.session.get('uid')
+        user = User.objects.get(uid=uid)
+        return HttpResponseRedirect('/index/')
+
+    except:
+        return HttpResponseRedirect('/')
+    
