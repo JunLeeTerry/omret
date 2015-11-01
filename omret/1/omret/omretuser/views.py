@@ -2,31 +2,50 @@
 from django.shortcuts import render_to_response
 from omret.logreg.models import User
 from django.http import HttpResponse,HttpResponseRedirect
+from omret.omretuser.forms import UserProfileSetForm
 
 # Create your views here.
 
-##-------user setting page --------
-def settings(req):
-
-    try:
-        ##------get user session info------
-        uid = req.session.get('uid')
-        user = User.objects.get(uid=uid)
+##-------user profile setting page --------
+def profileset(req):
     ##------if theres no session,turn to the home page-----
-    ##------uf no user, turn to the home page----
-    except:
+    if not hasUserSession(req):
         return HttpResponseRedirect('/')
     
-    response = render_to_response('usersettings.html',{'username':user.name})
+    user = getUserFromSession(req)
+    form = UserProfileSetForm
+    response = render_to_response('profileset.html',{'username':user.name,'form':form})
     return response
+
+##------user security setting page--------
+def securityset(req):
+    if not hasUserSession(req):
+        return HttpResponseRedirect('/')
+    
+    user = getUserFromSession(req)
+    response = render_toresponse('securityset.html',{'username':user.name})
 
 ##--------click omret brand-------
 def userhome(req):
+    if hasUserSession(req):
+        return HttpResponseRedirect('/index/')
+    else:
+        return HttpResponseRedirect('/')
+    
+
+##--------judge whether has user session------
+##-------if has user session,return user-----
+def getUserFromSession(req):
     try:
         uid = req.session.get('uid')
         user = User.objects.get(uid=uid)
-        return HttpResponseRedirect('/index/')
-
+        return user
     except:
-        return HttpResponseRedirect('/')
-    
+        return None
+
+def hasUserSession(req):
+    user = getUserFromSession(req)
+    if user == None:
+        return False
+    else:
+        return True

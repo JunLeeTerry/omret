@@ -1,0 +1,26 @@
+{% extends "usersettings.html" %}
+
+{% block settings_link %}
+    <link rel="stylesheet" href="/static/css/omretuser/profileset.css">
+{% endblock %}
+
+{% block settings_body %}
+<div id="profilecontent">
+    <div id="settingtitle">
+	个人资料设置
+    </div>
+    <div id="settingcontent">
+	<form class="form-horizontal" method="post">
+	    <!-- 
+	{% csrf_token %}
+	<div class="control-group">
+	    <label class="control-label">
+		
+	    </label>
+	</div>
+	-->
+	    {{ form.as_p }}
+	</form>
+    </div>
+</div>
+{% endblock %}

@@ -37,7 +37,8 @@ urlpatterns = patterns('',
 
     ##------omretuser part-----------
     url(r'^userhome/$',omretuser_views.userhome),
-    url(r'^settings/$',omretuser_views.settings),
+    url(r'^settings/profile/$',omretuser_views.profileset),
+    url(r'^settings/security/$',omretuser_views.securityset),
 
     ##------omretnews part-----------
     url(r'^index/$',omretnews_views.index),
