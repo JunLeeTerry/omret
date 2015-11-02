@@ -13,8 +13,8 @@ def profileset(req):
         return HttpResponseRedirect('/')
     
     user = getUserFromSession(req)
-    form = UserProfileSetForm
-    response = render_to_response('profileset.html',{'username':user.name,'form':form})
+    profileform = UserProfileSetForm
+    response = render_to_response('profileset.html',{'username':user.name,'profile_form':profileform})
     return response
 
 ##------user security setting page--------

@@ -11,15 +11,33 @@
     </div>
     <div id="settingcontent">
 	<form class="form-horizontal" method="post">
-	    <!-- 
-	{% csrf_token %}
-	<div class="control-group">
-	    <label class="control-label">
-		
-	    </label>
-	</div>
-	-->
-	    {{ form.as_p }}
+	  {% csrf_token %}
+	    <label class="control-label">真实姓名</label>
+	    <div class="form-group">
+		{{profile_form.realname}}
+	    </div>
+	    <label class="control-label">姓别</label>
+	    <div class="form-group">
+		{% for radio in profile_form.sex %}
+		<label class="radio-inline">
+		    {{ radio.tag }}
+		    {{ radio.choice_label }}
+		</label>
+		{% endfor %}
+	    </div>
+	    <label class="control-label">出生年月</label>
+	    <div class="form-group">
+		{{profile_form.birthday}}
+	    </div>
+	    <label class="control-label">签名</label>
+	    <div class="form-group">
+		{{profile_form.signature}}
+	    </div>
+	    <label class="control-label">个人简介</label>
+	    <div class="form-group">
+		{{profile_form.resume}}
+	    </div>
+	<!--{{ form.as_p }}-->
 	</form>
     </div>
 </div>
