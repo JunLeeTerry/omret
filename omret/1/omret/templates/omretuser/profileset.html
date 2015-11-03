@@ -2,6 +2,10 @@
 
 {% block settings_link %}
     <link rel="stylesheet" href="/static/css/omretuser/profileset.css">
+    <script type="text/javascript" src="/static/other/datetimepicker/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="/static/other/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <link rel="stylesheet" href="/static/other/datetimepicker/bootstrap-datetimepicker.css">
+    
 {% endblock %}
 
 {% block settings_body %}
@@ -27,7 +31,8 @@
 	    </div>
 	    <label class="control-label">出生年月</label>
 	    <div class="form-group">
-		{{profile_form.birthday}}
+		<input type="text" id="datetimepicker" value="1970-1-1">
+		<!--{{profile_form.birthday}}-->
 	    </div>
 	    <label class="control-label">签名</label>
 	    <div class="form-group">
@@ -37,8 +42,25 @@
 	    <div class="form-group">
 		{{profile_form.resume}}
 	    </div>
-	<!--{{ form.as_p }}-->
+
 	</form>
     </div>
 </div>
+{% endblock %}
+{% block body_script %}
+
+<script>
+    $('#datetimepicker').datetimepicker({
+    format:'yyyy-mm-dd',
+    language:'zh-CN',
+    autoclose:1,
+    todayHighlight:1,
+    startView:4,
+    minView:2,
+    maxView:4,
+    todayBtn:true,
+    
+    });
+</script>
+
 {% endblock %}

@@ -17,7 +17,7 @@ class UserProfileSetForm(forms.Form):
                    }))
     sex = forms.CharField(widget=forms.RadioSelect(
             choices=(('F','男'),('M','女'))))
-    birthday = forms.DateField(widget=forms.DateTimeInput())
+    birthday = forms.DateField(widget=forms.SplitDateTimeWidget())
     signature = forms.CharField(widget=forms.TextInput(
             attrs={"id":"profile-signature",
                    "class":"form-control"
