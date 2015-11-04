@@ -26,3 +26,21 @@
     margin-left:30px;
     margin-right:300px;
 }
+
+#birthdayform {
+    width:160px;
+    margin-bottom:15px
+}
+
+#sexform{
+    padding-left:30px;
+}
+
+.form-group{
+    padding-left:15px;
+}
+
+.control-label{
+    padding-left:15px;
+}
+

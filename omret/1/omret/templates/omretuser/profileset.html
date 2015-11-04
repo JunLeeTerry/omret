@@ -21,7 +21,7 @@
 		{{profile_form.realname}}
 	    </div>
 	    <label class="control-label">姓别</label>
-	    <div class="form-group">
+	    <div class="form-group" id="sexform">
 		{% for radio in profile_form.sex %}
 		<label class="radio-inline">
 		    {{ radio.tag }}
@@ -30,10 +30,16 @@
 		{% endfor %}
 	    </div>
 	    <label class="control-label">出生年月</label>
-	    <div class="form-group">
-		<input type="text" id="datetimepicker" value="1970-1-1">
-		<!--{{profile_form.birthday}}-->
+	   
+	    <div class="input-group date timepicker" id="birthdayform">		
+	
+		<span class="input-group-addon">
+		    <i class="glyphicon glyphicon-calendar">
+		    </i>
+		</span>
+		{{ profile_form.birthday }}
 	    </div>
+
 	    <label class="control-label">签名</label>
 	    <div class="form-group">
 		{{profile_form.signature}}
@@ -50,7 +56,7 @@
 {% block body_script %}
 
 <script>
-    $('#datetimepicker').datetimepicker({
+    $('.timepicker').datetimepicker({
     format:'yyyy-mm-dd',
     language:'zh-CN',
     autoclose:1,
@@ -59,7 +65,7 @@
     minView:2,
     maxView:4,
     todayBtn:true,
-    
+    pickerPosition:'bottom-right'
     });
 </script>
 
