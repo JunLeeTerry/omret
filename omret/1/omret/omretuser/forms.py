@@ -21,7 +21,8 @@ class UserProfileSetForm(forms.Form):
             attrs={"class":"form-control",
                    "type":"text",
                    "readonly":"readonly",
-                   "disabled":"disabled"
+                   "disabled":"disabled",
+                  
             }))
     signature = forms.CharField(widget=forms.TextInput(
             attrs={"id":"profile-signature",

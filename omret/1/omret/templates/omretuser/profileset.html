@@ -15,7 +15,8 @@
     </div>
     <div id="settingcontent">
 	<form class="form-horizontal" method="post">
-	  {% csrf_token %}
+	    {% csrf_token %}
+	    
 	    <label class="control-label">真实姓名</label>
 	    <div class="form-group">
 		{{profile_form.realname}}
@@ -49,6 +50,7 @@
 		{{profile_form.resume}}
 	    </div>
 
+	    <button id="profileset_button" type="submit" class="btn btn-primary">更新个人信息</button>
 	</form>
     </div>
 </div>
