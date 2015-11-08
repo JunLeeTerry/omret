@@ -10,6 +10,7 @@ class UserProfile(models.Model):
     realname = models.CharField(max_length=30)
     sex = models.CharField(choices=(('F','Female'),('M','Male')),max_length=5)
     birthday = models.DateField(auto_now=False,auto_now_add=False)
+    #birthday = models.CharField(max_length=30)
     signature = models.TextField(max_length=120)
     resume = models.TextField()
 

@@ -11,24 +11,29 @@ from omret.omretuser.models import UserProfile
 
 
 class UserProfileSetForm(forms.Form):
-    realname = forms.CharField(widget=forms.TextInput(
+    realname = forms.CharField(required=False,
+                               widget=forms.TextInput(
             attrs={"id":"profile-realname",
                    "class":"form-control"
                    }))
-    sex = forms.CharField(widget=forms.RadioSelect(
+    sex = forms.CharField(required=False,
+                          widget=forms.RadioSelect(
             choices=(('F','男'),('M','女'))))
-    birthday = forms.DateField(widget=forms.TextInput(
+    birthday = forms.DateField(required=False,
+                               widget=forms.TextInput(
             attrs={"class":"form-control",
                    "type":"text",
                    "readonly":"readonly",
-                   "disabled":"disabled",
+                   #"disabled":"disabled",
                   
             }))
-    signature = forms.CharField(widget=forms.TextInput(
+    signature = forms.CharField(required=False,
+                                widget=forms.TextInput(
             attrs={"id":"profile-signature",
                    "class":"form-control"
                    }))
-    resume = forms.CharField(widget=forms.Textarea(
+    resume = forms.CharField(required=False,
+                             widget=forms.Textarea(
             attrs={"id":"profile-resume",
                    "class":"form-control textarea"
                    }))

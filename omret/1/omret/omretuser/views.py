@@ -16,7 +16,14 @@ def profileset(req):
         return HttpResponseRedirect('/')
     
     user = getUserFromSession(req)
-    profileform = UserProfileSetForm
+
+    ##-----if there is a user profile,the forms show the init values-----
+    try:
+        userprofile = UserProfile.objects.get(user_id = user.id)
+        profileform = UserProfileSetForm(initial={'realname':userprofile.realname,'sex':userprofile.sex,'birthday':userprofile.birthday,'signature':userprofile.signature,'resume':userprofile.resume})
+    except Exception,e:
+        print e
+        profileform = UserProfileSetForm()
     response = render_to_response('profileset.html',{'username':user.name,'profile_form':profileform},
                                   context_instance=RequestContext(req))
 
@@ -24,8 +31,11 @@ def profileset(req):
     ##-------handle the post info after clicking the submit button-------
     if req.method == 'POST':
         profileformPost = UserProfileSetForm(req.POST)
-        print profileformPost.is_valid()
-        print profileformPost.errors
+        
+        ##-----test the profile form post-------
+        #print profileformPost.is_valid()
+        #print profileformPost.errors
+
         if profileformPost.is_valid():
             realname = profileformPost.cleaned_data['realname']
             sex = profileformPost.cleaned_data['sex']
@@ -36,15 +46,15 @@ def profileset(req):
             ##------get userprofile-------
             ##----if have not created before,create a new object then modify the value of fields----
             ##----if there is a userprofile object modify the value of fields---
-            userprofile = UserProfile.object.get(user=user)
-            
-            if userprofile is None:
+            try:
+                userprofile = UserProfile.objects.get(user=user)
+            except:
                 userprofile = UserProfile()
-                userprofile.user = user
-            __setUserProfile(userprofile,realname,sex,birthday,signature,resume)
-            
-            
-   
+                
+            ##------set the values of fields into table user profile-----
+            __setUserProfile(userprofile,user,realname,sex,birthday,signature,resume)
+            userprofile.save()
+               
     return response
 
 ##------user security setting page--------
@@ -67,7 +77,6 @@ def userhome(req):
 
 ##--------judge whether has user session------
 ##-------if has user session,return user-----
-@csrf_protect
 def getUserFromSession(req):
     try:
         uid = req.session.get('uid')
@@ -76,7 +85,6 @@ def getUserFromSession(req):
     except:
         return None
 
-@csrf_protect
 def hasUserSession(req):
     user = getUserFromSession(req)
     if user == None:
@@ -84,9 +92,9 @@ def hasUserSession(req):
     else:
         return True
 
-@csrf_protect
 ##---------set the values of profile forms into UserProfile Object----- 
 def __setUserProfile(userprofile,user,realname,sex,birthday,signature,resume):
+    userprofile.user = user
     userprofile.realname = realname
     userprofile.sex = sex
     userprofile.birthday = birthday
