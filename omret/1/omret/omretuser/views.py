@@ -22,12 +22,16 @@ def profileset(req):
         userprofile = UserProfile.objects.get(user_id = user.id)
         profileform = UserProfileSetForm(initial={'realname':userprofile.realname,'sex':userprofile.sex,'birthday':userprofile.birthday,'signature':userprofile.signature,'resume':userprofile.resume})
     except Exception,e:
-        print e
+        #print e
         profileform = UserProfileSetForm()
-    response = render_to_response('profileset.html',{'username':user.name,'profile_form':profileform},
-                                  context_instance=RequestContext(req))
-
-
+    
+    ##----change status shows whether user change value success----
+    '''
+    -success  :click post button and success
+    -error    :click post button and error
+    -nomal    :didnt click the post button
+    '''
+    change_status = 'normal'
     ##-------handle the post info after clicking the submit button-------
     if req.method == 'POST':
         profileformPost = UserProfileSetForm(req.POST)
@@ -44,8 +48,10 @@ def profileset(req):
             resume = profileformPost.cleaned_data['resume']
             
             ##------get userprofile-------
-            ##----if have not created before,create a new object then modify the value of fields----
-            ##----if there is a userprofile object modify the value of fields---
+            '''
+            if have not created before,create a new object then modify the value of fields
+            if there is a userprofile object modify the value of fields
+            '''
             try:
                 userprofile = UserProfile.objects.get(user=user)
             except:
@@ -53,7 +59,15 @@ def profileset(req):
                 
             ##------set the values of fields into table user profile-----
             __setUserProfile(userprofile,user,realname,sex,birthday,signature,resume)
-            userprofile.save()
+            
+            ##------set change_status equals success if save user profile succeddfully------
+            try:
+                userprofile.save()
+                change_status = 'success'
+            except:
+                change_status = 'error'
+
+    response = render_to_response('profileset.html',{'change_status':change_status,'username':user.name,'profile_form':profileform},context_instance=RequestContext(req))
                
     return response
 

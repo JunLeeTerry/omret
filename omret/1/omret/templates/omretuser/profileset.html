@@ -9,6 +9,8 @@
 {% endblock %}
 
 {% block settings_body %}
+<div id="change_status">{{change_status}}</div>
+<div id="alertpart"></div>
 <div id="profilecontent">
     <div id="settingtitle">
 	个人资料设置
@@ -52,23 +54,29 @@
 
 	    <button id="profileset_button" type="submit" class="btn btn-primary">更新个人信息</button>
 	</form>
+
     </div>
 </div>
 {% endblock %}
 {% block body_script %}
+<script src="/static/js/omretuser/showalert.js"></script>
 
 <script>
-    $('.timepicker').datetimepicker({
-    format:'yyyy-mm-dd',
-    language:'zh-CN',
-    autoclose:1,
-    todayHighlight:1,
-    startView:4,
-    minView:2,
-    maxView:4,
-    todayBtn:true,
-    pickerPosition:'bottom-right'
-    });
+ showalert("#alertpart","个人信息修改成功!","个人信息修改失败,请重新修改.");
+
+ $('.timepicker').datetimepicker({
+     format:'yyyy-mm-dd',
+     language:'zh-CN',
+     autoclose:1,
+     todayHighlight:1,
+     startView:4,
+     minView:2,
+     maxView:4,
+     todayBtn:true,
+     pickerPosition:'bottom-right'
+ });
+
+   
 </script>
 
 {% endblock %}
