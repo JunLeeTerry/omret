@@ -1,3 +1,13 @@
+#profile_li{
+    color:#ffffff;
+    background-color:#337ab7;
+}
+
+#navi #profile_li:hover{
+    color:#ffffff;
+    background-color:#337ab7;
+}
+
 #change_status {
     display:none;
 }

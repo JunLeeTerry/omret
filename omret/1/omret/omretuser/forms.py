@@ -9,7 +9,7 @@ from omret.omretuser.models import UserProfile
 #        fields = ('realname','sex','birthday','signature','resume')
     
 
-
+##------this is the form of page profile setting-------
 class UserProfileSetForm(forms.Form):
     realname = forms.CharField(required=False,
                                widget=forms.TextInput(
@@ -38,4 +38,8 @@ class UserProfileSetForm(forms.Form):
                    "class":"form-control textarea"
                    }))
 
-
+##------this is the form of security setting page------
+class UserSecuritySetForm(forms.Form):
+    old_password = forms.CharField(widget=forms.PasswordInput())
+    new_password = forms.CharField(widget=forms.PasswordInput())
+    confirm_new_password = forms.CharField(widget=forms.PasswordInput())

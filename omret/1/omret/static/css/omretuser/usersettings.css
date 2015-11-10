@@ -29,10 +29,12 @@ ul{
     background-color:#f7f7f7;
 }
 
+/*
 #navi #active {
     color:#ffffff;
     background-color:#337ab7;
 }
+*/
 
 #navi li:hover{
     background-color:#f7f7f7;

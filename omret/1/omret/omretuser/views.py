@@ -78,7 +78,8 @@ def securityset(req):
         return HttpResponseRedirect('/')
     
     user = getUserFromSession(req)
-    response = render_toresponse('securityset.html',{'username':user.name})
+    response = render_to_response('securityset.html',{'username':user.name})
+    return response
 
 ##--------click omret brand-------
 @csrf_protect
