@@ -1,0 +1,6 @@
+*.*~
+.*~
+*.pyc
+.svn/
+settings.py
+*.wsgic
