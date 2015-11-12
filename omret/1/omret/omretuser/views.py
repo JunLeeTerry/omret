@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response,RequestContext
 from omret.logreg.models import User
 from omret.omretuser.models import UserProfile
 from django.http import HttpResponse,HttpResponseRedirect
-from omret.omretuser.forms import UserProfileSetForm
+from omret.omretuser.forms import UserProfileSetForm,UserSecuritySetForm
 
 from django.views.decorators.csrf import csrf_protect,csrf_exempt
 # Create your views here.
@@ -78,7 +78,9 @@ def securityset(req):
         return HttpResponseRedirect('/')
     
     user = getUserFromSession(req)
-    response = render_to_response('securityset.html',{'username':user.name})
+    securityform = UserSecuritySetForm()
+
+    response = render_to_response('securityset.html',{'username':user.name,'security_form':securityform},context_instance=RequestContext(req))
     return response
 
 ##--------click omret brand-------

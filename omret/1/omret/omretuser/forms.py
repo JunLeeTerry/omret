@@ -40,6 +40,15 @@ class UserProfileSetForm(forms.Form):
 
 ##------this is the form of security setting page------
 class UserSecuritySetForm(forms.Form):
-    old_password = forms.CharField(widget=forms.PasswordInput())
-    new_password = forms.CharField(widget=forms.PasswordInput())
-    confirm_new_password = forms.CharField(widget=forms.PasswordInput())
+    old_password = forms.CharField(widget=forms.PasswordInput(
+            attrs={"id":"security-old_password",
+                   "class":"form-control"
+                   }))
+    new_password = forms.CharField(widget=forms.PasswordInput(
+            attrs={"id":"security-new_password",
+                   "class":"form-control"
+                }))
+    confirm_new_password = forms.CharField(widget=forms.PasswordInput(
+            attrs={"id":"security-confirm_new_password",
+                   "class":"form-control"
+                   }))

@@ -10,6 +10,21 @@
 	修改密码
     </div>
     <div id="settingcontent">
+	<form class="form-horizontal" method="post">
+	    {% csrf_token %}
+	    <label class="control-label">原密码</label>
+	    <div class="form-group">
+		{{ security_form.old_password }}
+	    </div>
+	    <label class="control-label">新密码</label>
+	    <div class="form-group">
+		{{ security_form.new_password }}
+	    </div>
+	    <label class="control-label">确认密码</label>
+	    <div class="form-group">
+		{{ security_form.confirm_new_password }}
+	    </div>
+	</form>
     </div>
 </div>
 {% endblock %}
