@@ -4,6 +4,7 @@ from omret.logreg.models import User
 from omret.omretuser.models import UserProfile
 from django.http import HttpResponse,HttpResponseRedirect
 from omret.omretuser.forms import UserProfileSetForm,UserSecuritySetForm
+from omret.logreg.pwencryption import pwEncryption
 
 from django.views.decorators.csrf import csrf_protect,csrf_exempt
 # Create your views here.
@@ -77,10 +78,24 @@ def securityset(req):
     if not hasUserSession(req):
         return HttpResponseRedirect('/')
     
-    user = getUserFromSession(req)
+    user = getUserFromSession(req)    
     securityform = UserSecuritySetForm()
 
-    response = render_to_response('securityset.html',{'username':user.name,'security_form':securityform},context_instance=RequestContext(req))
+    ##-------handle the post info after clicking the submit button----
+    if req.method == 'POST':
+        securityformPost = UserSecuritySetForm(req.POST)
+        
+        if securityformPost.is_valid():
+            ##-------get infomations of the forms--------
+            old_password = securityformPost.cleaned_data['old_password']
+            new_password = securityformPost.cleaned_data['new_password']
+            confirm_new_password = securityformPost.cleaned_data['confirm_new_password']
+            
+            ##-------get the value of old password and encrypted------
+            old_password_encryption =  pwEncryption().encryptionByPassword(old_password)
+                
+
+    response = render_to_response('securityset.html',{'username':user.name,'security_form':securityform},context_instance=RequestContext(req)) 
     return response
 
 ##--------click omret brand-------

@@ -2,6 +2,7 @@
 from django.db import models
 import hashlib
 from django.core.mail import send_mail,EmailMultiAlternatives
+from pwencryption import pwEncryption
 
 # Create your models here.
 class User(models.Model):
@@ -16,7 +17,8 @@ class User(models.Model):
     
     def save(self,*args,**kwargs):
         if self.is_active == False:
-            self.password = hashlib.sha1(self.password).hexdigest()
+            #self.password = hashlib.sha1(self.password).hexdigest()
+            self.password = pwEncryption().encryptionByUser(self)
         #test password
         #print 'sql_password: '+self.password
         super(User,self).save(*args,**kwargs)
