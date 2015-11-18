@@ -30,7 +30,7 @@ def profileset(req):
     '''
     -success  :click post button and success
     -error    :click post button and error
-    -nomal    :didnt click the post button
+    -normal   :have not click the post button
     '''
     change_status = 'normal'
     ##-------handle the post info after clicking the submit button-------
@@ -81,6 +81,16 @@ def securityset(req):
     user = getUserFromSession(req)    
     securityform = UserSecuritySetForm()
 
+    '''
+    passwd change status:
+    -success :passwd change successfully
+    -error1  :old passwd is wrong
+    -error2  :new_passwd is different from confirm_new_passwd
+    -error3  :old passwd or new passwd can not be blank
+    -error4  :save error
+    -normal  :have not click the post button
+    '''
+    change_status = 'normal'
     ##-------handle the post info after clicking the submit button----
     if req.method == 'POST':
         securityformPost = UserSecuritySetForm(req.POST)
@@ -90,12 +100,32 @@ def securityset(req):
             old_password = securityformPost.cleaned_data['old_password']
             new_password = securityformPost.cleaned_data['new_password']
             confirm_new_password = securityformPost.cleaned_data['confirm_new_password']
-            
-            ##-------get the value of old password and encrypted------
-            old_password_encryption =  pwEncryption().encryptionByPassword(old_password)
-                
+            ##------test form data-----
+            #print new_password is u'' 
 
-    response = render_to_response('securityset.html',{'username':user.name,'security_form':securityform},context_instance=RequestContext(req)) 
+            ##-------get the value of old password and encrypted------
+            old_password_encryption =  pwEncryption().encryptionByPasswd(old_password)
+            ##-----old_password or new_password is blank-------
+            if new_password is u'' or old_password is u'':
+                change_status = 'error3'
+            ##-----old_password is different from passwd in sql------
+            elif old_password_encryption != user.password:
+                print old_password_encryption,user.password
+                change_status = 'error1'
+            ##-----new_password is different from confirm_new_password----
+            elif new_password != confirm_new_password:
+                change_status = 'error2'
+            ##-----successful------
+            else:
+                user.password = pwEncryption().encryptionByPasswd(new_password)
+                try:
+                    user.save()
+                    change_status = 'success'
+                except:
+                    change_status = 'error4'
+            
+
+    response = render_to_response('securityset.html',{'change_status':change_status,'username':user.name,'security_form':securityform},context_instance=RequestContext(req)) 
     return response
 
 ##--------click omret brand-------

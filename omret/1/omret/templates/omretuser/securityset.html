@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block settings_body %}
+<div id="change_status">{{change_status}}</div>
+<div id="alertpart"></div>
 <div id="securitycontent">
     <div id="settingtitle">
 	修改密码
@@ -32,4 +34,8 @@
 {% endblock %}
 
 {% block body_script %}
+<script src="/static/js/omretuser/showalert.js"></script>
+<script>
+    showsecurityalert("#alertpart","密码修改成功!","原始密码输入错误,请重新输入!","确认密码与新密码不相同,请重新输入!","原密码或新密码不能为空!","密码修改失败,请重新修改.")
+</script>
 {% endblock %}

@@ -86,3 +86,11 @@ ul{
     margin-right:50px;
     margin-bottom:80px;
 }
+
+#change_status {
+    display:none;
+}
+
+#alertpart{
+    margin-right:50px;
+}
