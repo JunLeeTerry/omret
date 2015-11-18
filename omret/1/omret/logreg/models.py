@@ -3,6 +3,7 @@ from django.db import models
 import hashlib
 from django.core.mail import send_mail,EmailMultiAlternatives
 from pwencryption import pwEncryption
+from sendEmailThread import EmailThread
 
 # Create your models here.
 class User(models.Model):
@@ -18,7 +19,7 @@ class User(models.Model):
     def save(self,*args,**kwargs):
         if self.is_active == False:
             #self.password = hashlib.sha1(self.password).hexdigest()
-            self.password = pwEncryption().encryptionByUser(self)
+            self.password = pwEncryption().encryptionByPasswd(self.password)
         #test password
         #print 'sql_password: '+self.password
         super(User,self).save(*args,**kwargs)
@@ -41,6 +42,7 @@ class UserActivationCode(models.Model):
         html_content = u'<h3>请点击下面的链接完成注册.<h3><br><a href="http://127.0.0.1:8080/validatemail/?username=%s&code=%s">http://127.0.0.1:8080/validatemail/?username=%s&code=%s</a>' % (self.user.name,self.activation_code,self.user.name,self.activation_code)
         msg = EmailMultiAlternatives(subject,text_content,from_email,[to_email])
         msg.attach_alternative(html_content,'text/html')
-        msg.send()
+        EmailThread(msg).start()
+        
         
     
