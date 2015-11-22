@@ -1,6 +1,7 @@
 {% extends "userbase.html" %}
 
 {% block link %}
+<link rel="stylesheet" href="/static/css/omretnews/index.css">
 {% endblock %}
 
 {% block title %}
@@ -8,6 +9,28 @@ Index
 {% endblock %}
 
 {% block body %}
+<div class="progress">
+</div>
+<div id="topicintro">
+</div>
+<div id="indexcontainer">
+    <div id="datapart" class="col-md-2 col-xs-2">
+      
+    </div>
+    <div id="newspart" class="col-md-7 col-xs-7">
+	<div>
+	  <ul id="navtabs" class="nav nav-tabs">
+	      <li role="presentation" class="active"><a href="#">全部</a></li>
+	      <li role="presentation"><a href="#">最新</a></li>
+	      <li role="presentation"><a href="#">最热</a></li>
+	      <li role="presentation"><a href="#">赞同最多</a></li>
+	      <li role="presentation"><a href="#">正在上升</a></li>
+	  </ul>
+	</div>
+    </div>
+    <div id="personalpart" class="col-md-3 col-xs-3">
+    </div>
+</div>
 {% endblock %}
 
 {% block body_script %}

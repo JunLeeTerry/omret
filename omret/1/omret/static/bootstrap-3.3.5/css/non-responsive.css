@@ -37,7 +37,7 @@ body,
 
 /* Reset the container */
 .container {
-  width: 1140px;
+  width: 1280px;
   max-width: none !important;
 }
 
@@ -79,7 +79,7 @@ body,
 }
 
 .navbar-brand {
-  margin-left: -15px;
+  margin-left: 0px;
 }
 
 /* Always apply the floated nav */

@@ -1,0 +1,22 @@
+.progress{
+    border-radius:0px;
+    margin-bottom:0px;
+    height:10px;
+}
+
+#datapart {
+    background:darkgrey;
+    height:500px;
+    padding:0px;
+}
+
+#newspart {
+    height:500px;
+    padding:0px;
+}
+
+#personalpart {
+    background:grey;
+    height:500px;
+    padding:0px;
+}

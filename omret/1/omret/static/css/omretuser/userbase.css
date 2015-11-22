@@ -17,3 +17,18 @@
 #username{
     text-decoration:none;
 }
+
+.container-fluid{
+    padding:0px;
+}
+
+#omretnavbar{
+    border:0px;
+    padding:0px;
+    border-radius:0px;
+    margin-bottom:0px;
+}
+
+.row{
+    margin:0px;
+}
