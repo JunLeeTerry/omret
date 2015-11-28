@@ -15,9 +15,19 @@ Index
 </div>
 <div id="indexcontainer">
     <div id="datapart" class="col-md-2 col-xs-2">
-	<div>
-	    {% for i in topiclist %}
-	    {% endfor %}
+	<div id="signal_list">
+	    <ul>
+		{% for topic in topiclist %}
+		
+		    <li class="row">
+			
+			<div class="colorsignal pull-left" style="background:{{topic.color}}"></div>
+			<div id="topicname" class="pull-left"><p>{{topic.name}}</p></div>
+			
+		    </li>
+	
+		{% endfor %}
+	    </ul>
 	</div>
     </div>
     <div id="newspart" class="col-md-7 col-xs-7">

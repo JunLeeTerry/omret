@@ -1,22 +1,43 @@
 .progress{
+    background:#ffffff;
     border-radius:0px;
     margin-bottom:0px;
     height:10px;
 }
 
 #datapart {
-    background:darkgrey;
-    height:500px;
-    padding:0px;
+    padding:15px;
 }
 
 #newspart {
     height:500px;
-    padding:0px;
+    padding:15px;
 }
 
 #personalpart {
     background:grey;
     height:500px;
     padding:0px;
+}
+
+.colorsignal {
+    width:12px;
+    height:12px;
+    margin-top:5px;
+    margin-right:20px;
+}
+#topicname{
+   text-align:center;
+}
+
+#signal_list ul{
+    padding-left:10%; 
+}
+
+#signal_list {
+    padding-top:15px;
+}
+
+#signal_list ul li{
+    list-style-type:none;
 }
