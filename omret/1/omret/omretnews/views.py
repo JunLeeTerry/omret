@@ -16,8 +16,9 @@ def index(req):
     
     ##-------get all topics from sql--------
     topics = Topic.objects.all()
-    for i in topics:
-        print str(i)
+    ##-------test the topics from sql-------
+    #for i in topics:
+    #    print str(i)
 
     response = render_to_response('index.html',{'username':user.name,'topiclist':topics})
     return response
