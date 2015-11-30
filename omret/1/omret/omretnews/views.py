@@ -2,8 +2,9 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
 from omret.logreg.models import User
-from omret.omretnews.models import Topic
+from omret.omretnews.models import Topic,OmretNews
 from omret.omretuser.views import hasUserSession,getUserFromSession
+
 
 # Create your views here.
 def index(req):
@@ -17,8 +18,12 @@ def index(req):
     ##-------get all topics from sql--------
     topics = Topic.objects.all()
     ##-------test the topics from sql-------
-    #for i in topics:
-    #    print str(i)
+    #for topic in topics:print topic
+    
+    ##------get all omretnews from sql------
+    news = OmretNews.objects.all()
+    ##-------test the omretnews from sql-----
+    #for new in news:print new
 
     response = render_to_response('index.html',{'username':user.name,'topiclist':topics})
     return response
