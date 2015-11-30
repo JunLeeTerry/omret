@@ -2,6 +2,7 @@
 
 {% block link %}
 <link rel="stylesheet" href="/static/css/omretnews/index.css">
+<script src="/static/other/chart/Chart.min.js"></script>
 {% endblock %}
 
 {% block title %}
@@ -29,6 +30,9 @@ Index
 		{% endfor %}
 	    </ul>
 	</div>
+	<div id="chartcontainer">
+	    <canvas id="chart1"></canvas>
+	</div>
     </div>
     <div id="newspart" class="col-md-7 col-xs-7">
 	<div>
@@ -41,17 +45,54 @@ Index
 	  </ul>
 	</div>
 	<div id="newspart">
-	    {% for new in newslist %}
-	    {% endfor %}
+	    <div>
+		{% for new in newslist %}
+		{% endfor %}
+	    </div>
 	</div>
     </div>
     <div id="personalpart" class="col-md-3 col-xs-3">
 	<div id="personalcontainer">
-	    
+	    <div id="personboard_title">
+		<p><strong>个人信息</strong><small>Personal Information<small></p>
+	    </div>
+	    <div id="personchartcontainer">
+		<cavas
+	    </div>
 	</div>
     </div>
 </div>
 {% endblock %}
 
 {% block body_script %}
+<script>
+    var data = [
+	{
+		value : 10,
+		color: "{{topiclist.0.color}}"
+	},
+	{
+		value : 20,
+		color: "{{topiclist.1.color}}"
+	},
+	{
+		value : 56,
+		color: "{{topiclist.2.color}}"
+	},
+	{
+		value : 42,
+		color: "{{topiclist.3.color}}"
+	},
+	{
+		value : 12,
+		color: "{{topiclist.4.color}}"
+	},
+	{
+		value : 32,
+		color: "{{topiclist.5.color}}"
+	}
+]
+    var ctx = $("#chart1").get(0).getContext("2d");
+    new Chart(ctx).Pie(data);
+</script>
 {% endblock %}

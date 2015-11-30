@@ -25,5 +25,5 @@ def index(req):
     ##-------test the omretnews from sql-----
     #for new in news:print new
 
-    response = render_to_response('index.html',{'username':user.name,'topiclist':topics})
+    response = render_to_response('index.html',{'username':user.name,'topiclist':topics,'newslist':news})
     return response

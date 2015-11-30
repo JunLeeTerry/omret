@@ -6,7 +6,10 @@
 }
 
 #datapart {
-    padding:15px;
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-left:0px;
+    padding-right:0px;
 }
 
 #newspart {
@@ -36,6 +39,7 @@
 
 #signal_list {
     padding-top:15px;
+    padding-left:15px;
 }
 
 #signal_list ul li{
@@ -52,3 +56,35 @@
     height:100%;
 }
 
+/*chart part*/
+#chartcontainer{
+    padding-left:5px;
+}
+
+#chart1{
+    height:200px;
+    width:200px;
+}
+
+
+#personboard_title{
+    height:40px;
+    border-bottom-style:solid;
+    border-width:0px;
+    border-color:#d8d8d8;
+    border-top-right-radius:2px;
+    border-top-left-radius:2px;
+    background:#d8d8d8;
+}
+
+#personboard_title p{
+    text-align:center;
+    height:100%;
+    padding-top:10px;
+    font-size:15px;
+}
+
+#personboard_title p small{
+    padding-left:20px;
+    font-size:13px;
+}
