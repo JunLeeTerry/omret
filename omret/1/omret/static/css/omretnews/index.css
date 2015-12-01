@@ -88,3 +88,29 @@
     padding-left:20px;
     font-size:13px;
 }
+
+#articalinfo{
+    width:100%;
+    height:100px;
+}
+
+/*numbox part*/
+#numbox_title{
+    text-align:center;
+    font-weight:500;
+    font-family:Impact,serif;
+}
+
+#numbox_num{
+    font-weight:600;
+    font-size:45px;
+    text-align:center;
+}
+
+.numbox{
+    margin:10px 5px 0px 5px;
+    width:30%;
+    background:yellow;
+    padding:10px;
+}
+
