@@ -89,12 +89,14 @@
     font-size:13px;
 }
 
+/*numbox part*/
 #articalinfo{
     width:100%;
     height:100px;
+    padding-left:4px;
+    padding-right:4px;
 }
 
-/*numbox part*/
 #numbox_title{
     text-align:center;
     font-weight:500;
@@ -108,9 +110,11 @@
 }
 
 .numbox{
-    margin:10px 5px 0px 5px;
-    width:30%;
-    background:yellow;
-    padding:10px;
+    padding:6px 4px 6px 4px;
 }
 
+.numboxcontainer{
+    background:lightgrey;
+    padding-top:7px;
+    border-radius:4px;
+}
