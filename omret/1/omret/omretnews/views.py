@@ -33,8 +33,9 @@ def index(req):
     #-----test the numboxdata and run time-----
     print str(numboxdata)+' run time:'+str(end-start)
 
-    response = render_to_response('index.html',{'username':user.name,'topiclist':topics,'newslist':news})
+    response = render_to_response('index.html',{'username':user.name,'topiclist':topics,'newslist':news,'numboxdata':numboxdata})
     return response
+
 
 '''
 caculate the number of numbox
