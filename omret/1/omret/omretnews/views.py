@@ -13,11 +13,9 @@ def index(req):
         return HttpResponseRedirect('/')
     
     ##-------if no session or cannot find user by session,turn to login page----
-    user = getUserFromSession(req)
-    
+    user = getUserFromSession(req)  
     ##-------get all topics from sql--------
-    topics = Topic.objects.all()
-    
+    topics = Topic.objects.all()    
     ##------get all omretnews from sql------
     news = OmretNews.objects.all()
     
