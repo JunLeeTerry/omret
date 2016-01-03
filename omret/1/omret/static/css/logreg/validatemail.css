@@ -44,3 +44,57 @@
     font-size:18px;
     line-height:26px;
 }
+
+
+/* move pic*/
+
+@keyframes moveImg{
+    0%{
+	top: 120px;left: 300px;
+    }
+    100%{
+	top: 150px;left: 300px;
+    }
+/*from{top: 120px;left: 300px;}
+  to{top: 150px;left: 300px;}*/
+}
+@-moz-keyframes moveImg{ /*Firefox*/
+    0%{
+	top: 120px;left: 300px;
+    }
+    100%{
+	top: 150px;left: 300px;
+    }
+}
+@-ms-keyframes moveImg{ /*IE*/
+    0%{
+	top: 120px;left: 300px;
+    }
+    100%{
+	top: 150px;left: 300px;
+    }
+}
+@-webkit-keyframes moveImg{ /*Chrome,Safari*/
+    0%{
+	top: 130px;left: 300px;
+    }
+    100%{
+	top: 140px;left: 300px;
+    }
+}
+#validateemail-pic {
+    position: relative;
+    animation: moveImg 3s infinite linear;
+    animation-direction: alternate;
+    -moz-animation: moveImg 3s infinite linear;
+    -moz-animation-direction: alternate;
+    -ms-animation: moveImg 3s infinite linear;
+    -ms-animation-direction: alternate;
+    -webkit-animation: moveImg 1s infinite linear;
+    -webkit-animation-direction: alternate;
+}
+
+#validateemail-pic img{
+    width:225px;
+    height:225px;
+}
