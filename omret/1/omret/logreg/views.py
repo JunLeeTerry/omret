@@ -115,7 +115,12 @@ def signup(req):
             user.email = email
             user.password = password            
             user.is_active = False
-            user.save()
+            
+            ##-------if click refresh button on validateemail page------
+            try:
+                user.save()
+            except Exception,e:
+                return render_to_response('validatemail.html',{'username':user})
 
             ##-------gen activation code--------- 
             code = uuid.uuid1().hex
