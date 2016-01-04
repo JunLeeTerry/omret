@@ -128,3 +128,12 @@
     padding-top:5px;
     padding-bottom:5px;
 }
+
+#postarti-button{
+    width:auto;
+    display:table;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left:90px;
+    padding-right:90px;
+}
