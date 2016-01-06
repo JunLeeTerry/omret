@@ -60,4 +60,6 @@ def __comDataofNumbox(personnews):
     print [daynum, weeknum, monthnum]
     return [daynum, weeknum, monthnum]
         
-    
+##---------the page for posting artical--------
+def postarti(req):
+    return HttpResponse('test artical page!!!!')
