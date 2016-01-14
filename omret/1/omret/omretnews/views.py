@@ -8,11 +8,11 @@ import datetime,time
 
 # Create your views here.
 def index(req):
-
+    
+    ##-------if no session or cannot find user by session,turn to login page----
     if not hasUserSession(req):
         return HttpResponseRedirect('/')
     
-    ##-------if no session or cannot find user by session,turn to login page----
     user = getUserFromSession(req)  
     ##-------get all topics from sql--------
     topics = Topic.objects.all()    
@@ -62,4 +62,12 @@ def __comDataofNumbox(personnews):
         
 ##---------the page for posting artical--------
 def postarti(req):
-    return HttpResponse('test artical page!!!!')
+    ##-------if no session of user or can not find user by session then turn to login page
+    if not hasUserSession(req):
+        return HttpResposeRedirect('/')
+
+    user = getUserFromSession(req)
+    
+
+    response = render_to_response('postarti.html',{'username':user.name})
+    return response
