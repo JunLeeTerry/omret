@@ -1,15 +1,33 @@
 {% extends "userbase.html" %}
 {% block link %}
-<link rel="stylesheet" href="/static/css/omretnews/postarti.css">
+    <link rel="stylesheet" href="/static/css/omretnews/postarti.css">
+    <script type="test/javascript" src="/static/other/tinymce/tinymce.min.js"></script>
+    <script>
+
+         tinymce.init({
+         selector: "#omrettinymce"
+         });
+
+    </script>
 {% endblock %}
 
 {% block title %}
-Post Artical
+    Post Artical
 {% endblock %}
 
 {% block body %}
-
+    <div>
+        <div id="container">
+            <div id="content-part">
+                <form method="post">
+                    <textarea id="omrettinymce">
+                    </textarea>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block body_script %}
+
 {% endblock %}
