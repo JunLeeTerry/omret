@@ -1,13 +1,15 @@
 {% extends "userbase.html" %}
 {% block link %}
     <link rel="stylesheet" href="/static/css/omretnews/postarti.css">
-    <script type="test/javascript" src="/static/other/tinymce/tiny_mce.js"></script>
+    <script type="text/javascript" src="/static/other/tinymce/js/tinymce/tinymce.min.js"></script>
+    <!--
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    -->
     <script>
-
-         tinyMCE.init({
-         selector: "#omrettinymce"
+         tinymce.init({
+             selector:'#omrettinymce',
+             language:'zh_CN'
          });
-
     </script>
 {% endblock %}
 
