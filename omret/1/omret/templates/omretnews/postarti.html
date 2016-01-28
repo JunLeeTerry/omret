@@ -8,7 +8,17 @@
     <script>
          tinymce.init({
              selector:'#omrettinymce',
-             language:'zh_CN'
+             theme:'modern',
+             elementpath:false,
+             menubar:false,
+             resize:false,
+             statusbar:false,
+             height:300,
+             language:'zh_CN',
+             plugins:'link image preview fullscreen insertdatetime emoticons',
+             toolbar1:'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright | \
+             styleselect | forecolor backcolor | cut copy paste | bullist numlist | removeformat',
+             toolbar2:'link image | preview fullscreen | insertdatetime emoticons',
          });
     </script>
 {% endblock %}
