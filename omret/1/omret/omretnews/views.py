@@ -4,6 +4,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from omret.logreg.models import User
 from omret.omretnews.models import Topic,OmretNews
 from omret.omretuser.views import hasUserSession,getUserFromSession
+from omret.omretnews.forms import NewsArtiForm
 import datetime,time
 
 # Create your views here.
@@ -64,10 +65,12 @@ def __comDataofNumbox(personnews):
 def postarti(req):
     ##-------if no session of user or can not find user by session then turn to login page
     if not hasUserSession(req):
-        return HttpResposeRedirect('/')
+        return HttpResponseRedirect('/')
 
     user = getUserFromSession(req)
-    
 
-    response = render_to_response('postarti.html',{'username':user.name})
+    ##--------new  artiform object------
+    artiform = NewsArtiForm()
+
+    response = render_to_response('postarti.html',{'username':user.name,"artiform":artiform})
     return response
