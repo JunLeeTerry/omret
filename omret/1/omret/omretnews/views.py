@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response,RequestContext
 from django.http import HttpResponse,HttpResponseRedirect
 from omret.logreg.models import User
 from omret.omretnews.models import Topic,OmretNews
