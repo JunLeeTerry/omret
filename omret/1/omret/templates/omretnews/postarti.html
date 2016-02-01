@@ -33,11 +33,18 @@
             <div id="content-part">
                 <form method="post">
                     <label class="control-label">标题</label>
-                    <div class="form-group" id="titleform">
+                    <div class="form-group">
                         {{ artiform.title }}
                     </div>
+                    <label class="control-label">主题</label>
+                    <div class="form-group">
+                        {{ artiform.topic }}
+                    </div>
+                    <label class="control-label">文章主体</label>
                     <textarea id="omrettinymce">
                     </textarea>
+
+                    <button id="postarti-button" type="submit" class="btn btn-primary">发表</button>
                 </form>
             </div>
         </div>

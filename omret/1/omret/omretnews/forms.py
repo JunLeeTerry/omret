@@ -8,4 +8,9 @@ class NewsArtiForm(forms.Form):
                                 attrs={"id":"titleform",
                                        "class":"form-control"}
                             ))
+    topic = forms.CharField(required=False,
+                            widget=forms.Select(
+                                attrs={"id":"topicselector",
+                                       "class":"select form-control"}
+                            ))
 
