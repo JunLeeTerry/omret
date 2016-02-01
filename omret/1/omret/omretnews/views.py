@@ -6,6 +6,7 @@ from omret.omretnews.models import Topic,OmretNews
 from omret.omretuser.views import hasUserSession,getUserFromSession
 from omret.omretnews.forms import NewsArtiForm
 import datetime,time
+from django.views.decorators.csrf import csrf_protect
 
 # Create your views here.
 def index(req):
@@ -62,6 +63,7 @@ def __comDataofNumbox(personnews):
     return [daynum, weeknum, monthnum]
         
 ##---------the page for posting artical--------
+@csrf_protect
 def postarti(req):
     ##-------if no session of user or can not find user by session then turn to login page
     if not hasUserSession(req):
@@ -72,5 +74,5 @@ def postarti(req):
     ##--------new  artiform object------
     artiform = NewsArtiForm()
 
-    response = render_to_response('postarti.html',{'username':user.name,"artiform":artiform})
+    response = render_to_response('postarti.html',{'username':user.name,"artiform":artiform},context_instance=RequestContext(req))
     return response
