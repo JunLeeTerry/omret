@@ -16,6 +16,8 @@ class NewsArtiForm(forms.Form):
     TOPIC_CHOICE = []
     for topicobject in Topic.objects.all():
         TOPIC_CHOICE.append((topicobject.name,topicobject.name))
+
+    ##-------test the topic choices in sql--------
     print TOPIC_CHOICE
 
     ##-------the form of topic---------
@@ -26,3 +28,7 @@ class NewsArtiForm(forms.Form):
                                 choices=TOPIC_CHOICE
                             ))
 
+    content = forms.CharField(required=False,
+                              widget=forms.Textarea(
+                                  attrs={"id":"omrettinymce"}
+                              ))

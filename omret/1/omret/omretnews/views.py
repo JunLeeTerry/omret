@@ -71,8 +71,45 @@ def postarti(req):
 
     user = getUserFromSession(req)
 
-    ##--------new  artiform object------
     artiform = NewsArtiForm()
+    ##------get post form data-------
+    if req.method == 'POST':
+        artiformPost = NewsArtiForm(req.POST)
+        if artiformPost.is_valid():
+            ##------postarti model-------
+            title = artiformPost.cleaned_data['title']
+            topic_name = artiformPost.cleaned_data['topic']
+            ##------get topic by topic name-------
+            try:
+                topic = Topic.objects.get(name=topic_name)
+            except Exception,e:
+                print e
+                topic = Topic.objects[0]
+
+            content = artiformPost.cleaned_data['content']
+            newsarti = OmretNews()
+            __setNewsArti(newsarti,title,topic,content,user.name)
+
+            ##-------if save artical successfully,return to index page--------
+            ##-------if save error,stay in the postarti page and hint error message--------
+            try:
+                newsarti.save()
+                return HttpResponseRedirect('/index/')
+            except Exception,e:
+                print e
 
     response = render_to_response('postarti.html',{'username':user.name,"artiform":artiform},context_instance=RequestContext(req))
     return response
+
+'''
+set valus to OmretNews model
+
+author <=> user.name
+'''
+def __setNewsArti(newsarti,title,topic,content,author,upvotes=0,downvotes=0):
+    newsarti.title = title
+    newsarti.topic = topic
+    newsarti.content = content
+    newsarti.up_votes = upvotes
+    newsarti.down_votes = downvotes
+    newsarti.author = author
