@@ -48,6 +48,13 @@ Index
 	<div id="newspart">
 	    <div>
 		{% for new in newslist %}
+            <div id="newitem-container">
+                <p id="newtitle">{{ new.title }}</p>
+                <div class="row">
+                    <p class="col-md-4 col-xs-4" id="newauthor">{{ new.author }}</p>
+                    <p class="col-md-8 col-xs-8" id="newsubtime">{{ new.subtime }}</p>
+                </div>
+            </div>
 		{% endfor %}
 	    </div>
 	</div>
