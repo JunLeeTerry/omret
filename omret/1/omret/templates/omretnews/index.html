@@ -49,9 +49,19 @@ Index
 	    <div>
 		{% for new in newslist %}
             <div id="newitem-container">
-                <p id="newtitle">{{ new.title }}</p>
+                <a id="newslink" href="#" target="_blank">
                 <div class="row">
-                    <p class="col-md-4 col-xs-4" id="newauthor">{{ new.author }}</p>
+                    <div class="col-md-1 col-xs-1" id="newstag-container">
+                        <div id="newstag" style="background:{{ new.topic.color }}">
+                        </div>
+                    </div>
+                    <div>
+                        <p class="col-md-11 col-xs-11" id="newtitle">{{ new.title }}</p>
+                    </div>
+                </div>
+                </a>
+                <div class="row">
+                    <p class="col-md-4 col-xs-4" id="newauthor">作者:{{ new.author }}</p>
                     <p class="col-md-8 col-xs-8" id="newsubtime">{{ new.subtime }}</p>
                 </div>
             </div>
@@ -99,7 +109,7 @@ Index
 			    </div>
 			</div>
 		    </div>
-		    
+
 		</div>
 		<div id="articalchart">
 		</div>

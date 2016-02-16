@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f13880-de7d-43ff-afe8-f00829dcd580" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/omret/1/omret/static/css/omretnews/index.css" afterPath="$PROJECT_DIR$/omret/1/omret/static/css/omretnews/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/omret/1/omret/templates/omretnews/index.html" afterPath="$PROJECT_DIR$/omret/1/omret/templates/omretnews/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="omret.iws" />
@@ -23,7 +25,7 @@
     <favorites_list name="omret" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.6541706">
       <split-first>
         <leaf>
           <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
@@ -41,9 +43,12 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/omret/1/omret/templates/omretnews/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="54" column="12" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="12" />
-                  <folding />
+                <state vertical-scroll-proportion="0.47807017">
+                  <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
+                  <folding>
+                    <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#2;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -117,8 +122,8 @@
           <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/omret/1/omret/static/css/omretnews/index.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.48033127">
-                  <caret line="154" column="19" selection-start-line="154" selection-start-column="19" selection-end-line="154" selection-end-column="19" />
+                <state vertical-scroll-proportion="0.69358176">
+                  <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -153,7 +158,7 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="-744" />
+    <option name="y" value="24" />
     <option name="width" value="1366" />
     <option name="height" value="744" />
   </component>
@@ -677,7 +682,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-744" width="1366" height="744" extended-state="6" />
+    <frame x="0" y="24" width="1366" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19410875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1090,16 +1095,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/omret/1/omret/templates/omretnews/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="12" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="12" />
-          <folding />
+        <state vertical-scroll-proportion="0.47807017">
+          <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#2;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/omret/1/omret/static/css/omretnews/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48033127">
-          <caret line="154" column="19" selection-start-line="154" selection-start-column="19" selection-end-line="154" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.69358176">
+          <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
           <folding />
         </state>
       </provider>

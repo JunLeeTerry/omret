@@ -155,10 +155,21 @@
     margin-bottom:20px;
 }
 
+#newstag-container{
+
+}
+
+#newstag{
+    width:4px;
+    height:35px;
+    float:right;
+}
+
 #newtitle{
     font-weight: 700;
     font-size:25px;
-    padding-left:60px;
+    padding-left:0px;
+
 }
 
 #newauthor{
