@@ -113,3 +113,8 @@ def __setNewsArti(newsarti,title,topic,content,author,upvotes=0,downvotes=0):
     newsarti.up_votes = upvotes
     newsarti.down_votes = downvotes
     newsarti.author = author
+
+def artiindex(req,index):
+    ##------get specific news by index--------
+    new = OmretNews.objects.get(id=index)
+    return HttpResponse(new.content);
