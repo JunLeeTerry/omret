@@ -20,7 +20,9 @@ def index(req):
     topics = Topic.objects.all()    
     ##------get all omretnews from sql------
     news = OmretNews.objects.all()
-    
+    ##------get topic list and num-------
+    topicandNum = __comNumofTopic(news,topics)
+
     ##------compute the information of numbox-----
     numboxdata = []
     start = time.time()
@@ -33,9 +35,27 @@ def index(req):
     #-----test the numboxdata and run time-----
     print str(numboxdata)+' run time:'+str(end-start)
 
-    response = render_to_response('index.html',{'username':user.name,'topiclist':topics,'newslist':news,'numboxdata':numboxdata})
+    response = render_to_response('index.html',{'username':user.name,'topiclist':topicandNum,'newslist':news,'numboxdata':numboxdata})
     return response
 
+'''
+caculate the number of specific topic and the topic name
+advance : reduce SQL query
+@return [(topicname,topicnum)]
+[[<Topic Object 1>,23],[<Topic Object 2>,50]]
+'''
+def __comNumofTopic(news,topics):
+    topicnum=[]
+    #-------init topicnum list-------
+    for topic in topics:
+        topicnum.append([topic,0])
+
+    for topicnumindex in topicnum:
+        for new in news:
+            if new.topic.name == topicnumindex[0].name:
+                topicnumindex[1] = topicnumindex[1] + 1
+
+    return topicnum
 
 '''
 caculate the number of numbox

@@ -24,7 +24,7 @@ Index
 		    <li class="row">
 			
 			<div class="colorsignal pull-left" style="background:{{topic.color}}"></div>
-			<div id="topicname" class="pull-left"><p>{{topic.name}}</p></div>
+			<div id="topicname" class="pull-left"><p>{{topic.0.name}}</p></div>
 			
 		    </li>
 	
@@ -49,7 +49,7 @@ Index
 	    <div>
 		{% for new in newslist %}
             <div id="newitem-container">
-                <a id="newslink" href="/arti/{{ new.id }}/" target="_blank">
+                <a id="newslink" href="/arti{{ new.id }}/" target="_blank">
                 <div class="row">
                     <div class="col-md-1 col-xs-1" id="newstag-container">
                         <div id="newstag" style="background:{{ new.topic.color }}">
@@ -131,31 +131,18 @@ Index
 
 {% block body_script %}
 <script>
+/* get data from database */
     var data = [
-	{
-		value : 10,
-		color: "{{topiclist.0.color}}"
-	},
-	{
-		value : 20,
-		color: "{{topiclist.1.color}}"
-	},
-	{
-		value : 56,
-		color: "{{topiclist.2.color}}"
-	},
-	{
-		value : 42,
-		color: "{{topiclist.3.color}}"
-	},
-	{
-		value : 12,
-		color: "{{topiclist.4.color}}"
-	},
-	{
-		value : 32,
-		color: "{{topiclist.5.color}}"
-	}
+
+        {% for topic in topiclist %}
+            {
+                value: {{ topic.1 }},
+                color: "{{ topic.0.color }}"
+            }
+            {% if not forloop.last %},
+            {% endif %}
+        {% endfor %}
+
 ]
     var ctx = $("#chart1").get(0).getContext("2d");
     new Chart(ctx).Pie(data);

@@ -43,5 +43,5 @@ urlpatterns = patterns('',
     ##------omretnews part-----------
     url(r'^index/$',omretnews_views.index),
     url(r'^postarti/$',omretnews_views.postarti),
-    url(r'^arti/(\d+)/$',omretnews_views.artiindex),
+    url(r'^arti(\d+)/$',omretnews_views.artiindex),
 )
