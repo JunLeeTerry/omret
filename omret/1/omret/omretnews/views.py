@@ -140,6 +140,6 @@ def artiindex(req,index):
     user = getUserFromSession(req)
     ##------get specific news by index--------
     new = OmretNews.objects.get(id=index)
-    content = new.content
-    response = render_to_response('newindex.html',{'username':user.name,'new_content':content})
+
+    response = render_to_response('newindex.html',{'username':user.name,'new':new})
     return response

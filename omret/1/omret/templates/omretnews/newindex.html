@@ -1,14 +1,27 @@
 {% extends "userbase.html" %}
 {% block link %}
+    <link rel="stylesheet" href="/static/css/omretnews/newindex.css">
 {% endblock %}
 
 {% block title %}
+    NewIndex
 {% endblock %}
 
 {% block body %}
+    <div>
+        <div id="new_headpart">
+            <div id="new_title">
+                {{ new.title }}
+            </div>
+        </div>
+        <div id="new_bodypart">
+            <div id="new_content">
+                {{ new.content | safe }}
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block body_script %}
 {% endblock %}
 
-{% endblock %}
