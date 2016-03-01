@@ -49,12 +49,10 @@ def __comNumofTopic(news,topics):
     #-------init topicnum list-------
     for topic in topics:
         topicnum.append([topic,0])
-
     for topicnumindex in topicnum:
         for new in news:
             if new.topic.name == topicnumindex[0].name:
                 topicnumindex[1] = topicnumindex[1] + 1
-
     return topicnum
 
 '''
@@ -135,6 +133,13 @@ def __setNewsArti(newsarti,title,topic,content,author,upvotes=0,downvotes=0):
     newsarti.author = author
 
 def artiindex(req,index):
+    ##-------if no session of user or can not find user by session then turn to login page
+    if not hasUserSession(req):
+        return HttpResponseRedirect('/')
+
+    user = getUserFromSession(req)
     ##------get specific news by index--------
     new = OmretNews.objects.get(id=index)
-    return HttpResponse(new.content);
+    content = new.content
+    response = render_to_response('newindex.html',{'username':user.name,'new_content':content})
+    return response
