@@ -8,16 +8,24 @@
 {% endblock %}
 
 {% block body %}
-    <div>
-        <div id="new_headpart">
-            <div id="new_title">
-                {{ new.title }}
+    <div id="container">
+        <div class="col-md-3 col-xs-3">
+        </div>
+        <div class="col-md-6 col-xs-6">
+            <div id="new_headpart">
+                <div id="new_title">
+                    {{ new.title }}
+                </div>
+            </div>
+
+            <div id="new_bodypart">
+                <div id="new_content">
+                    {{ new.content | safe }}
+                </div>
             </div>
         </div>
-        <div id="new_bodypart">
-            <div id="new_content">
-                {{ new.content | safe }}
-            </div>
+        <div class="col-md-3 col-xs-3">
+
         </div>
     </div>
 {% endblock %}

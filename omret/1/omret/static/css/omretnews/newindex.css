@@ -1,0 +1,12 @@
+/* head part of new */
+#new_headpart {
+    padding-top:30px;
+    padding-bottom:30px;
+    background-color:#4cb0f9;
+}
+
+#new_title{
+    font-size: 35px;
+    font-weight: 700;
+
+}
