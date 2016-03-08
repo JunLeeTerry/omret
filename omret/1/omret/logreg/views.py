@@ -169,6 +169,7 @@ def validatemail(req):
 #############################
 @csrf_protect
 def login(req):
+    user = None
     status = u''
     is_valid = None
     ##-------if it has cookie,request change to post and is valid---------
@@ -209,7 +210,7 @@ def login(req):
                     #print e
             elif account_type == 1:
                 try:
-                    User.objects.get(email=account,password=encrypted_password)
+                    user = User.objects.get(email=account,password=encrypted_password)
                     status = u'success'
                 except:
                     status = u'error'

@@ -1,12 +1,42 @@
+#container{
+    padding-top:30px;
+}
+
 /* head part of new */
+#new_container{
+    border: solid;
+    border-width: 2px;
+    border-color: #0d0000;
+    border-radius: 8px;
+}
+
 #new_headpart {
     padding-top:30px;
     padding-bottom:30px;
-    background-color:#4cb0f9;
+    /*background-color:#4cb0f9;*/
 }
 
 #new_title{
     font-size: 35px;
     font-weight: 700;
+    padding-left: 30px;
+}
+
+#new_author{
+    padding-left:30px;
+}
+
+#new_subtime{
+    padding-left:30px;
+}
+
+#new_content{
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:20px;
+    /*background-color: #b2dba1;*/
+}
+
+#new_subtime{
 
 }

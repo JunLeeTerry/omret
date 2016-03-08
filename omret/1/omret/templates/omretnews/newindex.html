@@ -12,17 +12,27 @@
         <div class="col-md-3 col-xs-3">
         </div>
         <div class="col-md-6 col-xs-6">
-            <div id="new_headpart">
-                <div id="new_title">
-                    {{ new.title }}
+            <div id="new_container">
+                <div id="new_headpart">
+                    <div id="new_title">
+                        {{ new.title }}
+                    </div>
+                    <div id="new_author">
+                        {{ new.author }}
+                    </div>
+                    <div id="new_subtime">
+                        {{ new.subtime }}
+                    </div>
+                </div>
+                <div id="new_bodypart">
+                    <div id="new_content">
+                        {{ new.content | safe }}
+                    </div>
                 </div>
             </div>
+        </div>
+        <div id="replypart">
 
-            <div id="new_bodypart">
-                <div id="new_content">
-                    {{ new.content | safe }}
-                </div>
-            </div>
         </div>
         <div class="col-md-3 col-xs-3">
 
