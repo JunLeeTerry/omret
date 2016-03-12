@@ -7,7 +7,7 @@
     border: solid;
     border-width: 2px;
     border-color: #0d0000;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 #new_headpart {
@@ -31,12 +31,20 @@
 }
 
 #new_content{
-    padding-left:15px;
-    padding-right:15px;
+    padding-left:25px;
+    padding-right:25px;
     padding-top:20px;
     /*background-color: #b2dba1;*/
+    padding-bottom:50px;
 }
 
-#new_subtime{
-
+/* quickly reply part */
+#replypart{
+    margin-top:50px;
 }
+
+#newcomment{
+    height: 100px;
+    width:100%;
+}
+

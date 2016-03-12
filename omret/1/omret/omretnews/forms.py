@@ -32,3 +32,12 @@ class NewsArtiForm(forms.Form):
                               widget=forms.Textarea(
                                   attrs={"id":"omrettinymce"}
                               ))
+
+
+##-------new qulickly comment form (textarea)--------
+class NewQulicklyCommentForm(forms.Form):
+    content = forms.CharField(required=True,
+                              widget=forms.Textarea(
+                                  attrs={"id":"newcomment",
+                                         }
+                              ))

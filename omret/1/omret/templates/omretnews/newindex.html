@@ -30,10 +30,18 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="replypart">
+            <div id="replypart">
+                <form method="post">
+                    {% csrf_token %}
 
+                    <div class="form-group">
+                        {{ commentform.content }}
+                    </div>
+                    <button id="reply_button" type="submit" class="btn btn-primary">回复</button>
+                </form>
+            </div>
         </div>
+
         <div class="col-md-3 col-xs-3">
 
         </div>

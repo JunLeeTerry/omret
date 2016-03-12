@@ -1,27 +1,27 @@
-#-*- coding:utf-8 -*-
-from django.shortcuts import render_to_response,RequestContext
-from django.http import HttpResponse,HttpResponseRedirect
+# -*- coding:utf-8 -*-
+from django.shortcuts import render_to_response, RequestContext
+from django.http import HttpResponse, HttpResponseRedirect
 from omret.logreg.models import User
-from omret.omretnews.models import Topic,OmretNews
-from omret.omretuser.views import hasUserSession,getUserFromSession
-from omret.omretnews.forms import NewsArtiForm
-import datetime,time
+from omret.omretnews.models import Topic, OmretNews
+from omret.omretuser.views import hasUserSession, getUserFromSession
+from omret.omretnews.forms import NewsArtiForm, NewQulicklyCommentForm
+import datetime, time
 from django.views.decorators.csrf import csrf_protect
+
 
 # Create your views here.
 def index(req):
-    
     ##-------if no session or cannot find user by session,turn to login page----
     if not hasUserSession(req):
         return HttpResponseRedirect('/')
-    
-    user = getUserFromSession(req)  
+
+    user = getUserFromSession(req)
     ##-------get all topics from sql--------
-    topics = Topic.objects.all()    
+    topics = Topic.objects.all()
     ##------get all omretnews from sql------
     news = OmretNews.objects.all()
     ##------get topic list and num-------
-    topicandNum = __comNumofTopic(news,topics)
+    topicandNum = __comNumofTopic(news, topics)
 
     ##------compute the information of numbox-----
     numboxdata = []
@@ -32,11 +32,13 @@ def index(req):
     except:
         numboxdata = [0, 0, 0]
     end = time.time()
-    #-----test the numboxdata and run time-----
-    print str(numboxdata)+' run time:'+str(end-start)
+    # -----test the numboxdata and run time-----
+    print str(numboxdata) + ' run time:' + str(end - start)
 
-    response = render_to_response('index.html',{'username':user.name,'topiclist':topicandNum,'newslist':news,'numboxdata':numboxdata})
+    response = render_to_response('index.html', {'username': user.name, 'topiclist': topicandNum, 'newslist': news,
+                                                 'numboxdata': numboxdata})
     return response
+
 
 '''
 caculate the number of specific topic and the topic name
@@ -44,22 +46,27 @@ advance : reduce SQL query
 @return [(topicname,topicnum)]
 [[<Topic Object 1>,23],[<Topic Object 2>,50]]
 '''
-def __comNumofTopic(news,topics):
-    topicnum=[]
-    #-------init topicnum list-------
+
+
+def __comNumofTopic(news, topics):
+    topicnum = []
+    # -------init topicnum list-------
     for topic in topics:
-        topicnum.append([topic,0])
+        topicnum.append([topic, 0])
     for topicnumindex in topicnum:
         for new in news:
             if new.topic.name == topicnumindex[0].name:
                 topicnumindex[1] = topicnumindex[1] + 1
     return topicnum
 
+
 '''
 caculate the number of numbox
 @return [daynum,weeknum,monthnum]
 [3,4,10],etc.
 '''
+
+
 def __comDataofNumbox(personnews):
     daynum = 0
     weeknum = 0
@@ -67,19 +74,20 @@ def __comDataofNumbox(personnews):
     for personnew in personnews:
         _subtime = personnew.subtime
         _today = datetime.date.today()
-        
+
         ##-----judge whether the new is in this month------
         if _subtime.year == _today.year and _subtime.month == _today.month:
-            monthnum = monthnum + 1 
+            monthnum = monthnum + 1
             ##-----judge whether the new is in this week------
             if _subtime.isocalendar()[1] == _today.isocalendar()[1]:
                 weeknum = weeknum + 1
                 ##------judge whether the new is in today------
                 if _subtime.day == _today.day:
-                    daynum = daynum + 1 
+                    daynum = daynum + 1
     print [daynum, weeknum, monthnum]
     return [daynum, weeknum, monthnum]
-        
+
+
 ##---------the page for posting artical--------
 @csrf_protect
 def postarti(req):
@@ -100,31 +108,35 @@ def postarti(req):
             ##------get topic by topic name-------
             try:
                 topic = Topic.objects.get(name=topic_name)
-            except Exception,e:
+            except Exception, e:
                 print e
                 topic = Topic.objects[0]
 
             content = artiformPost.cleaned_data['content']
             newsarti = OmretNews()
-            __setNewsArti(newsarti,title,topic,content,user.name)
+            __setNewsArti(newsarti, title, topic, content, user.name)
 
             ##-------if save artical successfully,return to index page--------
             ##-------if save error,stay in the postarti page and hint error message--------
             try:
                 newsarti.save()
                 return HttpResponseRedirect('/index/')
-            except Exception,e:
+            except Exception, e:
                 print e
 
-    response = render_to_response('postarti.html',{'username':user.name,"artiform":artiform},context_instance=RequestContext(req))
+    response = render_to_response('postarti.html', {'username': user.name, "artiform": artiform},
+                                  context_instance=RequestContext(req))
     return response
+
 
 '''
 set valus to OmretNews model
 
 author <=> user.name
 '''
-def __setNewsArti(newsarti,title,topic,content,author,upvotes=0,downvotes=0):
+
+
+def __setNewsArti(newsarti, title, topic, content, author, upvotes=0, downvotes=0):
     newsarti.title = title
     newsarti.topic = topic
     newsarti.content = content
@@ -132,7 +144,8 @@ def __setNewsArti(newsarti,title,topic,content,author,upvotes=0,downvotes=0):
     newsarti.down_votes = downvotes
     newsarti.author = author
 
-def artiindex(req,index):
+
+def artiindex(req, index):
     ##-------if no session of user or can not find user by session then turn to login page
     if not hasUserSession(req):
         return HttpResponseRedirect('/')
@@ -141,5 +154,9 @@ def artiindex(req,index):
     ##------get specific news by index--------
     new = OmretNews.objects.get(id=index)
 
-    response = render_to_response('newindex.html',{'username':user.name,'new':new})
+    ##------get quickly reply form object-------
+    commentform = NewQulicklyCommentForm()
+
+    response = render_to_response('newindex.html', {'username': user.name, 'new': new, 'commentform': commentform},
+                                  context_instance=RequestContext(req))
     return response
