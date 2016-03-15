@@ -110,7 +110,7 @@ def securityset(req):
                 change_status = 'error3'
             ##-----old_password is different from passwd in sql------
             elif old_password_encryption != user.password:
-                print old_password_encryption,user.password
+                #print old_password_encryption,user.password
                 change_status = 'error1'
             ##-----new_password is different from confirm_new_password----
             elif new_password != confirm_new_password:

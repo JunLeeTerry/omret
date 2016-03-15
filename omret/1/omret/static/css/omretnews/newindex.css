@@ -5,8 +5,8 @@
 /* head part of new */
 #new_container{
     border: solid;
-    border-width: 2px;
-    border-color: #0d0000;
+    border-width: 1px;
+    border-color: #265a88;
     border-radius: 4px;
 }
 
@@ -43,8 +43,20 @@
     margin-top:50px;
 }
 
+#newcomment:focus{
+    outline:none;
+    border-radius: 4px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #265a88;
+}
+
 #newcomment{
     height: 100px;
     width:100%;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #265a88;
 }
 

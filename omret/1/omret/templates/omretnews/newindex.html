@@ -33,7 +33,7 @@
             <div id="replypart">
                 <form method="post">
                     {% csrf_token %}
-
+                    <label>评论：</label>
                     <div class="form-group">
                         {{ commentform.content }}
                     </div>

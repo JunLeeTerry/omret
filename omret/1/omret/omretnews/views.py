@@ -2,7 +2,7 @@
 from django.shortcuts import render_to_response, RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from omret.logreg.models import User
-from omret.omretnews.models import Topic, OmretNews
+from omret.omretnews.models import Topic, OmretNews, NewComments
 from omret.omretuser.views import hasUserSession, getUserFromSession
 from omret.omretnews.forms import NewsArtiForm, NewQulicklyCommentForm
 import datetime, time
@@ -84,7 +84,7 @@ def __comDataofNumbox(personnews):
                 ##------judge whether the new is in today------
                 if _subtime.day == _today.day:
                     daynum = daynum + 1
-    print [daynum, weeknum, monthnum]
+    # print [daynum, weeknum, monthnum]
     return [daynum, weeknum, monthnum]
 
 
@@ -154,9 +154,60 @@ def artiindex(req, index):
     ##------get specific news by index--------
     new = OmretNews.objects.get(id=index)
 
+    ##------quickly reply part--------
     ##------get quickly reply form object-------
     commentform = NewQulicklyCommentForm()
+    if req.method == 'POST':
+        commentPost = NewQulicklyCommentForm(req.POST)
+        if commentPost.is_valid():
+            ##------get content of the arti's comment-------
+            commentcontent = commentPost.cleaned_data['content']
+            newcomment = NewComments()
+            __setNewComment(newcomment, commentcontent, new, user)
 
-    response = render_to_response('newindex.html', {'username': user.name, 'new': new, 'commentform': commentform},
+            try:
+                newcomment.save()
+            except Exception, e:
+                print e
+
+    ##------get all comments of the specific new----------
+    commentlist = NewComments.objects.filter(article_id=index).order_by("-comment_time")
+    commenttree = __getCommentsTree(commentlist)
+
+    response = render_to_response('newindex.html', {'username': user.name, 'new': new, 'commentform': commentform,
+                                                    'commenttree': commenttree},
                                   context_instance=RequestContext(req))
+
     return response
+
+
+'''
+set values into NewComment form
+
+--------
+article
+comment
+user
+commentcontent
+--------
+'''
+
+
+def __setNewComment(comment, content, new, user):
+    comment.comment_content = content
+    comment.article_id = new
+    comment.comment_user = user
+
+
+##--------get the tree structure of new's comemnts---------
+def __getCommentsTree(comments):
+    commentsTree = []
+    for comment in comments:
+        if comment is not None:
+            commentsTree.append(comment)
+        commentsUnderComment = NewComments.objects.filter(comment_id=comment)
+        if commentsUnderComment > 0:
+            commentsTree.append(__getCommentsTree(commentsUnderComment))
+
+    print commentsTree
+    return commentsTree

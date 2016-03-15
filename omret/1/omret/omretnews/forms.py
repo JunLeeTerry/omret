@@ -39,5 +39,5 @@ class NewQulicklyCommentForm(forms.Form):
     content = forms.CharField(required=True,
                               widget=forms.Textarea(
                                   attrs={"id":"newcomment",
-                                         }
+                                         "style":"resize:none",}
                               ))
