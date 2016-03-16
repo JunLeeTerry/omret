@@ -167,15 +167,15 @@ def artiindex(req, index):
 
             try:
                 newcomment.save()
+                return HttpResponseRedirect('/arti'+index)
             except Exception, e:
                 print e
 
     ##------get all comments of the specific new----------
-    commentlist = NewComments.objects.filter(article_id=index).order_by("-comment_time")
-    commenttree = __getCommentsTree(commentlist)
+    comments = NewComments.objects.filter(article_id=index).order_by("-comment_time")
 
     response = render_to_response('newindex.html', {'username': user.name, 'new': new, 'commentform': commentform,
-                                                    'commenttree': commenttree},
+                                                    'comments':comments},
                                   context_instance=RequestContext(req))
 
     return response
@@ -191,23 +191,29 @@ user
 commentcontent
 --------
 '''
-
-
 def __setNewComment(comment, content, new, user):
     comment.comment_content = content
     comment.article_id = new
     comment.comment_user = user
 
-
+'''
 ##--------get the tree structure of new's comemnts---------
 def __getCommentsTree(comments):
     commentsTree = []
     for comment in comments:
-        if comment is not None:
-            commentsTree.append(comment)
+        commentsTree.append(comment)
         commentsUnderComment = NewComments.objects.filter(comment_id=comment)
-        if commentsUnderComment > 0:
+        if len(commentsUnderComment) > 0:
             commentsTree.append(__getCommentsTree(commentsUnderComment))
 
-    print commentsTree
     return commentsTree
+
+##-------get one-level comments--------
+def __getolevComments(comments):
+    olevCommentsList = []
+    for comment in comments:
+        if comment.comment_id is None:
+            olevCommentsList.append(comment)
+
+    return olevCommentsList
+'''

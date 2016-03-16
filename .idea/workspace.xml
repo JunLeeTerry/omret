@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f13880-de7d-43ff-afe8-f00829dcd580" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/omret/1/omret/omretnews/forms.py" afterPath="$PROJECT_DIR$/omret/1/omret/omretnews/forms.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/omret/1/omret/omretnews/models.py" afterPath="$PROJECT_DIR$/omret/1/omret/omretnews/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/omret/1/omret/static/css/omretnews/newindex.css" afterPath="$PROJECT_DIR$/omret/1/omret/static/css/omretnews/newindex.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/omret/1/omret/templates/omretnews/newindex.html" afterPath="$PROJECT_DIR$/omret/1/omret/templates/omretnews/newindex.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/omret/1/omret/omretnews/views.py" afterPath="$PROJECT_DIR$/omret/1/omret/omretnews/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/omret/1/omret/omretuser/views.py" afterPath="$PROJECT_DIR$/omret/1/omret/omretuser/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="omret.iws" />
@@ -29,28 +27,16 @@
     <favorites_list name="omret" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5271903">
+    <splitter split-orientation="horizontal" split-proportion="0.50981873">
       <split-first>
         <leaf>
           <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/omret/1/omret/omretnews/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.640599">
-                  <caret line="206" column="12" selection-start-line="206" selection-start-column="12" selection-end-line="206" selection-end-column="12" />
+                <state vertical-scroll-proportion="-0.17910448">
+                  <caret line="170" column="32" selection-start-line="170" selection-start-column="32" selection-end-line="170" selection-end-column="32" />
                   <folding>
                     <element signature="e#23#86#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/omret/1/omret/omretnews/models.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#0#28#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -60,36 +46,34 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/omret/1/omret/omretnews/views.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#23#86#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="newindex.css" pinned="false" current-in-tab="false">
+          <file leaf-file-name="newindex.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/omret/1/omret/static/css/omretnews/newindex.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+                <state vertical-scroll-proportion="-0.13432837">
+                  <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/omret/1/omret/omretnews/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.74875206">
-                  <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
                   <folding>
                     <element signature="e#0#28#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="newindex.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/omret/1/omret/templates/omretnews/newindex.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -111,12 +95,12 @@
         <option value="$PROJECT_DIR$/omret/1/omret/templates/omretnews/index.html" />
         <option value="$PROJECT_DIR$/omret/1/omret/logreg/views.py" />
         <option value="$PROJECT_DIR$/omret/1/omret/static/css/omretnews/index.css" />
-        <option value="$PROJECT_DIR$/omret/1/omret/templates/omretnews/newindex.html" />
         <option value="$PROJECT_DIR$/omret/1/omret/omretnews/forms.py" />
-        <option value="$PROJECT_DIR$/omret/1/omret/static/css/omretnews/newindex.css" />
         <option value="$PROJECT_DIR$/omret/1/omret/omretuser/views.py" />
         <option value="$PROJECT_DIR$/omret/1/omret/omretnews/models.py" />
         <option value="$PROJECT_DIR$/omret/1/omret/omretnews/views.py" />
+        <option value="$PROJECT_DIR$/omret/1/omret/templates/omretnews/newindex.html" />
+        <option value="$PROJECT_DIR$/omret/1/omret/static/css/omretnews/newindex.css" />
       </list>
     </option>
   </component>
@@ -341,130 +325,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="logreg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omretuser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omret" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omretnews" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -769,8 +629,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="25" width="1370" height="745" extended-state="1" />
-    <editor active="true" />
+    <frame x="-4" y="25" width="1370" height="745" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2560423" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1090,7 +950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1098,15 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/omret/1/omret/templates/omretnews/newindex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,7 +964,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="41" column="63" selection-start-line="41" selection-start-column="63" selection-end-line="41" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,7 +971,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.1929824">
           <caret line="112" column="22" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1130,7 +978,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="42" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1138,7 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1146,7 +992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1154,7 +999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1162,14 +1006,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="81.68421">
           <caret line="18" column="14" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/omret/1/omret/static/css/omretnews/newindex.css">
+    <entry file="file://$PROJECT_DIR$/omret/1/omret/omretnews/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.17910448">
+          <caret line="170" column="32" selection-start-line="170" selection-start-column="32" selection-end-line="170" selection-end-column="32" />
+          <folding>
+            <element signature="e#23#86#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/omret/1/omret/templates/omretnews/newindex.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -1177,20 +1030,18 @@
     <entry file="file://$PROJECT_DIR$/omret/1/omret/omretnews/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/omret/1/omret/omretnews/views.py">
+    <entry file="file://$PROJECT_DIR$/omret/1/omret/static/css/omretnews/newindex.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.640599">
-          <caret line="206" column="12" selection-start-line="206" selection-start-column="12" selection-end-line="206" selection-end-column="12" />
-          <folding>
-            <element signature="e#23#86#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-0.13432837">
+          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
