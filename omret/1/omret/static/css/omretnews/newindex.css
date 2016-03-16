@@ -41,7 +41,7 @@
 /* quickly reply part */
 #replypart {
     margin-top: 50px;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 }
 
 #newcomment:focus {
@@ -63,14 +63,25 @@
 
 /* comment part */
 #commentitem {
-    margin-top:15px;
-    margin-bottom:15px;
-    padding-left : 20px;
-    padding-top:10px;
-    padding-bottom:10px;
-    width:100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
     border-radius: 4px;
     border-width: 1px;
     border-color: #d8d8d8;
     border-style: solid;
 }
+
+#commentuser {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+#commentcontent {
+    margin-bottom: 4px;
+}
+

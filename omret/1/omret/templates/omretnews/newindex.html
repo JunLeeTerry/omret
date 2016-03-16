@@ -43,11 +43,14 @@
             </div>
             <div id="commentpart">
                 {% for comment in comments %}
-
                     <div id="commentitem">
-                        {{ comment.comment_content }}
+                        <div id="commentuser">
+                            {{ comment.comment_user }}
+                        </div>
+                        <div id="commentcontent">
+                            {{ comment.comment_content }}
+                        </div>
                     </div>
-
                 {% endfor %}
             </div>
         </div>
