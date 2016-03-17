@@ -38,7 +38,7 @@
                     <div class="form-group">
                         {{ commentform.content }}
                     </div>
-                    <button id="reply_button" type="submit" class="btn btn-primary">回复</button>
+                    <button id="reply_button" type="submit" class="btn btn-primary">评论</button>
                 </form>
             </div>
             <div id="commentpart">
@@ -50,6 +50,20 @@
                         <div id="commentcontent">
                             {{ comment.comment_content }}
                         </div>
+                        <div id="commentmenu">
+                            <small>
+                                {{ comment.comment_time|date:"Y-m-d G:i" }}
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="glyphicon glyphicon-comment"></span>
+                                <a href="#">回复评论</a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </small>
+                        </div>
+                    </div>
+                    <div id="chatitem">
+                        {% for chat in comment.comment_chats %}
+                            {{ chat.chat_content }}
+                        {% endfor %}
                     </div>
                 {% endfor %}
             </div>

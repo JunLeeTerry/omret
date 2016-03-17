@@ -175,7 +175,7 @@ def artiindex(req, index):
     comments = NewComments.objects.filter(article_id=index).order_by("-comment_time")
 
     response = render_to_response('newindex.html', {'username': user.name, 'new': new, 'commentform': commentform,
-                                                    'comments':comments},
+                                                    'comments':comments,},
                                   context_instance=RequestContext(req))
 
     return response

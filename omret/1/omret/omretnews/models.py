@@ -21,15 +21,16 @@ class Topic(models.Model):
 class NewComments(models.Model):
     article_id = models.ForeignKey('OmretNews')
     #comments under the commnent
-    #comment_id = models.ForeignKey('NewComments',null=True)
+    comment_id = models.ForeignKey('NewComments',null=True)
     comment_content = models.CharField(max_length=200)
     comment_time = models.DateTimeField(auto_now_add=True)
     comment_user = models.ForeignKey(logreg_models.User)
-    comment_chats = models.ManyToManyField('NewCommentsChats')
+    #comment_chats = models.ForeignKey('NewCommentsChats')
 
     def __str__(self):
         return self.comment_content
 
+'''
 class NewCommentsChats(models.Model):
     comment_id = models.ForeignKey('NewComments')
     chat_content = models.CharField(max_length=200)
@@ -38,3 +39,4 @@ class NewCommentsChats(models.Model):
 
     def __str__(self):
         return self.chat_content
+'''
