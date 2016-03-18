@@ -41,3 +41,11 @@ class NewQulicklyCommentForm(forms.Form):
                                   attrs={"id":"newcomment",
                                          "style":"resize:none",}
                               ))
+
+##-------new qulickly chat form (input)-------
+class NewQulicklyChatForm(forms.Form):
+    content = forms.CharField(required=True,
+                              widget=forms.Textarea(
+                                  attrs={"id":"newchat",
+                                         "style":"resize:none",}
+                              ))

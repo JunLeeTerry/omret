@@ -39,7 +39,7 @@
                     <div class="form-group">
                         {{ commentform.content }}
                     </div>
-                    <button id="reply_button" type="submit" class="btn btn-primary">评论</button>
+                    <button id="reply_button" type="submit" class="btn btn-primary" name="comment">评论</button>
                 </form>
             </div>
             <div id="commentpart">
@@ -66,6 +66,15 @@
                             {{ chat.chat_content }}
                         </div>
                     {% endfor %}
+                    <div id="chatreplypart">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{ chatform.content }}
+                            </div>
+                            <button id="chatreply_button" type="submit" class="btn btn-primary" name="comment">回复</button>
+                        </form>
+                    </div>
                 {% endfor %}
             </div>
         </div>
@@ -80,7 +89,7 @@
     <script>
         $(".replycomment").each(function () {
             $(this).click(function () {
-                $(this).after('<input />')
+
             });
         });
     </script>

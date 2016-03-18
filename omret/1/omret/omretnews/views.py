@@ -2,9 +2,9 @@
 from django.shortcuts import render_to_response, RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from omret.logreg.models import User
-from omret.omretnews.models import Topic, OmretNews, NewComments,NewCommentsChats
+from omret.omretnews.models import Topic, OmretNews, NewComments, NewCommentsChats
 from omret.omretuser.views import hasUserSession, getUserFromSession
-from omret.omretnews.forms import NewsArtiForm, NewQulicklyCommentForm
+from omret.omretnews.forms import NewsArtiForm, NewQulicklyCommentForm, NewQulicklyChatForm
 import datetime, time
 from django.views.decorators.csrf import csrf_protect
 
@@ -157,27 +157,44 @@ def artiindex(req, index):
     ##------quickly reply part--------
     ##------get quickly reply form object-------
     commentform = NewQulicklyCommentForm()
+    chatform = NewQulicklyChatForm()
     if req.method == 'POST':
-        commentPost = NewQulicklyCommentForm(req.POST)
-        if commentPost.is_valid():
-            ##------get content of the arti's comment-------
-            commentcontent = commentPost.cleaned_data['content']
-            newcomment = NewComments()
-            __setNewComment(newcomment, commentcontent, new, user)
+        ##------comment form post---------
+        if req.POST.has_key('comment'):
+            commentPost = NewQulicklyCommentForm(req.POST)
+            if commentPost.is_valid():
+                ##------get content of the arti's comment-------
+                commentcontent = commentPost.cleaned_data['content']
+                newcomment = NewComments()
+                __setNewComment(newcomment, commentcontent, new, user)
 
-            try:
-                newcomment.save()
-                return HttpResponseRedirect('/arti'+index)
-            except Exception, e:
-                print e
+                try:
+                    newcomment.save()
+                    return HttpResponseRedirect('/arti' + index)
+                except Exception, e:
+                    print e
+        ##-------chat form post--------
+        elif req.POST.has_key('chat'):
+            chatPost = NewQulicklyChatForm(req.POST)
+            if chatPost.is_valid():
+                ##--------get content of comment's chat--------
+                chatcontent = chatPost.cleaded_data['content']
+                newcommentchat = NewCommentsChats()
+
+                try:
+                    newcommentchat.save()
+                    return HttpResponseRedirect('/arti'+index)
+                except Exception,e:
+                    print e
+
 
     ##------get all comments of the specific new----------
     comments = NewComments.objects.filter(article_id=index).order_by("-comment_time")
     chats = NewCommentsChats.objects.filter(article_id=index).order_by("-chat_time")
-    commentchatList = __getCommentsChats(comments,chats)
+    commentchatList = __getCommentsChats(comments, chats)
 
     response = render_to_response('newindex.html', {'username': user.name, 'new': new, 'commentform': commentform,
-                                                    'commentchatlist':commentchatList,},
+                                                    'chatform':chatform,'commentchatlist': commentchatList, },
                                   context_instance=RequestContext(req))
 
     return response
@@ -188,19 +205,36 @@ set values into NewComment form
 
 --------
 article
-comment
 user
 commentcontent
-commenttype
 --------
 '''
+
+
 def __setNewComment(comment, content, new, user):
     comment.comment_content = content
     comment.article_id = new
     comment.comment_user = user
 
+
+'''
+set values into NewCommentChat form
+
+-------
+article
+comment
+user
+chatcontent
+-------
+'''
+def __setNewCommentChat(chat,comment,content,new,user):
+    chat.chat_content = content
+    chat.article_id = new
+    chat.comment_id = comment
+    chat.chat_user = user
+
 ##---------get all Comments and Chats under the article---------
-def __getCommentsChats(comments,chats):
+def __getCommentsChats(comments, chats):
     commentChatList = []
     for comment in comments:
         chatList = []
@@ -208,7 +242,7 @@ def __getCommentsChats(comments,chats):
             if chat.comment_id == comment.id:
                 chatList.append(chat)
                 chats.remove(chat)
-        commentChatList.append([comment,chatList])
+        commentChatList.append([comment, chatList])
 
     print commentChatList
     return commentChatList
