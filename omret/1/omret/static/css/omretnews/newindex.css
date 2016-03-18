@@ -85,3 +85,10 @@
     margin-bottom: 4px;
 }
 
+.replycomment{
+    color:#006dcc;
+}
+
+.replycomment :hover{
+    text-decoration: underline;
+}

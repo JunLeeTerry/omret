@@ -2,7 +2,7 @@
 from django.shortcuts import render_to_response, RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from omret.logreg.models import User
-from omret.omretnews.models import Topic, OmretNews, NewComments
+from omret.omretnews.models import Topic, OmretNews, NewComments,NewCommentsChats
 from omret.omretuser.views import hasUserSession, getUserFromSession
 from omret.omretnews.forms import NewsArtiForm, NewQulicklyCommentForm
 import datetime, time
@@ -173,9 +173,11 @@ def artiindex(req, index):
 
     ##------get all comments of the specific new----------
     comments = NewComments.objects.filter(article_id=index).order_by("-comment_time")
+    chats = NewCommentsChats.objects.filter(article_id=index).order_by("-chat_time")
+    commentchatList = __getCommentsChats(comments,chats)
 
     response = render_to_response('newindex.html', {'username': user.name, 'new': new, 'commentform': commentform,
-                                                    'comments':comments,},
+                                                    'commentchatlist':commentchatList,},
                                   context_instance=RequestContext(req))
 
     return response
@@ -189,6 +191,7 @@ article
 comment
 user
 commentcontent
+commenttype
 --------
 '''
 def __setNewComment(comment, content, new, user):
@@ -196,24 +199,16 @@ def __setNewComment(comment, content, new, user):
     comment.article_id = new
     comment.comment_user = user
 
-'''
-##--------get the tree structure of new's comemnts---------
-def __getCommentsTree(comments):
-    commentsTree = []
+##---------get all Comments and Chats under the article---------
+def __getCommentsChats(comments,chats):
+    commentChatList = []
     for comment in comments:
-        commentsTree.append(comment)
-        commentsUnderComment = NewComments.objects.filter(comment_id=comment)
-        if len(commentsUnderComment) > 0:
-            commentsTree.append(__getCommentsTree(commentsUnderComment))
+        chatList = []
+        for chat in chats:
+            if chat.comment_id == comment.id:
+                chatList.append(chat)
+                chats.remove(chat)
+        commentChatList.append([comment,chatList])
 
-    return commentsTree
-
-##-------get one-level comments--------
-def __getolevComments(comments):
-    olevCommentsList = []
-    for comment in comments:
-        if comment.comment_id is None:
-            olevCommentsList.append(comment)
-
-    return olevCommentsList
-'''
+    print commentChatList
+    return commentChatList

@@ -1,6 +1,7 @@
 {% extends "userbase.html" %}
 {% block link %}
     <link rel="stylesheet" href="/static/css/omretnews/newindex.css">
+    <script src="/static/js/omretnews/newindex.js"></script>
 {% endblock %}
 
 {% block title %}
@@ -42,29 +43,29 @@
                 </form>
             </div>
             <div id="commentpart">
-                {% for comment in comments %}
+                {% for comment in commentchatlist %}
                     <div id="commentitem">
                         <div id="commentuser">
-                            {{ comment.comment_user }}
+                            {{ comment.0.comment_user }}
                         </div>
                         <div id="commentcontent">
-                            {{ comment.comment_content }}
+                            {{ comment.0.comment_content }}
                         </div>
                         <div id="commentmenu">
                             <small>
-                                {{ comment.comment_time|date:"Y-m-d G:i" }}
+                                {{ comment.0.comment_time|date:"Y-m-d G:i" }}
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <span class="glyphicon glyphicon-comment"></span>
-                                <a href="#">回复评论</a>
+                                <span class="replycomment" style="cursor:pointer">回复评论</span>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </small>
                         </div>
                     </div>
-                    <div id="chatitem">
-                        {% for chat in comment.comment_chats %}
+                    {% for chat in comment.1 %}
+                        <div id="chatitem">
                             {{ chat.chat_content }}
-                        {% endfor %}
-                    </div>
+                        </div>
+                    {% endfor %}
                 {% endfor %}
             </div>
         </div>
@@ -76,5 +77,12 @@
 {% endblock %}
 
 {% block body_script %}
+    <script>
+        $(".replycomment").each(function () {
+            $(this).click(function () {
+                $(this).after('<input />')
+            });
+        });
+    </script>
 {% endblock %}
 
