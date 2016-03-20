@@ -8,7 +8,6 @@ from omret.omretnews.forms import NewsArtiForm, NewQulicklyCommentForm, NewQulic
 import datetime, time
 from django.views.decorators.csrf import csrf_protect
 
-
 # Create your views here.
 def index(req):
     ##-------if no session or cannot find user by session,turn to login page----
@@ -167,7 +166,6 @@ def artiindex(req, index):
                 commentcontent = commentPost.cleaned_data['content']
                 newcomment = NewComments()
                 __setNewComment(newcomment, commentcontent, new, user)
-
                 try:
                     newcomment.save()
                     return HttpResponseRedirect('/arti' + index)
@@ -178,13 +176,19 @@ def artiindex(req, index):
             chatPost = NewQulicklyChatForm(req.POST)
             if chatPost.is_valid():
                 ##--------get content of comment's chat--------
-                chatcontent = chatPost.cleaded_data['content']
-                newcommentchat = NewCommentsChats()
+                chatcontent = chatPost.cleaned_data['content']
+                comment_id = req.POST.get('commentid')
 
+                comment = NewComments.objects.get(id=comment_id)
+
+                newcommentchat = NewCommentsChats()
+                __setNewCommentChat(newcommentchat,comment,chatcontent,new,user)
+
+                print chatcontent,comment_id
                 try:
                     newcommentchat.save()
-                    return HttpResponseRedirect('/arti'+index)
-                except Exception,e:
+                    return HttpResponseRedirect('/arti' + index)
+                except Exception, e:
                     print e
 
 
@@ -194,7 +198,7 @@ def artiindex(req, index):
     commentchatList = __getCommentsChats(comments, chats)
 
     response = render_to_response('newindex.html', {'username': user.name, 'new': new, 'commentform': commentform,
-                                                    'chatform':chatform,'commentchatlist': commentchatList, },
+                                                    'chatform': chatform, 'commentchatlist': commentchatList, },
                                   context_instance=RequestContext(req))
 
     return response
@@ -213,7 +217,7 @@ commentcontent
 
 def __setNewComment(comment, content, new, user):
     comment.comment_content = content
-    comment.article_id = new
+    comment.article = new
     comment.comment_user = user
 
 
@@ -227,11 +231,14 @@ user
 chatcontent
 -------
 '''
-def __setNewCommentChat(chat,comment,content,new,user):
+
+
+def __setNewCommentChat(chat, comment, content, new, user):
     chat.chat_content = content
-    chat.article_id = new
-    chat.comment_id = comment
+    chat.article = new
+    chat.comment = comment
     chat.chat_user = user
+
 
 ##---------get all Comments and Chats under the article---------
 def __getCommentsChats(comments, chats):
@@ -239,9 +246,10 @@ def __getCommentsChats(comments, chats):
     for comment in comments:
         chatList = []
         for chat in chats:
-            if chat.comment_id == comment.id:
+            print ('omretnews/__getCommentsChats'+str(chat.comment.id))
+            if chat.comment.id == comment.id:
                 chatList.append(chat)
-                chats.remove(chat)
+                #chats.remove(chat)
         commentChatList.append([comment, chatList])
 
     print commentChatList

@@ -23,9 +23,9 @@ class Topic(models.Model):
 
 
 class NewComments(models.Model):
-    article_id = models.ForeignKey('OmretNews')
+    article = models.ForeignKey('OmretNews')
     # comments under the comment
-    comment_id = models.ForeignKey('NewComments', null=True)
+    comment = models.ForeignKey('NewComments', null=True)
     comment_content = models.CharField(max_length=200)
     comment_time = models.DateTimeField(auto_now_add=True)
     comment_user = models.ForeignKey(logreg_models.User)
@@ -37,8 +37,8 @@ class NewComments(models.Model):
 
 
 class NewCommentsChats(models.Model):
-    article_id = models.ForeignKey('OmretNews')
-    comment_id = models.ForeignKey('NewComments')
+    article = models.ForeignKey('OmretNews')
+    comment = models.ForeignKey('NewComments')
     chat_content = models.CharField(max_length=200)
     chat_time = models.DateTimeField(auto_now_add=True)
     chat_user = models.ForeignKey(logreg_models.User)

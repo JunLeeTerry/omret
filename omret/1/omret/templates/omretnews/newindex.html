@@ -72,7 +72,8 @@
                             <div class="form-group">
                                 {{ chatform.content }}
                             </div>
-                            <button id="chatreply_button" type="submit" class="btn btn-primary" name="comment">回复</button>
+                            <input type="hidden" name="commentid" value="{{ comment.0.id }}" />
+                            <button id="chatreply_button" type="submit" class="btn btn-primary" name="chat">回复</button>
                         </form>
                     </div>
                 {% endfor %}
