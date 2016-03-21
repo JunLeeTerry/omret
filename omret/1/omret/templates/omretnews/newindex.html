@@ -1,7 +1,6 @@
 {% extends "userbase.html" %}
 {% block link %}
     <link rel="stylesheet" href="/static/css/omretnews/newindex.css">
-    <script src="/static/js/omretnews/newindex.js"></script>
 {% endblock %}
 
 {% block title %}
@@ -61,21 +60,55 @@
                             </small>
                         </div>
                     </div>
-                    {% for chat in comment.1 %}
-                        <div id="chatitem">
-                            {{ chat.chat_content }}
+                    <div class="row">
+
+                        <div class="col-md-1 col-xs-1">
                         </div>
-                    {% endfor %}
-                    <div id="chatreplypart">
-                        <form method="post">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                {{ chatform.content }}
+                        <div id="chatspart" class="col-md-10 col-xs-10">
+                            {% for chat in comment.1 %}
+                                <div id="chatitem">
+                                    <div class="row">
+                                        <div class="col-md-2 col-xs-2">
+                                            <div id="chatuser">
+                                                <strong>
+                                                    {{ chat.chat_user }}
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10 col-xs-10">
+                                            <div id="chatcontent">
+                                                {{ chat.chat_content }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="chatmenu">
+                                        <small>
+                                            {{ chat.chat_time }}
+                                        </small>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <div id="chatreplypart">
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <div id="chatformgroup" class="form-group">
+                                        {{ chatform.content }}
+                                    </div>
+                                    <input type="hidden" name="commentid" value="{{ comment.0.id }}"/>
+
+                                    <div id="chatactionbuttons">
+                                        <label id="chatcancle">取消</label>
+                                        <button id="chatreply_button" type="submit" class="btn btn-primary" name="chat">
+                                            回复
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
-                            <input type="hidden" name="commentid" value="{{ comment.0.id }}" />
-                            <button id="chatreply_button" type="submit" class="btn btn-primary" name="chat">回复</button>
-                        </form>
+                        </div>
+                        <div class="col-md-1 col-xs-1">
+                        </div>
                     </div>
+
                 {% endfor %}
             </div>
         </div>
@@ -88,11 +121,7 @@
 
 {% block body_script %}
     <script>
-        $(".replycomment").each(function () {
-            $(this).click(function () {
 
-            });
-        });
     </script>
 {% endblock %}
 

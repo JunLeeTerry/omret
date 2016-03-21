@@ -83,6 +83,7 @@
 
 #commentcontent {
     margin-bottom: 4px;
+    word-break:break-all;
 }
 
 .replycomment{
@@ -93,6 +94,7 @@
     text-decoration: underline;
 }
 
+/* chats part */
 #newchat {
     width:100%;
     height:35px;
@@ -100,10 +102,64 @@
     border-width: 1px;
     border-style:solid;
     border-color:#d8d8d8;
+    padding-left:15px;
+    padding-top:6px;
+    paddomg-bottom:6px;
+    padding-right:15px;
 }
 
 #newchat:focus{
     outline:none;
     padding-left:15px;
     padding-top:6px;
+    padding-bottom:6px;
+    padding-right:15px;
+}
+
+#chatspart{
+    border-radius: 2px;
+    border-width: 1px;
+    border-style:solid;
+    border-color:#d8d8d8;
+}
+
+#chatitem{
+    padding-top:5px;
+    padding-bottom:5px;
+    border-bottom-style: solid;
+    border-bottom-color: #d8d8d8;
+    border-bottom-width: 1px;
+}
+
+#chatmenu{
+    padding-left:16px;
+}
+
+#chatcontent{
+    word-break:break-all;
+}
+
+#chatreply_button{
+    float: right;
+    margin-bottom:9px;
+}
+
+#chatformgroup{
+    margin-top:8px;
+    margin-bottom:3px;
+}
+
+#chatcancle{
+    float:right;
+    padding-left:10px;
+    padding-right:18px;
+    font-size: 13px;
+    font-style: normal;
+    color:#006dcc;
+    padding-top:6px;
+}
+
+#chatcancle:hover{
+    text-decoration: underline;
+    cursor:pointer;
 }

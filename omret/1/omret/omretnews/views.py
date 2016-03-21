@@ -243,13 +243,14 @@ def __setNewCommentChat(chat, comment, content, new, user):
 ##---------get all Comments and Chats under the article---------
 def __getCommentsChats(comments, chats):
     commentChatList = []
+    tempchats = list(chats)
     for comment in comments:
         chatList = []
-        for chat in chats:
+        for chat in tempchats:
             print ('omretnews/__getCommentsChats'+str(chat.comment.id))
             if chat.comment.id == comment.id:
                 chatList.append(chat)
-                #chats.remove(chat)
+                tempchats.remove(chat)
         commentChatList.append([comment, chatList])
 
     print commentChatList
