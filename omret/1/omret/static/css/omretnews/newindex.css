@@ -121,6 +121,8 @@
     border-width: 1px;
     border-style:solid;
     border-color:#d8d8d8;
+
+    display:none;
 }
 
 #chatitem{
@@ -163,3 +165,4 @@
     text-decoration: underline;
     cursor:pointer;
 }
+

@@ -64,7 +64,7 @@
 
                         <div class="col-md-1 col-xs-1">
                         </div>
-                        <div id="chatspart" class="col-md-10 col-xs-10">
+                        <div id="chatspart" class="col-md-10 col-xs-10 chatspart">
                             {% for chat in comment.1 %}
                                 <div id="chatitem">
                                     <div class="row">
@@ -120,7 +120,19 @@
 {% endblock %}
 
 {% block body_script %}
-    <script>
+    <script type="text/javascript">
+        $('.replycomment').each(function () {
+                    $(this).click(function (e) {
+                        alert($(e.target).parents(".chatspart").context);
+                        if ($('.chatspart').is(':hidden')) {
+                            $('.chatspart').show(500);
+                        }
+                        else {
+                            $('.chatspart').hide(500);
+                        }
+                    });
+                }
+        );
 
     </script>
 {% endblock %}
