@@ -43,72 +43,83 @@
             </div>
             <div id="commentpart">
                 {% for comment in commentchatlist %}
-                    <div id="commentitem">
-                        <div id="commentuser">
-                            {{ comment.0.comment_user }}
-                        </div>
-                        <div id="commentcontent">
-                            {{ comment.0.comment_content }}
-                        </div>
-                        <div id="commentmenu">
-                            <small>
-                                {{ comment.0.comment_time|date:"Y-m-d G:i" }}
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <span class="glyphicon glyphicon-comment"></span>
-                                <span class="replycomment" style="cursor:pointer">回复评论</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </small>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-md-1 col-xs-1">
-                        </div>
-                        <div id="chatspart" class="col-md-10 col-xs-10 chatspart">
-                            {% for chat in comment.1 %}
-                                <div id="chatitem">
-                                    <div class="row">
-                                        <div class="col-md-2 col-xs-2">
-                                            <div id="chatuser">
-                                                <strong>
-                                                    {{ chat.chat_user }}
-                                                </strong>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-10 col-xs-10">
-                                            <div id="chatcontent">
-                                                {{ chat.chat_content }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="chatmenu">
-                                        <small>
-                                            {{ chat.chat_time }}
-                                        </small>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                            <div id="chatreplypart">
-                                <form method="post">
-                                    {% csrf_token %}
-                                    <div id="chatformgroup" class="form-group">
-                                        {{ chatform.content }}
-                                    </div>
-                                    <input type="hidden" name="commentid" value="{{ comment.0.id }}"/>
-
-                                    <div id="chatactionbuttons">
-                                        <label id="chatcancle">取消</label>
-                                        <button id="chatreply_button" type="submit" class="btn btn-primary" name="chat">
-                                            回复
-                                        </button>
-                                    </div>
-                                </form>
+                    <div id="commentsandchatspart">
+                        <div id="commentitem">
+                            <div id="commentuser">
+                                {{ comment.0.comment_user }}
+                            </div>
+                            <div id="commentcontent">
+                                {{ comment.0.comment_content }}
+                            </div>
+                            <div id="commentmenu">
+                                <small>
+                                    {{ comment.0.comment_time|date:"Y-m-d G:i" }}
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span class="glyphicon glyphicon-comment"></span>
+                                    <span class="replycomment" style="cursor:pointer">
+                                        <!--
+                                        {% if comment.1|length == 0 %}
+                                            添加回复
+                                        {% else %}
+                                            {{ comment.1|length }}条回复
+                                        {% endif %}
+                                        -->
+                                        显示回复
+                                    </span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </small>
                             </div>
                         </div>
-                        <div class="col-md-1 col-xs-1">
+                        <div class="row">
+
+                            <div class="col-md-1 col-xs-1">
+                            </div>
+                            <div id="chatspart" class="col-md-10 col-xs-10 chatspart">
+                                {% for chat in comment.1 %}
+                                    <div id="chatitem">
+                                        <div class="row">
+                                            <div class="col-md-2 col-xs-2">
+                                                <div id="chatuser">
+                                                    <strong>
+                                                        {{ chat.chat_user }}
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 col-xs-10">
+                                                <div id="chatcontent">
+                                                    {{ chat.chat_content }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="chatmenu">
+                                            <small>
+                                                {{ chat.chat_time }}
+                                            </small>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                <div id="chatreplypart">
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <div id="chatformgroup" class="form-group">
+                                            {{ chatform.content }}
+                                        </div>
+                                        <input type="hidden" name="commentid" value="{{ comment.0.id }}"/>
+
+                                        <div id="chatactionbuttons">
+                                            <label id="chatcancle">取消</label>
+                                            <button id="chatreply_button" type="submit" class="btn btn-primary"
+                                                    name="chat">
+                                                回复
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-xs-1">
+                            </div>
                         </div>
                     </div>
-
                 {% endfor %}
             </div>
         </div>
@@ -122,18 +133,28 @@
 {% block body_script %}
     <script type="text/javascript">
         $('.replycomment').each(function () {
-                    $(this).click(function (e) {
-                        alert($(e.target).parents(".chatspart").context);
-                        if ($('.chatspart').is(':hidden')) {
-                            $('.chatspart').show(500);
+                    $(this).click(function () {
+                        var chatpart = $(this).closest("#commentsandchatspart").find("#chatspart");
+
+                        if ($(chatpart).is(':hidden')) {
+                            $(chatpart).show(500);
+                            $(this).html("收起回复");
                         }
                         else {
-                            $('.chatspart').hide(500);
+                            $(chatpart).hide(500);
+                        /*
+                            {% if comment.1|length == 0 %}
+                                $(this).html("添加回复");
+                            {% else %}
+                                $(this).html("{{ comment.1|length }}条回复");
+                            {% endif %}
+                            */
+                            $(this).html("显示回复");
                         }
+
                     });
                 }
         );
 
     </script>
 {% endblock %}
-

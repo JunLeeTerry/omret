@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f13880-de7d-43ff-afe8-f00829dcd580" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/omret/1/omret/static/css/omretnews/newindex.css" afterPath="$PROJECT_DIR$/omret/1/omret/static/css/omretnews/newindex.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/omret/1/omret/templates/omretnews/newindex.html" afterPath="$PROJECT_DIR$/omret/1/omret/templates/omretnews/newindex.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/omret/1/omret/omretnews/views.py" afterPath="$PROJECT_DIR$/omret/1/omret/omretnews/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="omret.iws" />
@@ -35,11 +33,9 @@
           <file leaf-file-name="newindex.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/omret/1/omret/templates/omretnews/newindex.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.72996515">
-                  <caret line="87" column="39" selection-start-line="87" selection-start-column="39" selection-end-line="87" selection-end-column="39" />
-                  <folding>
-                    <element signature="n#style#0;n#span#1;n#small#0;n#div#2;n#div#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
-                  </folding>
+                <state vertical-scroll-proportion="0.68641114">
+                  <caret line="151" column="44" selection-start-line="151" selection-start-column="44" selection-end-line="151" selection-end-column="44" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -73,7 +69,7 @@
           <file leaf-file-name="newindex.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/omret/1/omret/static/css/omretnews/newindex.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.2389706">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="124" column="17" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
                   <folding />
                 </state>
@@ -163,6 +159,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -439,7 +436,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -698,7 +694,7 @@
     <frame x="0" y="25" width="1366" height="743" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25227273" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26363635" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1111,7 +1107,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/omret/1/omret/static/css/omretnews/newindex.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2389706">
+        <state vertical-scroll-proportion="0.0">
           <caret line="124" column="17" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
           <folding />
         </state>
@@ -1119,11 +1115,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/omret/1/omret/templates/omretnews/newindex.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72996515">
-          <caret line="87" column="39" selection-start-line="87" selection-start-column="39" selection-end-line="87" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#span#1;n#small#0;n#div#2;n#div#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.68641114">
+          <caret line="151" column="44" selection-start-line="151" selection-start-column="44" selection-end-line="151" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
