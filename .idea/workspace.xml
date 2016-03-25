@@ -186,6 +186,7 @@
     <property name="settings.editor.splitter.proportion" value="0.25722542" />
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="SearchEverywhereHistoryKey" value="git&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
