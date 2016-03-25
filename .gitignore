@@ -4,3 +4,4 @@
 .svn/
 settings.py
 *.wsgic
+.idea/
