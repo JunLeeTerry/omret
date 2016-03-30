@@ -142,19 +142,13 @@
                         }
                         else {
                             $(chatpart).hide(500);
-                        /*
-                            {% if comment.1|length == 0 %}
-                                $(this).html("添加回复");
-                            {% else %}
-                                $(this).html("{{ comment.1|length }}条回复");
-                            {% endif %}
-                            */
                             $(this).html("显示回复");
                         }
 
                     });
                 }
-        );
+        )
+        ;
 
     </script>
 {% endblock %}
