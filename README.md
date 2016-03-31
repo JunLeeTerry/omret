@@ -105,6 +105,8 @@ BASE_DIR = os.path.dirname(FILE_PATH)+"/"
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,'templates/'),
     os.path.join(BASE_DIR,'templates/logreg/'),
+    os.path.join(BASE_DIR,'templates/omretuser/'),
+    os.path.join(BASE_DIR,'templates/omretnews/'),
 )
 
 INSTALLED_APPS = (
@@ -116,6 +118,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'omret',
     'omret.logreg',
+    'omret.omretuser',
+    'omret.omretnews',
 )
 
 LOGGING = {
