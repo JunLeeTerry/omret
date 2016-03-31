@@ -44,4 +44,7 @@ urlpatterns = patterns('',
     url(r'^index/$',omretnews_views.index),
     url(r'^postarti/$',omretnews_views.postarti),
     url(r'^arti(\d+)/$',omretnews_views.artiindex),
+
+    ##-----test validateok---------
+    url(r'^validateok/$',views.test),
 )
