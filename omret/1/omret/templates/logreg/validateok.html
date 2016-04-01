@@ -3,32 +3,40 @@
 <html>
 <head>
     <title>OK</title>
-    {#<link rel="stylesheet" href="/static/other/bootstrap-3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/static/other/bootstrap-3.3.5/css/bootstrap-theme.min.css">#}
-	<script src="./static/other/jquery/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="/static/other/bootstrap-3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/other/bootstrap-3.3.5/css/bootstrap-theme.min.css">
+    <script src="/static/other/jquery/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="/static/css/logreg/validateok.css">
 </head>
 <body>
-	<div style="margin-bottom:10px;"><span>OK!</span></div>
-	<div style="font-size:100px"><a id="sec" href="./omretnews/index.html"></a></div>
-	<div><a id="Links" href="./omretnews/index.html"></a></div>
+<div id="container">
+    <div id="titlepart" style="margin-bottom:30px;"><span>验证成功</span></div>
+    <div id=secondpart style="font-size:60px;margin-bottom:30px;">
+        <a id="sec" href="/index/"></a>
+        <div class="radar"></div>
+        <div class="radar"></div>
+        <div class="radar"></div>
+
+    </div>
+    <div><a id="Links" href="/index/"></a></div>
 </div>
 <script language="javascript">
-	var secs = 3; //倒计时的秒数
-	function doUpdate(num) {
-		$("#sec").text(num);
-		$("#Links").text("秒后自动跳转,或点击后直接跳转");
-		if (num == 0) {
-			window.location.href = $("#Links").attr("href");
-		}
-	}
-	function Load(){
-		for(var i = secs; i >= 0; i--) {
-			window.setTimeout("doUpdate(" + i + ")", (secs-i) * 1000);
-		}
-	}
-	$(function(){
-		Load();
-	});
+    var secs = 10; //倒计时的秒数
+    function doUpdate(num) {
+        $("#sec").text(num);
+        $("#Links").text("倒计时结束将自动转跳,请稍等...");
+        if (num == 0) {
+            window.location.href = $("#Links").attr("href");
+        }
+    }
+    function Load() {
+        for (var i = secs; i >= 0; i--) {
+            window.setTimeout("doUpdate(" + i + ")", (secs - i) * 1000);
+        }
+    }
+    $(function () {
+        Load();
+    });
 </script>
 </body>
 
