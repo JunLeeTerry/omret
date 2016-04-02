@@ -35,7 +35,7 @@ def index(req):
     print str(numboxdata) + ' run time:' + str(end - start)
 
     response = render_to_response('index.html', {'username': user.name, 'topiclist': topicandNum, 'newslist': news,
-                                                 'numboxdata': numboxdata})
+                                                 'numboxdata': numboxdata},context_instance=RequestContext(req))
     return response
 
 

@@ -1,4 +1,5 @@
 {% extends "userbase.html" %}
+{% load pagination_tags %}
 
 {% block link %}
     <link rel="stylesheet" href="/static/css/omretnews/index.css">
@@ -47,6 +48,7 @@
             </div>
             <div id="newspart">
                 <div>
+                    {% autopaginate newslist 10 %}
                     {% for new in newslist %}
                         <div id="newitem-container">
                             <a id="newslink" href="/arti{{ new.id }}/" target="_blank">
@@ -68,6 +70,7 @@
                             </div>
                         </div>
                     {% endfor %}
+                    {% paginate %}
                 </div>
             </div>
         </div>

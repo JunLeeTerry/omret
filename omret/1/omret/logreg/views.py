@@ -159,7 +159,7 @@ def validatemail(req):
             user_back.save()
             uac.activation_code = u'already_activated'
             uac.save()
-            return HttpResponse('sign up ok!')
+            return render_to_response('validateok.html',{})
     return HttpResponse('sign up error')
         
 
