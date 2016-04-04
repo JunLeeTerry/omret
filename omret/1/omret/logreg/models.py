@@ -39,7 +39,7 @@ class UserActivationCode(models.Model):
         ##------domain name address is sae----------
         #html_content = u'<a href="http://r305.sinaapp.com/validatemail/?username=%s&code=%s">http://r305.sinaapp.com/validatemail/?username=%s&code=%s</a>' % (self.user.name,self.activation_code,self.user.name,self.activation_code)
         ##------domain name address is localhost----------
-        html_content = u'<h3>请点击下面的链接完成注册.<h3><br><a href="http://192.168.0.12:8080/validatemail/?username=%s&code=%s">http://127.0.0.1:8080/validatemail/?username=%s&code=%s</a>' % (self.user.name,self.activation_code,self.user.name,self.activation_code)
+        html_content = u'<h3>请点击下面的链接完成注册.<h3><br><a href="http://127.0.0.1:8080/validatemail/?username=%s&code=%s">http://127.0.0.1:8080/validatemail/?username=%s&code=%s</a>' % (self.user.name,self.activation_code,self.user.name,self.activation_code)
         msg = EmailMultiAlternatives(subject,text_content,from_email,[to_email])
         msg.attach_alternative(html_content,'text/html')
         EmailThread(msg).start()
