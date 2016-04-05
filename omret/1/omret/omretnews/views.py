@@ -250,7 +250,7 @@ def __getCommentsChats(comments, chats):
             #print ('omretnews/__getCommentsChats'+str(chat.comment.id))
             if chat.comment.id == comment.id:
                 chatList.append(chat)
-                tempchats.remove(chat)
+                #tempchats.remove(chat)
         commentChatList.append([comment, chatList])
 
     #/print commentChatList
