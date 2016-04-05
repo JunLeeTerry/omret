@@ -49,7 +49,8 @@ class NewQulicklyChatForm(forms.Form):
     content = forms.CharField(required=True,
                               widget=forms.Textarea(
                                   attrs={"id": "newchat",
+                                         "class": "newchat",
                                          "style": "resize:none",
-                                         "autoHeight":"true",
+                                         "autoHeight": "true",
                                          }
                               ))

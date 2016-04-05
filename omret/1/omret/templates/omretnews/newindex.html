@@ -107,7 +107,7 @@
                                         <input type="hidden" name="commentid" value="{{ comment.0.id }}"/>
 
                                         <div id="chatactionbuttons">
-                                            <label id="chatcancle">取消</label>
+                                            <label id="chatcancle" class="chatcancle">取消</label>
                                             <button id="chatreply_button" type="submit" class="btn btn-primary"
                                                     name="chat">
                                                 回复
@@ -150,13 +150,17 @@
             });
         });
 
-        $('#newchat').focus(function(){
-            $(this).closest("#chatreplypart").find("#chatactionbuttons").show(500);
-        });
+        $('.newchat').each(function () {
+            $(this).focus(function () {
+                $(this).closest("#chatreplypart").find("#chatactionbuttons").show(500);
+            });
+        })
 
-        $('#chatcancle').click(function(){
-            $(this).parent('#chatactionbuttons').hide(500);
-        });
+        $('.chatcancle').each(function () {
+            $(this).click(function () {
+                $(this).parent('#chatactionbuttons').hide(500);
+            });
+        })
 
     </script>
 {% endblock %}
