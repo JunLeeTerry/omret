@@ -137,19 +137,23 @@
                 var chatpart = $(this).closest("#commentsandchatspart").find("#chatspart");
 
                 if ($(chatpart).is(':hidden')) {
-                    $(chatpart).children(':not(:last)').show(500);
+                    //$(chatpart).children(':not(:last)').show(500);
+                    $(chatpart).show(500);
                     $(this).html("收起回复");
                 }
                 else {
-                    $(chatpart).children(':not(:last)').hide(500);
+                    //$(chatpart).children(':not(:last)').hide(500);
+                    $(chatpart).hide(500);
                     $(this).html("显示回复");
                 }
 
             });
         });
-        $('#chatreplypart').focus(function(){
-            $(this).children('#chatactionbuttons').show(500);
+
+        $('#newchat').focus(function(){
+            $(this).closest("#chatreplypart").find("#chatactionbuttons").show(500);
         });
+
         $('#chatcancle').click(function(){
             $(this).parent('#chatactionbuttons').hide(500);
         });
