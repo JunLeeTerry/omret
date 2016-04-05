@@ -133,22 +133,26 @@
 {% block body_script %}
     <script type="text/javascript">
         $('.replycomment').each(function () {
-                    $(this).click(function () {
-                        var chatpart = $(this).closest("#commentsandchatspart").find("#chatspart");
+            $(this).click(function () {
+                var chatpart = $(this).closest("#commentsandchatspart").find("#chatspart");
 
-                        if ($(chatpart).is(':hidden')) {
-                            $(chatpart).show(500);
-                            $(this).html("收起回复");
-                        }
-                        else {
-                            $(chatpart).hide(500);
-                            $(this).html("显示回复");
-                        }
-
-                    });
+                if ($(chatpart).is(':hidden')) {
+                    $(chatpart).children(':not(:last)').show(500);
+                    $(this).html("收起回复");
                 }
-        )
-        ;
+                else {
+                    $(chatpart).children(':not(:last)').hide(500);
+                    $(this).html("显示回复");
+                }
+
+            });
+        });
+        $('#chatreplypart').focus(function(){
+            $(this).children('#chatactionbuttons').show(500);
+        });
+        $('#chatcancle').click(function(){
+            $(this).parent('#chatactionbuttons').hide(500);
+        });
 
     </script>
 {% endblock %}
