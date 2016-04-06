@@ -5,8 +5,10 @@ from omret.logreg.models import User
 from omret.omretnews.models import Topic, OmretNews, NewComments, NewCommentsChats
 from omret.omretuser.views import hasUserSession, getUserFromSession
 from omret.omretnews.forms import NewsArtiForm, NewQulicklyCommentForm, NewQulicklyChatForm
+import omret.omretnews.models
 import datetime, time
 from django.views.decorators.csrf import csrf_protect
+import ReplySignals
 
 # Create your views here.
 def index(req):
@@ -167,6 +169,9 @@ def artiindex(req, index):
                 newcomment = NewComments()
                 __setNewComment(newcomment, commentcontent, new, user)
                 try:
+                    ##-------test signal--------
+                    ReplySignals.replySignal.send(omret.omretnews.models,user)
+
                     newcomment.save()
                     return HttpResponseRedirect('/arti' + index)
                 except Exception, e:
@@ -253,5 +258,6 @@ def __getCommentsChats(comments, chats):
                 #tempchats.remove(chat)
         commentChatList.append([comment, chatList])
 
-    #/print commentChatList
+    #print commentChatList
     return commentChatList
+
