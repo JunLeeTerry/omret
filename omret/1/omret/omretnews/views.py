@@ -8,7 +8,7 @@ from omret.omretnews.forms import NewsArtiForm, NewQulicklyCommentForm, NewQulic
 import omret.omretnews.models
 import datetime, time
 from django.views.decorators.csrf import csrf_protect
-import ReplySignals
+from replysignals import ReplySignals
 
 # Create your views here.
 def index(req):
@@ -170,7 +170,7 @@ def artiindex(req, index):
                 __setNewComment(newcomment, commentcontent, new, user)
                 try:
                     ##-------test signal--------
-                    ReplySignals.replySignal.send(omret.omretnews.models,user)
+                    ReplySignal().replySignal.send(omret.omretnews.models,user)
 
                     newcomment.save()
                     return HttpResponseRedirect('/arti' + index)
