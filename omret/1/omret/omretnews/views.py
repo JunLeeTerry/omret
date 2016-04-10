@@ -173,6 +173,7 @@ def artiindex(req, index):
                     newcomment.save()
                     ##----save notification of arti owner------
 
+
                     return HttpResponseRedirect('/arti' + index)
                 except Exception, e:
                     print e
@@ -260,3 +261,20 @@ def __getCommentsChats(comments, chats):
 
     # print commentChatList
     return commentChatList
+
+
+'''
+set values into Notification model
+
+-------
+user //the user is who need to notificate
+article
+type //arti reply or comment reply
+-------
+'''
+
+
+def __setNotification(notification, user, arti, type):
+    notification.user = user
+    notification.article = arti
+    notification.type = type

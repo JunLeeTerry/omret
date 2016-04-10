@@ -50,5 +50,5 @@ class NewCommentsChats(models.Model):
 class Notification(models.Model):
     user = models.ForeignKey(logreg_models.User)
     article = models.ForeignKey('OmretNews')
-    #type = models.CharField(choices=(('comments', 'comments'), ('chats', 'chats')), max_length=15)
-    link = models.CharField(max_length=200)
+    type = models.CharField(choices=(('comments', 'comments'), ('chats', 'chats')), max_length=15)
+    #link = models.CharField(max_length=200)
