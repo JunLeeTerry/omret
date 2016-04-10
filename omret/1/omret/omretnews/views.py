@@ -2,13 +2,13 @@
 from django.shortcuts import render_to_response, RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from omret.logreg.models import User
-from omret.omretnews.models import Topic, OmretNews, NewComments, NewCommentsChats
+from omret.omretnews.models import Topic, OmretNews, NewComments, NewCommentsChats, Notification
 from omret.omretuser.views import hasUserSession, getUserFromSession
 from omret.omretnews.forms import NewsArtiForm, NewQulicklyCommentForm, NewQulicklyChatForm
 import omret.omretnews.models
 import datetime, time
 from django.views.decorators.csrf import csrf_protect
-from replysignals import ReplySignals
+
 
 # Create your views here.
 def index(req):
@@ -28,7 +28,7 @@ def index(req):
     numboxdata = []
     start = time.time()
     try:
-        personnews = OmretNews.objects.filter(author=user.name)
+        personnews = OmretNews.objects.filter(author=user)
         numboxdata = __comDataofNumbox(personnews)
     except:
         numboxdata = [0, 0, 0]
@@ -37,7 +37,7 @@ def index(req):
     print str(numboxdata) + ' run time:' + str(end - start)
 
     response = render_to_response('index.html', {'username': user.name, 'topiclist': topicandNum, 'newslist': news,
-                                                 'numboxdata': numboxdata},context_instance=RequestContext(req))
+                                                 'numboxdata': numboxdata}, context_instance=RequestContext(req))
     return response
 
 
@@ -115,7 +115,7 @@ def postarti(req):
 
             content = artiformPost.cleaned_data['content']
             newsarti = OmretNews()
-            __setNewsArti(newsarti, title, topic, content, user.name)
+            __setNewsArti(newsarti, title, topic, content, user)
 
             ##-------if save artical successfully,return to index page--------
             ##-------if save error,stay in the postarti page and hint error message--------
@@ -169,10 +169,10 @@ def artiindex(req, index):
                 newcomment = NewComments()
                 __setNewComment(newcomment, commentcontent, new, user)
                 try:
-                    ##-------test signal--------
-                    ReplySignal().replySignal.send(omret.omretnews.models,user)
-
+                    ##----save comment-------
                     newcomment.save()
+                    ##----save notification of arti owner------
+
                     return HttpResponseRedirect('/arti' + index)
                 except Exception, e:
                     print e
@@ -187,9 +187,9 @@ def artiindex(req, index):
                 comment = NewComments.objects.get(id=comment_id)
 
                 newcommentchat = NewCommentsChats()
-                __setNewCommentChat(newcommentchat,comment,chatcontent,new,user)
+                __setNewCommentChat(newcommentchat, comment, chatcontent, new, user)
 
-                print chatcontent,comment_id
+                print chatcontent, comment_id
                 try:
                     newcommentchat.save()
                     return HttpResponseRedirect('/arti' + index)
@@ -252,12 +252,11 @@ def __getCommentsChats(comments, chats):
     for comment in comments:
         chatList = []
         for chat in tempchats:
-            #print ('omretnews/__getCommentsChats'+str(chat.comment.id))
+            # print ('omretnews/__getCommentsChats'+str(chat.comment.id))
             if chat.comment.id == comment.id:
                 chatList.append(chat)
-                #tempchats.remove(chat)
+                # tempchats.remove(chat)
         commentChatList.append([comment, chatList])
 
-    #print commentChatList
+    # print commentChatList
     return commentChatList
-

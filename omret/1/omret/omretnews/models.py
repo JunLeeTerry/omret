@@ -4,7 +4,7 @@ from omret.logreg import models as logreg_models
 
 # Create your models here.
 class OmretNews(models.Model):
-    author = models.CharField(max_length=50)
+    author = models.ForeignKey(logreg_models.User)
     up_votes = models.DecimalField(max_digits=19, decimal_places=10)
     down_votes = models.DecimalField(max_digits=19, decimal_places=10)
     subtime = models.DateTimeField(auto_now_add=True)
@@ -47,3 +47,8 @@ class NewCommentsChats(models.Model):
         return self.chat_content
 
 
+class Notification(models.Model):
+    user = models.ForeignKey(logreg_models.User)
+    article = models.ForeignKey('OmretNews')
+    #type = models.CharField(choices=(('comments', 'comments'), ('chats', 'chats')), max_length=15)
+    link = models.CharField(max_length=200)
