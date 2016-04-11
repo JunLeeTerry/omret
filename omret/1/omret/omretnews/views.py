@@ -171,8 +171,12 @@ def artiindex(req, index):
                 try:
                     ##----save comment-------
                     newcomment.save()
-                    ##----save notification of arti owner------
 
+                    ##----save notification of arti owner------
+                    if new.author.name != user.name:
+                        notification = Notification()
+                        __setNotification(notification,new.author,new,'comments')
+                        notification.save()
 
                     return HttpResponseRedirect('/arti' + index)
                 except Exception, e:
@@ -192,7 +196,15 @@ def artiindex(req, index):
 
                 print chatcontent, comment_id
                 try:
+                    ##-----save chat--------
                     newcommentchat.save()
+
+                    ##-----save notification of comment owner------
+                    if comment.comment_user.name != user.name:
+                        notification = Notification()
+                        __setNotification(notification,comment.comment_user,new,'chats')
+                        notification.save()
+
                     return HttpResponseRedirect('/arti' + index)
                 except Exception, e:
                     print e
