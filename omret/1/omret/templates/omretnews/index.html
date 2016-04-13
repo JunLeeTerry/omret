@@ -81,7 +81,7 @@
                         <small>Personal Dynamics</small>
                     </p>
                 </div>
-                <div id="personchartcontainer" >
+                <div id="personchartcontainer">
                     <div id="articalinfo" class="row">
 
                         <div id="art_daynum" class="numbox col-md-4 col-xs-4">
@@ -134,9 +134,22 @@
             </div>
             <div id="noticontainer" class="board_container">
                 <div id="notiboard_title" class="board_title">
-
+                    <p>
+                        <strong>消息提醒</strong>
+                        <small>Notification</small>
+                    </p>
                 </div>
-                <div id="border"
+                <div id="notiboard_container">
+                    {% for notiitem in notilist %}
+                        <div>
+                            {% if notiitem.type == 'comments' %}
+                                <p><strong>{{ notiitem.article.title }}</strong>&nbsp;有新的评论</p>
+                            {% elif notiitem.type == 'chats' %}
+                                <p><strong>{{ notiitem.article.title }}</strong>&nbsp;的评论有新的回复</p>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

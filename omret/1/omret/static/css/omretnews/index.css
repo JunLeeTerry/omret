@@ -9,7 +9,7 @@ body{
     background:#ffffff;
     border-radius:0px;
     margin-bottom:0px;
-    height:10px;
+    height:0px;
 }
 
 #datapart {
@@ -194,6 +194,7 @@ body{
     font-weight: 700;
     font-size:25px;
     padding-left:0px;
+    word-break:break-all;
 
 }
 
@@ -208,3 +209,23 @@ body{
 }
 
 /* notification part */
+#notiboard_title p{
+    text-align:center;
+    height:100%;
+    padding-top:10px;
+    font-size:15px;
+}
+
+#notiboard_title p small{
+    padding-left:20px;
+    font-size:13px;
+}
+
+#notiboard_container{
+    padding-left:15px;
+    padding-top:14px;
+}
+
+#noticontainer{
+    padding-bottom:10px;
+}

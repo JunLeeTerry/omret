@@ -10,7 +10,7 @@ class OmretNews(models.Model):
     subtime = models.DateTimeField(auto_now_add=True)
     # subday = models.DateField(auto_now_add=True)
     topic = models.ForeignKey('Topic')
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=30)
     content = models.CharField(max_length=1000)
 
 

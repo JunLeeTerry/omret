@@ -34,10 +34,13 @@ def index(req):
         numboxdata = [0, 0, 0]
     end = time.time()
     # -----test the numboxdata and run time-----
-    print str(numboxdata) + ' run time:' + str(end - start)
+    #print str(numboxdata) + ' run time:' + str(end - start)
+
+    ##-------get notification of user--------
+    notilist = Notification.objects.filter(user=user)
 
     response = render_to_response('index.html', {'username': user.name, 'topiclist': topicandNum, 'newslist': news,
-                                                 'numboxdata': numboxdata}, context_instance=RequestContext(req))
+                                                 'numboxdata': numboxdata,'notilist':notilist}, context_instance=RequestContext(req))
     return response
 
 
