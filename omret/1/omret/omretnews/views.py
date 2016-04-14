@@ -158,6 +158,14 @@ def artiindex(req, index):
     ##------get specific news by index--------
     new = OmretNews.objects.get(id=index)
 
+    ##------come from notification part------
+    if req.method == 'GET' and req.GET.has_key('noti'):
+        readednotis = Notification.objects.filter(article=new)
+        try:
+            readednotis.delete()
+        except Exception,e:
+            print e
+
     ##------quickly reply part--------
     ##------get quickly reply form object-------
     commentform = NewQulicklyCommentForm()

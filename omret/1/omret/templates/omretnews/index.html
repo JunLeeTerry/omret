@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/static/css/omretnews/index.css">
     <link rel="stylesheet" href="/static/other/bootstrap-3.3.5/css/buttons.css">
     <script src="/static/other/chart/Chart.min.js"></script>
+    <script src="/static/js/omretnews/index.js"></script>
 {% endblock %}
 
 {% block title %}
@@ -141,12 +142,14 @@
                 </div>
                 <div id="notiboard_container">
                     {% for notiitem in notilist %}
-                        <div>
-                            {% if notiitem.type == 'comments' %}
-                                <p><strong>{{ notiitem.article.title }}</strong>&nbsp;有新的评论</p>
-                            {% elif notiitem.type == 'chats' %}
-                                <p><strong>{{ notiitem.article.title }}</strong>&nbsp;的评论有新的回复</p>
-                            {% endif %}
+                        <div class="notiitem">
+                            <a href="/arti{{ notiitem.article.id }}?noti={{ notiitem.article.id }}">
+                                {% if notiitem.type == 'comments' %}
+                                    <p><strong>{{ notiitem.article.title }}</strong>&nbsp;有新的评论</p>
+                                {% elif notiitem.type == 'chats' %}
+                                    <p><strong>{{ notiitem.article.title }}</strong>&nbsp;的评论有新的回复</p>
+                                {% endif %}
+                            </a>
                         </div>
                     {% endfor %}
                 </div>

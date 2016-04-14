@@ -229,3 +229,7 @@ body{
 #noticontainer{
     padding-bottom:10px;
 }
+
+.notiitem p{
+    font-size: 13px;
+}
