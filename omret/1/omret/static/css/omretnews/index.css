@@ -1,9 +1,7 @@
-/*
 body{
-    background-image:url(/static/img/b_index_1.png);
+    background-image:url(/static/img/b2.png);
     background-repeat: repeat;
 }
-*/
 
 .progress{
     background:#ffffff;
@@ -22,6 +20,7 @@ body{
 #newspart {
     height:500px;
     padding:15px;
+
 }
 
 #personalpart {
@@ -62,6 +61,7 @@ body{
     width:100%;
     padding-bottom:20px;
     margin-left: 5px;
+    background:#ffffff;
 }
 /*#personalcontainer{
     border-style:solid;
@@ -178,6 +178,7 @@ body{
     padding-bottom:4px;
     margin-top:8px;
     margin-bottom:20px;
+    background:#ffffff;
 }
 
 #newstag-container{
