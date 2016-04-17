@@ -6,21 +6,19 @@
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     -->
     <script>
-         tinymce.init({
-             selector:'#omrettinymce',
-             theme:'modern',
-             elementpath:false,
-             menubar:false,
-             resize:false,
-             statusbar:false,
-             height:300,
-             language:'zh_CN',
-             plugins:'link image preview fullscreen insertdatetime emoticons textcolor',
-             toolbar1:'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright | \
-             styleselect | forecolor backcolor | cut copy paste | bullist numlist | removeformat link image | \
-             preview fullscreen',
-             //toolbar2:'link image | preview fullscreen | insertdatetime emoticons',
-         });
+        tinymce.init({
+            selector: '#omrettinymce',
+            theme: 'modern',
+            elementpath: false,
+            menubar: false,
+            resize: false,
+            statusbar: false,
+            height: 300,
+            language: 'zh_CN',
+            plugins: 'link image preview fullscreen textcolor',
+            toolbar1: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright | forecolor backcolor | bullist numlist | link image | preview fullscreen',
+            //toolbar2:'link image | preview fullscreen | insertdatetime emoticons',
+        });
     </script>
 {% endblock %}
 
@@ -35,10 +33,12 @@
                 <form method="post">
                     {% csrf_token %}
                     <label class="control-label">标题</label>
+
                     <div class="form-group">
                         {{ artiform.title }}
                     </div>
                     <label class="control-label">主题</label>
+
                     <div class="form-group">
                         {{ artiform.topic }}
                     </div>
