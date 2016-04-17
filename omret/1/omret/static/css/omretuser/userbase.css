@@ -35,10 +35,10 @@
 
 #footer{
     background-color:#265a88;
-    height: 130px;
+    height: 110px;
     margin-top: 50px;
-    padding-top:50px;
-    padding-bottom:50px;
+    padding-top:45px;
+    padding-bottom:45px;
     text-align: center;
 }
 
@@ -65,6 +65,3 @@
     text-decoration: underline;
 }
 
-#footer-logo{
-
-}
