@@ -167,3 +167,6 @@
     cursor:pointer;
 }
 
+#chatactionbuttons{
+    display: none;
+}
