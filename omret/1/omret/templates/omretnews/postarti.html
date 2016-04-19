@@ -15,11 +15,12 @@
             statusbar: false,
             height: 300,
             language: 'zh_CN',
-            plugins: 'link image preview fullscreen textcolor autolink',
-            toolbar1: 'bold italic underline | alignleft aligncenter alignright | forecolor backcolor | bullist numlist | link image | preview fullscreen',
+            plugins: 'link image preview fullscreen textcolor autolink insertimage',
+            toolbar1: 'bold italic underline | alignleft aligncenter alignright | forecolor backcolor | bullist numlist | link image insertimage | preview fullscreen',
             //toolbar2:'link image | preview fullscreen | insertdatetime emoticons',
             file_browser_callback: function (field_name, url, type, win) {
-                if (type == 'image') $('#my_form input').click();
+                if (type == 'image')
+                    $('#imagepicker_form input').click();
             }
         });
     </script>
@@ -35,10 +36,10 @@
             <div id="content-part">
                 <iframe id="form_target" name="form_target" style="display:none"></iframe>
 
-                <form id="my_form" action="/upload/" target="form_target" method="post" enctype="multipart/form-data"
+                <form id="imagepicker_form" action="/upload/" target="form_target" method="post" enctype="multipart/form-data"
                       style="width:0px;height:0;overflow:hidden">
-                    <input name="image" type="file"
-                           onchange="$('#my_form').submit();this.value='';">
+                    <input name="image" type="file" accept="image/*"
+                           onchange="$('#imagepicker_form').submit();this.value='';">
                 </form>
                 <form method="post">
                     {% csrf_token %}
