@@ -7,8 +7,8 @@ function wordTip(dom, maxSize) {
         dom.value = dom.value.substring(0, maxSize);
     }
     var remainSize = maxSize - dom.val().length;
-    tip = $("<div class='tip'>(" + remainSize + "/" + maxSize + ")</div>");
-    $(tip).after(dom);
+    tip = "<div class='tip'>(" + remainSize + "/" + maxSize + ")</div>";
+    $(dom).after(tip);
     //$('<div>123</div>').after(dom);
 
     var left = dom.offset().left;
