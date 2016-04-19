@@ -1,6 +1,8 @@
 {% extends "userbase.html" %}
 {% block link %}
     <link rel="stylesheet" href="/static/css/omretnews/newindex.css">
+    <link rel="stylesheet" href="/static/css/util.css">
+    <script src="/static/js/util.js"></script>
 {% endblock %}
 
 {% block title %}
@@ -183,5 +185,10 @@
                 document.body.scrollTop = parseInt(arr[1]);
             }
         }
+
+        $('body').find('textarea').bind("keyup", function(){
+           wordTip($(this), 200)
+        });
+
     </script>
 {% endblock %}
