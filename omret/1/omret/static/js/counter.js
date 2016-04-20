@@ -11,12 +11,12 @@ function wordTip(dom, maxSize) {
     tip = "<div class='tip'>(" + remainSize + "/" + maxSize + ")</div>";
     $(dom).after(tip);
 
-    //var left = dom.offset().left;
-    var top = dom.offset().top;
+    var left = $('.tip').position().left;
+    var top = $('.tip').position().top;
     var width = dom.width();
-    //var height = dom.height();
+    var height = dom.height();
     $('.tip').css({
-        'left': width - 60,
-        'top': top  - 8
+        'left':  width - 45,
+        'top': top - 22
     });
 }
