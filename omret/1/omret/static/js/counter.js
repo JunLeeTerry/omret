@@ -19,4 +19,8 @@ function wordTip(dom, maxSize) {
         'left':  width - 45,
         'top': top - 22
     });
+
+    $(dom).focusout(function(){
+        $('.tip').remove();
+    })
 }
