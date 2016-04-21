@@ -2,6 +2,8 @@
 {% block link %}
     <link rel="stylesheet" href="/static/css/omretnews/postarti.css">
     <script type="text/javascript" src="/static/other/tinymce/js/tinymce/tinymce.min.js"></script>
+    <link rel="stylesheet" href="/static/css/counter.css">
+    <script src="/static/js/counter.js"></script>
     <!--
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     -->
@@ -113,6 +115,7 @@
 
 {% block body_script %}
     <script>
+        //---modal part-----
         var uploadpart = function () {
             $("#uploadimage_content").show();
             $("#referimage_content").hide();
@@ -143,5 +146,12 @@
             tinymce.get("omrettinymce").execCommand('mceInsertContent', false, "<img src=" + imageurl + ">");
             resetInsertImage();
         });
+        //-------------------
+
+        //counter
+        $('body').find('#titleform').bind("keydown", function(){
+           wordTip($(this), 30,-80,22)
+        });
+
     </script>
 {% endblock %}
