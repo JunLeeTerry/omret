@@ -33,3 +33,18 @@
     border-radius: 4px;
 
 }
+
+.modaltext{
+    font-weight: bold;
+    color: #006dcc;
+}
+
+.modaltext:hover{
+    text-decoration: underline;
+    cursor:pointer;
+}
+
+#referimage_content{
+    display: none;
+}
+
