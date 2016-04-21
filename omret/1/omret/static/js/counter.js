@@ -4,8 +4,8 @@
 function wordTip(dom, maxSize) {
     var tip;
     $('.tip').remove();
-    if (dom.val().length > maxSize) {
-        dom.value = dom.value.substring(0, maxSize);
+    if (dom.val().length >= maxSize) {
+        dom.val(dom.val().substring(0, maxSize));
     }
     var remainSize = maxSize - dom.val().length;
     tip = "<div class='tip'>(" + remainSize + "/" + maxSize + ")</div>";
