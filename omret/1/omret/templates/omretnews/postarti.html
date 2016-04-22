@@ -126,7 +126,8 @@
         }
         var resetInsertImage = function(){
             $("#insertimageModal").modal('hide');
-            referimage.value="";
+            
+            $("#referimage_input").val("");
             uploadpart();
         }
         $("#uploadimage_text").click(function () {
@@ -138,11 +139,8 @@
         });
 
         $("#referimage_sure").click(function () {
-            var referimage = document.getElementById("referimage_input");
-            var imageurl = referimage.value;
+            var imageurl = $("#referimage_input").val();
 
-            //var editor = document.getElementById("omrettinymce");
-            //tinymce.Editor.insertContent("#omrettinymce","<img src=\""+imageurl+"\">");
             tinymce.get("omrettinymce").execCommand('mceInsertContent', false, "<img src=" + imageurl + ">");
             resetInsertImage();
         });

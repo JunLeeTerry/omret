@@ -1,3 +1,4 @@
 Django==1.5
 MySQL-python==1.2.5
 linaro-django-pagination==2.0.3
+qiniu==7.0.6
