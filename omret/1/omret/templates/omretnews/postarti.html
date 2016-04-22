@@ -4,6 +4,7 @@
     <script type="text/javascript" src="/static/other/tinymce/js/tinymce/tinymce.min.js"></script>
     <link rel="stylesheet" href="/static/css/counter.css">
     <script src="/static/js/counter.js"></script>
+    <script src="/static/js/omretnews/postarti.js"></script>
     <!--
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     -->
@@ -52,7 +53,9 @@
                         <small>或</small>
                         <span id="referimage_text" class="modaltext">引用外部网站图片</span></p>
                     <div id="uploadimage_content">
-                        <button type="button" class="btn btn-primary">选择文件</button>
+                        <button type="button" class="btn btn-primary" id="choosefile_button">选择文件</button>
+                        <input id="imagepicker" name="image" type="file" accept="image/*"
+                                style="width: 0px;height: 0px;display: none">
                     </div>
                     <div id="referimage_content">
                         <label class="control-label">输入图片链接：</label>
@@ -63,30 +66,24 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="modal-footer">
+                <!--
+                <div class="modal-footer">
                      <button type="button" class="btn btn-default"
-                             data-dismiss="modal">关闭
+                             data-dismiss="modal">取消
                      </button>
-                     <button type="button" class="btn btn-primary">
-                         提交更改
-                     </button>
-                 </div>-->
+                     -->
+                <!--<button type="button" class="btn btn-primary">
+                    提交更改
+                </button>-->
             </div>
-            <!-- /.modal-content -->
         </div>
-        <!-- /.modal -->
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
     </div>
     <div>
         <div id="container">
             <div id="content-part">
-                <iframe id="form_target" name="form_target" style="display:none"></iframe>
-
-                <form id="imagepicker_form" action="/upload/" target="form_target" method="post"
-                      enctype="multipart/form-data"
-                      style="width:0px;height:0;overflow:hidden">
-                    <input name="image" type="file" accept="image/*"
-                           onchange="$('#imagepicker_form').submit();this.value='';">
-                </form>
                 <form method="post">
                     {% csrf_token %}
                     <label class="control-label">标题</label>
@@ -124,9 +121,9 @@
             $("#uploadimage_content").hide();
             $("#referimage_content").show();
         }
-        var resetInsertImage = function(){
+        var resetInsertImage = function () {
             $("#insertimageModal").modal('hide');
-            
+
             $("#referimage_input").val("");
             uploadpart();
         }
@@ -140,15 +137,23 @@
 
         $("#referimage_sure").click(function () {
             var imageurl = $("#referimage_input").val();
-
-            tinymce.get("omrettinymce").execCommand('mceInsertContent', false, "<img src=" + imageurl + ">");
+            insertimage(imageurl)
             resetInsertImage();
+        });
+
+        $("#choosefile_button").click(function () {
+            return $("#imagepicker").click();
+        });
+
+        $("#imagepicker").change(function(){
+
+            imageupload();
         });
         //-------------------
 
         //counter
-        $('body').find('#titleform').bind("keydown", function(){
-           wordTip($(this), 30,-80,22)
+        $('body').find('#titleform').bind("keydown", function () {
+            wordTip($(this), 30, -80, 22)
         });
 
     </script>

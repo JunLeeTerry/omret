@@ -1,0 +1,22 @@
+__author__ = 'terry'
+from django.shortcuts import render_to_response, RequestContext
+from django.http import HttpResponse, HttpResponseRedirect
+import json
+
+from qiniu import Auth, put_file
+import qiniu.config
+from omret import settings
+
+def imageupload(req):
+    QINIU_BUCKET_DOMAIN = settings.QINIU_BUCKET_DOMAIN
+    ACCESS_KEY = settings.ACCESS_KEY
+    SECRET_KEY = settings.SECRET_KEY
+    BUKET_NAME = settings.BUKET_NAME
+
+    q = Auth(ACCESS_KEY, SECRET_KEY)
+    key = 'first.jpg'
+
+    token = q.upload_token(BUKET_NAME, key, 3600)
+    localfile = '/home/terry/first.jpg'
+    ret, info = put_file(token, key, localfile)
+    return HttpResponse(json.dumps({"url": QINIU_BUCKET_DOMAIN+key}))

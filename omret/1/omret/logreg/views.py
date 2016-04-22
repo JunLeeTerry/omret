@@ -299,3 +299,7 @@ def logout(req):
     response.delete_cookie('username')
     response.delete_cookie('id')
     return response
+
+##-----validate ok page-------
+def validateok(request):
+    return render_to_response("validateok.html",{})

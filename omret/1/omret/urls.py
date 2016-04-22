@@ -3,6 +3,7 @@ from omret.logreg import views as logreg_views
 from omret.omretuser import views as omretuser_views
 from omret.omretnews import views as omretnews_views
 from omret import views
+from omret.qiniu import views as qiniu_views
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -45,6 +46,8 @@ urlpatterns = patterns('',
     url(r'^postarti/$',omretnews_views.postarti),
     url(r'^arti(\d+)/$',omretnews_views.artiindex),
 
-    ##-----test validateok---------
-    url(r'^validateok/$',views.test),
+    ##---------validateok---------
+    url(r'^validateok/$',logreg_views.validateok),
+    ##---------qiniu upload image------
+    url(r'^imageupload/$',qiniu_views.imageupload),
 )
