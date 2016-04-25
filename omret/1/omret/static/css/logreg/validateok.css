@@ -43,7 +43,7 @@ body {
     animation: radar 2s infinite;
     opacity: 0;
     position: absolute;
-    top: 50%;
+    top: 50%; 
     left: 50%;
 }
 
@@ -83,7 +83,7 @@ body {
 
 @-webkit-keyframes radar /* Safari and Chrome */
 {
-0% {
+	0% {
         width: 150px;
         height: 150px;
         border: 40px solid #fff;
@@ -106,5 +106,53 @@ body {
     }
 } 
 
+@-moz-keyframes radar /* Firefox */
+{
+	0% {
+        width: 150px;
+        height: 150px;
+        border: 40px solid #fff;
+        opacity: 0
+    }
+    50% {
+        opacity: .1
+    }
+    90% {
+        width: 750px;
+        height: 750px
+    }
+    90%, 100% {
+        border: 2px solid #fff;
+        opacity: 0
+    }
+    100% {
+        width: 1500px;
+        height: 1500px
+    }
+}
 
+@-o-keyframes radar /* Opera */
+{
+	0% {
+        width: 150px;
+        height: 150px;
+        border: 40px solid #fff;
+        opacity: 0
+    }
+    50% {
+        opacity: .1
+    }
+    90% {
+        width: 750px;
+        height: 750px
+    }
+    90%, 100% {
+        border: 2px solid #fff;
+        opacity: 0
+    }
+    100% {
+        width: 1500px;
+        height: 1500px
+    }
+}
 
