@@ -49,5 +49,6 @@ urlpatterns = patterns('',
     ##---------validateok---------
     url(r'^validateok/$',logreg_views.validateok),
     ##---------qiniu upload image------
-    url(r'^imageupload/$',qiniu_views.imageupload),
+    #url(r'^imageupload/$',qiniu_views.imageupload),
+    url(r'^token/$',qiniu_views.token),
 )
