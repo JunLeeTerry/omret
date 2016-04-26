@@ -6,17 +6,17 @@ var insertimage = function (url) {
 }
 
 /*var imageupload = function () {
-    $.ajax({
-        type: "GET",
-        url: "/imageupload/",
-        data: {},
-        dataType: "json",
-        success: function (data) {
-            insertimage(data.url);
-            $("#insertimageModal").modal('hide');
-        }
-    });
-}*/
+ $.ajax({
+ type: "GET",
+ url: "/imageupload/",
+ data: {},
+ dataType: "json",
+ success: function (data) {
+ insertimage(data.url);
+ $("#insertimageModal").modal('hide');
+ }
+ });
+ }*/
 
 
 $(function () {
@@ -29,15 +29,22 @@ $(function () {
         // Ajax请求downToken的Url，私有空间时使用,JS-SDK 将向该地址POST文件的key和domain,服务端返回的JSON必须包含`url`字段，`url`值为该文件的下载地址
         unique_names: true,              // 默认 false，key 为文件名。若开启该选项，JS-SDK 会为每个文件自动生成key（文件名）
         save_key: true,                  // 默认 false。若在服务端生成 uptoken 的上传策略中指定了 `sava_key`，则开启，SDK在前端将不对key进行任何处理
-        domain: '7xt4qr.com1.z0.glb.clouddn.com',     // bucket 域名，下载资源时用到，**必需**
+        domain: 'http://7xt4qr.com1.z0.glb.clouddn.com/',     // bucket 域名，下载资源时用到，**必需**
         //container: 'container',             // 上传区域 DOM ID，默认是 browser_button 的父元素，
         max_file_size: '2mb',             // 最大文件体积限制
         //flash_swf_url: 'path/of/plupload/Moxie.swf',  //引入 flash,相对路径
         max_retries: 3,                     // 上传失败最大重试次数
-        dragdrop: true,                     // 开启可拖曳上传
+        dragdrop: false,                     // 开启可拖曳上传
         drop_element: 'container',          // 拖曳上传区域元素的 ID，拖曳文件或文件夹后可触发上传
         chunk_size: '4mb',                  // 分块上传时，每块的体积
         auto_start: true,
+        filters: {
+            mime_types: [ //只允许上传图片和zip文件
+                {title: "Image files", extensions: "jpeg,jpg,bmp,png"},
+            ],
+            prevent_duplicates: true //不允许选取重复文件
+        },
+        multi_selection:false,
         init: {
             'FilesAdded': function (up, files) {
                 plupload.each(files, function (file) {
@@ -51,17 +58,12 @@ $(function () {
                 // 每个文件上传时,处理相关的事情
             },
             'FileUploaded': function (up, file, info) {
-                // 每个文件上传成功后,处理相关的事情
-                // 其中 info 是文件上传成功后，服务端返回的json，形式如
-                // {
-                //    "hash": "Fh8xVqod2MQ1mocfI4S4KpRL6D98",
-                //    "key": "gogopher.jpg"
-                //  }
-                // 参考http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html
-
                 var domain = up.getOption('domain');
                 var res = JSON.parse(info);
-                var sourceLink = domain + res.key; //获取上传成功后的文件的Url
+
+                var sourceLink = domain+res.key; //获取上传成功后的文件的Url
+                insertimage(sourceLink);
+                $("#insertimageModal").modal('hide');
             },
             'Error': function (up, err, errTip) {
                 //上传出错时,处理相关的事情
@@ -70,13 +72,13 @@ $(function () {
                 //队列文件处理完毕后,处理相关的事情
             },
             /*'Key': function (up, file) {
-                // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
-                // 该配置必须要在 unique_names: false , save_key: false 时才生效
+             // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
+             // 该配置必须要在 unique_names: false , save_key: false 时才生效
 
-                var key = "";
-                // do something with key here
-                return key
-            }*/
+             var key = "";
+             // do something with key here
+             return key
+             }*/
         }
     });
 });
