@@ -47,4 +47,7 @@ urlpatterns = patterns('',
 
     ##-----test validateok---------
     url(r'^validateok/$',views.test),
+	
+	##-----test aboutUs---------
+    url(r'^aboutUs/$',views.aboutUs),
 )
