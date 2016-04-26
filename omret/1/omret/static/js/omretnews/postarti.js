@@ -3,6 +3,7 @@
  */
 var insertimage = function (url) {
     tinymce.get("omrettinymce").execCommand('mceInsertContent', false, "<img src=" + url + ">");
+
 }
 
 /*var imageupload = function () {
@@ -53,9 +54,11 @@ $(function () {
             },
             'BeforeUpload': function (up, file) {
                 // 每个文件上传前,处理相关的事情
+
             },
             'UploadProgress': function (up, file) {
                 // 每个文件上传时,处理相关的事情
+                $("#uploadinfotext").html("上传中...")
             },
             'FileUploaded': function (up, file, info) {
                 var domain = up.getOption('domain');
@@ -63,10 +66,13 @@ $(function () {
 
                 var sourceLink = domain+res.key; //获取上传成功后的文件的Url
                 insertimage(sourceLink);
+                $("#uploadinfotext").html("上传成功！");
                 $("#insertimageModal").modal('hide');
+                $("#uploadinfotext").html("图片小于2M");
             },
             'Error': function (up, err, errTip) {
                 //上传出错时,处理相关的事情
+                $("#uploadinfotext").html(errTip)
             },
             'UploadComplete': function () {
                 //队列文件处理完毕后,处理相关的事情
