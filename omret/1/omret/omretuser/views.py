@@ -128,6 +128,10 @@ def securityset(req):
     response = render_to_response('securityset.html',{'change_status':change_status,'username':user.name,'security_form':securityform},context_instance=RequestContext(req)) 
     return response
 
+##-------upload user header image--------
+def headset(req):
+    return HttpResponse("头像上传")
+
 ##--------click omret brand-------
 @csrf_protect
 def userhome(req):
