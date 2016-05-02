@@ -29,7 +29,7 @@ def token(req):
     q = Auth(ACCESS_KEY,SECRET_KEY)
 
     key = uuid.uuid1()
-    print BUKET_NAME
+    #print BUKET_NAME
     token = q.upload_token(BUKET_NAME)
 
     return HttpResponse(json.dumps({"uptoken":token}))
