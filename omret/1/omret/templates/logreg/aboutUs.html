@@ -1,51 +1,83 @@
-{% extends "userbase.html" %}
-{% block link %}
+<html> 
+  <head> 
+	<title>About Us</title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 	<link rel="stylesheet" href="/static/other/bootstrap-3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/static/other/bootstrap-3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/static/css/logreg/aboutUs.css">
 	<script src="/static/other/jquery/jquery-2.1.4.min.js"></script>
 	<script src="/static/other/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-{% endblock %}
-
-{% block title %}
-    About Us
-{% endblock %}
-
-{% block body %}
-	<section class ="section">
-		<div class="span12" style="margin:50px 0px 20px;">
-			<h3><span>关于 · 我们</span></h3>
+  </head> 
+  <body> 
+	<header></header>
+	<div class="container">
+		<div class="title">
+			<h3>关于 · 我们</h3>
 		</div>
-		<div class="row userpart">
-			<div class="col-lg-1">
-			</div>
-			<div class="col-lg-3 userpart-div">
-			  <img class="img-circle" style="width:120px;height:120px" alt="Terry" 
-				src="http://img5.imgtn.bdimg.com/it/u=226804191,4173125022&fm=206&gp=0.jpg" />
-			  <h3>Terry</h3> 
-			  <p></p>
-			  <p></p>
-			</div>
-			<div class="col-lg-3 userpart-div">
-			  <img class="img-circle" style="width:120px;height:120px" alt="Pitos" 
-				src="http://img5.imgtn.bdimg.com/it/u=226804191,4173125022&fm=206&gp=0.jpg" />
-			  <h3>Pitos</h3>
-			  <p>学的不仅是技术，更是梦想！</p>
-			  <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-			</div>
-			<div class="col-lg-3 userpart-div">
-			  <img class="img-circle" style="width:120px;height:120px" alt="Smiley" 
-				src="http://img5.imgtn.bdimg.com/it/u=226804191,4173125022&fm=206&gp=0.jpg" />
-			  <h3>Smiley</h3>        
-			  <p>学的不仅是技术，更是梦想！</p>
-			  <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+		<div class="row aboutUs">
+			<!--<div class="well">-->
+			<div>
+				<p>Omret是一个自由交流的平台，只要遵循Omret协议，不管你是不是技术人员，你都可以在这里发表技术相关的文章，提出问题，分享项目经验。
+				</p>
+				<p>Omret中的专题版块，归纳整理各种技术的相关文章和链接。在Omret不仅能自由地交流，还能方便高效地学习。Omret是年轻的，我们也是年轻的，希望大家能多提宝贵意见，我们Omret会认真听取建议，不断完善，让大家能够在这玩得开心。
+				</p>
 			</div>
 		</div>
-	</section>
-{% endblock %}
-
-{% block body_script %}
-    <script>
-       
-    </script>
-{% endblock %}
+		<div class="title">
+			<hr class="style-one">
+			<h3>关于 · 团队</h3>
+			<p>我们团队怀着着无限的热情与你相遇。</p>
+		</div>
+		<div class="row ourTeam">
+			<div class="userpart">
+				<img class="img-thumbnail" style="width:150px;height:200px" alt="Terry" src="/static/img/terry-show.jpg" />
+				<div class="profile">
+					<div>
+						<p>Terry</p> 
+						<p>(创始人、总策划)</p>
+					</div>
+					<p>Omret创始人，参与并策划了整个Omret开发，是团队的灵魂人物。</p>
+					<p>做事严谨，具有幽默感，有很广泛的爱好，不写代码之余，喜欢骑行，享受生活。</p>
+				</div>
+			</div>
+			<hr>
+			<div class="userpart">
+				<div class="profile">
+					<div>
+						<p>Pytos</p> 
+						<p>(美工)</p>
+					</div>
+					<p>Omret御用美工，完成项目中大大小小的设计，是团队的“设计师”。</p>
+					<p>审美独特，幽默风趣，喜欢打游戏，给人画小画像，自称“handsome boy”。</p>
+				</div>
+				<img class="img-thumbnail" style="width:200px;height:150px" alt="Pytos" src="/static/img/pytos-show.jpg" />
+			</div>
+			<hr>
+			<div class="userpart">
+				<img class="img-thumbnail" style="width:160px;height:210px" alt="Smiley" src="/static/img/smiley-show.jpg" />
+				<div class="profile">
+					<div>
+						<p>Smiley</p> 
+						<p>(前端工程师)</p>
+					</div>      
+					<p>Omret专用前端，负责项目中网页的设计与实现，是团队的“美容师”。</p>
+					<p>善良，爱偷懒，为人随和，喜欢吃饭、睡觉还有唱歌，是个时刻开心的小姑娘。</p>
+				</div>
+			</div>
+			<hr>
+			<div class="userpart">
+				<div class="profile">
+					<div>
+						<p>Lance</p> 
+						<p>(编辑)</p>
+					</div>       
+					<p>Omret特定编辑，负责项目中与文字有关的事项，是团队的“代言人”。</p>
+					<p>讲义气、体贴入微，团队的颜值担当，喜欢文字，喜欢一切萌萌小动物，尤其猫咪。</p>
+				</div>
+				<img class="img-thumbnail" style="width:220px;height:165px" alt="Lance"  src="/static/img/lance-show.jpg" />  
+			</div>
+		</div>
+	</div>
+	<footer></footer>
+  </body> 
+</html>  

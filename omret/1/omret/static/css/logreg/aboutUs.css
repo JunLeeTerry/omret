@@ -1,28 +1,191 @@
- body{
+ body {
 	color: #333;
-	font-family: -apple-system,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+	font-family: "klk_sansregular",Arial,Helvetica,sans-serif;
 	font-size: 16px;
 	font-weight: 400;
-	line-height: 1;
+	line-height: 1.3em;
+}
+
+.container {
+	width: 890px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.title h3 {
+	margin: 30px 0 20px 10px;
 	text-align: center;
 }
 
+.title p {
+	margin: 20px 0 20px 10px;
+	text-align: left;
+	text-indent: 2em;
+}
 
-.section {
-	text-align: center;
+.aboutUs div {
+	width: 890px;
+	padding: 0 0 20px;
+	margin:0 auto;
+	padding: 10px 20px;
+	/* margin-bottom: 30px; */
+}
+
+.aboutUs p {
+	color: #333;
+	text-indent: 2em;
+	font-family: -apple-system,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+	font-size: 17px;
+	line-height: 2.1em;
+	text-align: left;
+}
+
+
+.ourTeam {
+	margin:0 auto;
+	width: 890px;
 }
 
 .userpart {
-	text-align: center;
-	margin:0 auto;
-	width: 100%;
-}
-
-div.userpart-div{
-	background: #ffffff none repeat scroll 0 0;
+	text-align: left;
+	margin: 10px;
+	
+	/* background: #ffffff none repeat scroll 0 0;
 	border: 1px solid #d8d8d8;
 	border-radius: 4px;
 	margin: 8px 15px 20px 5px;
 	padding: 20px 15px;
-	height: 400px;
+	height: 400px; */
+}
+
+.userpart span {
+	font-size: 12px;
+	font-family: "microsoft yahei",Arial,sans-serif;
+	
+}
+
+.profile {
+	margin: 10px;
+	display: inline-block;
+	width: 600px;
+	
+	/* background: #ffffff none repeat scroll 0 0;
+	border: 1px solid #d8d8d8;
+	border-radius: 4px;
+	margin: 8px 15px 20px 5px;
+	padding: 20px 15px;
+	height: 400px; */
+}
+
+.profile div {
+	width: 600px;
+}
+
+.profile div p { 
+	display: inline-block;
+}
+
+.profile div p:first-child { 
+	font-size: 19px;
+	line-height: 2.1em;
+}
+
+.profile div p:nth-child(2) { 
+	font-size: 14px;
+	font-family: "microsoft yahei",Arial,sans-serif;
+}
+
+
+/* hr style */
+/* 渐变 color1 - color2 - color1 */
+hr.style-one {
+    border: 0;
+    height: 1px;
+    width: 600px;
+    margin: 0 auto;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+/* 透明渐变 - color - transparent */
+hr.style-two {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+/* 双线 */
+hr.style-three {
+    border: 0;
+    border-bottom: 1px dashed #ccc;
+    background: #999;
+}
+
+/* 单线阴影 */
+hr.style-four {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+/* 云朵状 */
+
+hr.style-five {
+    border: 0;
+    height: 0; /* Firefox... */
+    box-shadow: 0 0 10px 1px black;
+}
+hr.style-five:after {  /* Not really supposed to work, but does */
+    content: "\00a0";  /* Prevent margin collapse */
+}
+
+/* 内嵌 */
+hr.style-six {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 晕状 */
+hr.style-seven {
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+hr.style-seven:before { 
+    display: block;
+    content: "fbdddddddd";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
+/* 文字插入式 */
+hr.style-eight {
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+hr.style-eight:after {
+    content: "gb";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+}
+
+/* 分隔线统一样式 */
+hr{
+  margin: 40px 0;
 }
