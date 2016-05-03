@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*- 
+#-*- coding:utf-8 -*-
 from django.shortcuts import render_to_response,RequestContext
 from omret.logreg.models import User
 from omret.omretuser.models import UserProfile
@@ -15,7 +15,7 @@ def profileset(req):
     ##------if theres no session,turn to the home page-----
     if not hasUserSession(req):
         return HttpResponseRedirect('/')
-    
+
     user = getUserFromSession(req)
 
     ##-----if there is a user profile,the forms show the init values-----
@@ -25,7 +25,7 @@ def profileset(req):
     except Exception,e:
         #print e
         profileform = UserProfileSetForm()
-    
+
     ##----change status shows whether user change value success----
     '''
     -success  :click post button and success
@@ -36,7 +36,7 @@ def profileset(req):
     ##-------handle the post info after clicking the submit button-------
     if req.method == 'POST':
         profileformPost = UserProfileSetForm(req.POST)
-        
+
         ##-----test the profile form post-------
         #print profileformPost.is_valid()
         #print profileformPost.errors
@@ -47,7 +47,7 @@ def profileset(req):
             birthday = profileformPost.cleaned_data['birthday']
             signature = profileformPost.cleaned_data['signature']
             resume = profileformPost.cleaned_data['resume']
-            
+
             ##------get userprofile-------
             '''
             if have not created before,create a new object then modify the value of fields
@@ -57,10 +57,10 @@ def profileset(req):
                 userprofile = UserProfile.objects.get(user=user)
             except:
                 userprofile = UserProfile()
-                
+
             ##------set the values of fields into table user profile-----
             __setUserProfile(userprofile,user,realname,sex,birthday,signature,resume)
-            
+
             ##------set change_status equals success if save user profile succeddfully------
             try:
                 userprofile.save()
@@ -69,7 +69,7 @@ def profileset(req):
                 change_status = 'error'
 
     response = render_to_response('profileset.html',{'change_status':change_status,'username':user.name,'profile_form':profileform},context_instance=RequestContext(req))
-               
+
     return response
 
 ##------user security setting page--------
@@ -77,8 +77,8 @@ def profileset(req):
 def securityset(req):
     if not hasUserSession(req):
         return HttpResponseRedirect('/')
-    
-    user = getUserFromSession(req)    
+
+    user = getUserFromSession(req)
     securityform = UserSecuritySetForm()
 
     '''
@@ -94,14 +94,14 @@ def securityset(req):
     ##-------handle the post info after clicking the submit button----
     if req.method == 'POST':
         securityformPost = UserSecuritySetForm(req.POST)
-        
+
         if securityformPost.is_valid():
             ##-------get infomations of the forms--------
             old_password = securityformPost.cleaned_data['old_password']
             new_password = securityformPost.cleaned_data['new_password']
             confirm_new_password = securityformPost.cleaned_data['confirm_new_password']
             ##------test form data-----
-            #print new_password is u'' 
+            #print new_password is u''
 
             ##-------get the value of old password and encrypted------
             old_password_encryption =  pwEncryption().encryptionByPasswd(old_password)
@@ -123,14 +123,20 @@ def securityset(req):
                     change_status = 'success'
                 except:
                     change_status = 'error4'
-            
 
-    response = render_to_response('securityset.html',{'change_status':change_status,'username':user.name,'security_form':securityform},context_instance=RequestContext(req)) 
+
+    response = render_to_response('securityset.html',{'change_status':change_status,'username':user.name,'security_form':securityform},context_instance=RequestContext(req))
     return response
 
 ##-------upload user header image--------
 def headset(req):
-    return HttpResponse("头像上传")
+    if not hasUserSession(req):
+        return HttpResponseRedirect('/')
+
+    user = getUserFromSession(req)
+
+    response = render_to_response('headset.html',{"username":user.name})
+    return response
 
 ##--------click omret brand-------
 @csrf_protect
@@ -139,7 +145,7 @@ def userhome(req):
         return HttpResponseRedirect('/index/')
     else:
         return HttpResponseRedirect('/')
-    
+
 
 ##--------judge whether has user session------
 ##-------if has user session,return user-----
@@ -158,7 +164,7 @@ def hasUserSession(req):
     else:
         return True
 
-##---------set the values of profile forms into UserProfile Object----- 
+##---------set the values of profile forms into UserProfile Object-----
 def __setUserProfile(userprofile,user,realname,sex,birthday,signature,resume):
     userprofile.user = user
     userprofile.realname = realname
