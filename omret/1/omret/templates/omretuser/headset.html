@@ -3,6 +3,7 @@
 {% block settings_link %}
     <link rel="stylesheet" href="/static/css/omretuser/headset.css">
     <link rel="stylesheet" href="/static/other/cropper/cropper.min.css">
+    <script src="/static/js/omretuser/headset.js"></script>
 {% endblock %}
 
 {% block settings_body %}
@@ -11,7 +12,14 @@
             头像上传编辑
         </div>
         <div id="settingcontent">
-            
+            <div id="container">
+                <div id="canvaspart" class="col-md-9 col-xs-9">
+
+                </div>
+                <div id="previewpart" class="col-md-3 col-xs-3">
+                    
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -16,3 +16,9 @@
     margin-right:50px;
     margin-bottom:80px;
 }
+
+
+/* Limit image width to avoid overflow the cropper container */
+img {
+    max-width:100%;
+}
