@@ -2,7 +2,8 @@
 
 {% block settings_link %}
     <link rel="stylesheet" href="/static/css/omretuser/headset.css">
-    <link rel="stylesheet" href="/static/other/cropper/cropper.min.css">
+    <link rel="stylesheet" href="/static/other/jcrop/jquery.Jcrop.min.css">
+    <script src="/static/other/jcrop/jquery.Jcrop.min.js"></script>
     <script src="/static/js/omretuser/headset.js"></script>
 {% endblock %}
 
@@ -12,18 +13,17 @@
             头像上传编辑
         </div>
         <div id="settingcontent">
-            <div id="container">
-                <div id="canvaspart" class="col-md-9 col-xs-9">
 
-                </div>
-                <div id="previewpart" class="col-md-3 col-xs-3">
-                    
-                </div>
+            <div id="canvaspart" class="col-md-9 col-xs-9">
+                <img id="jcropimg" src="/static/img/validateemail-pic.png">
             </div>
+            <div id="previewpart" class="col-md-3 col-xs-3">
+
+            </div>
+
         </div>
     </div>
 {% endblock %}
 
 {% block body_script %}
-    <script src="/static/other/cropper/cropper.min.js"></script>
 {% endblock %}

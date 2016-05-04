@@ -15,10 +15,12 @@
     border-radius:4px;
     margin-right:50px;
     margin-bottom:80px;
+    height: 400px;
+}
+
+#canvaspart img{
+    width:100px;
+    height:100px;
 }
 
 
-/* Limit image width to avoid overflow the cropper container */
-img {
-    max-width:100%;
-}
