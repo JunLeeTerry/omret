@@ -2,8 +2,8 @@
 
 {% block settings_link %}
     <link rel="stylesheet" href="/static/css/omretuser/headset.css">
-    <link rel="stylesheet" href="/static/other/jcrop/jquery.Jcrop.min.css">
-    <script src="/static/other/jcrop/jquery.Jcrop.min.js"></script>
+    <link rel="stylesheet" href="/static/other/croppie/croppie.css">
+    <script src="/static/other/croppie/croppie.js"></script>
     <script src="/static/js/omretuser/headset.js"></script>
 {% endblock %}
 
@@ -13,17 +13,27 @@
             头像上传编辑
         </div>
         <div id="settingcontent">
-
             <div id="canvaspart" class="col-md-9 col-xs-9">
-                <img id="jcropimg" src="/static/img/validateemail-pic.png">
+                <div id="croppiecontainer">
+
+                </div>
             </div>
             <div id="previewpart" class="col-md-3 col-xs-3">
 
             </div>
-
         </div>
     </div>
 {% endblock %}
 
 {% block body_script %}
+    <script>
+        var croppie = $('#croppiecontainer').croppie({
+            viewport: {width: 150, height: 150},
+            enableOrientation: true
+        });
+        croppie.croppie('bind',{
+            url:'/static/img/lance-show.jpg',
+        });
+
+    </script>
 {% endblock %}
