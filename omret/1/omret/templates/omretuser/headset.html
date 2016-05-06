@@ -13,13 +13,26 @@
             头像上传编辑
         </div>
         <div id="settingcontent">
-            <div id="canvaspart" class="col-md-9 col-xs-9">
+            <div id="canvaspart" class="col-md-10 col-xs-10">
                 <div id="croppiecontainer">
-
                 </div>
             </div>
-            <div id="previewpart" class="col-md-3 col-xs-3">
+            <div id="buttonspart" class="col-md-2 col-xs-2">
+                <div id="buttonlist">
+                    <a class="btn file-btn btn-default headbutton">
+                        <span class="glyphicon glyphicon-picture">&nbsp;打开图片
+                        <input id="upload" type="file" accept="image/*" value="Choose a file">
+                        </span>
 
+                    </a>
+                    <button class="btn btn-default rotate headbutton" data-deg="90"><span
+                            class="glyphicon glyphicon-hand-right">&nbsp;向右翻转</span>
+                    </button>
+                    <button class="btn btn-default rotate headbutton" data-deg="-90"><span
+                            class="glyphicon glyphicon-hand-left">&nbsp;向左翻转</span>
+                    </button>
+                    <button class="btn btn-primary" id="headsure">确定</button>
+                </div>
             </div>
         </div>
     </div>
@@ -31,9 +44,13 @@
             viewport: {width: 150, height: 150},
             enableOrientation: true
         });
-        croppie.croppie('bind',{
-            url:'/static/img/lance-show.jpg',
+        croppie.croppie('bind', {
+            //url:'https://avatars0.githubusercontent.com/u/7542376?v=3&s=460',
+            url: '{{ headurl }}'
         });
+        setTimeout(function () {
+            croppie.croppie('setZoom', '1');
+        }, 100);
 
     </script>
 {% endblock %}

@@ -17,6 +17,11 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.name
 
+##----user head img table------
+class UserHeadImg(models.Model):
+    user = models.OneToOneField(logreg_models.User)
+    url = models.CharField(max_length=3000)
+
 ##------user relationship------
 #class UserRelationship(models.Model):
 #    user = models.ForeignKey(logreg_models.User)

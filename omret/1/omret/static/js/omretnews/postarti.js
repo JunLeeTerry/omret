@@ -40,7 +40,7 @@ $(function () {
         chunk_size: '4mb',                  // 分块上传时，每块的体积
         auto_start: true,
         filters: {
-            mime_types: [ //只允许上传图片和zip文件
+            mime_types: [ //只允许上传图片文件
                 {title: "Image files", extensions: "jpeg,jpg,bmp,png"},
             ],
             prevent_duplicates: true //不允许选取重复文件

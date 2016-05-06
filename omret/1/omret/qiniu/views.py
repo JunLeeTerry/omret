@@ -7,6 +7,7 @@ from qiniu import Auth, put_file
 import qiniu.config
 from omret import settings
 import uuid
+from django.views.decorators.csrf import csrf_protect,csrf_exempt
 
 
 QINIU_BUCKET_DOMAIN = settings.QINIU_BUCKET_DOMAIN
@@ -33,3 +34,10 @@ def token(req):
     token = q.upload_token(BUKET_NAME)
 
     return HttpResponse(json.dumps({"uptoken":token}))
+
+@csrf_exempt
+def headupload(req):
+    file = req.POST.get('file',None)
+    print 'file:'+str(file)
+
+    return HttpResponse(json.dumps({}))

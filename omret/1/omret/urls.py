@@ -56,5 +56,6 @@ urlpatterns = patterns('',
     ##---------qiniu upload image------
     #url(r'^imageupload/$',qiniu_views.imageupload),
     url(r'^token/$',qiniu_views.token),
+    url(r'^headupload/$',qiniu_views.headupload),
 
 )

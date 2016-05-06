@@ -1,13 +1,15 @@
 #-*- coding:utf-8 -*-
 from django.shortcuts import render_to_response,RequestContext
 from omret.logreg.models import User
-from omret.omretuser.models import UserProfile
+from omret.omretuser.models import UserProfile,UserHeadImg
 from django.http import HttpResponse,HttpResponseRedirect
 from omret.omretuser.forms import UserProfileSetForm,UserSecuritySetForm
 from omret.logreg.pwencryption import pwEncryption
 
+
 from django.views.decorators.csrf import csrf_protect,csrf_exempt
-# Create your views here.
+##------default head image url------
+DEFAULT_HEAD_URL = '/static/img/head_default.jpg'
 
 ##-------user profile setting page --------
 @csrf_protect
@@ -130,12 +132,24 @@ def securityset(req):
 
 ##-------upload user header image--------
 def headset(req):
+    ##------is logining-------
     if not hasUserSession(req):
         return HttpResponseRedirect('/')
 
     user = getUserFromSession(req)
 
-    response = render_to_response('headset.html',{"username":user.name})
+    '''
+    get user head url
+    if there is no record -> user has not uploaded head
+    '''
+    try:
+        userhead = UserHeadImg.objects.get(user=user)
+        url = userhead.url
+    except Exception,e:
+        url = DEFAULT_HEAD_URL
+
+
+    response = render_to_response('headset.html',{"username":user.name,"headurl":url})
     return response
 
 ##--------click omret brand-------
