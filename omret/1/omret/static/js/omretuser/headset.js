@@ -46,14 +46,16 @@ $(function () {
                 type: 'canvas',
                 size: 'viewport',
             }).then(function (img) {
+                arr = img.split(',')
+                //alert(arr[1])
                 //get img base64 and use ajax push to back
                 $.ajax({
                     type: "POST",
                     url: "/headupload/",
-                    data: {file: img},
+                    data: {},
                     dataType: "json",
                     success: function (data) {
-
+                        putb64(arr[1],data.url,data.token)
                     }
                 });
             });
@@ -61,4 +63,20 @@ $(function () {
 
         }
     )
+
+    function putb64(img,upurl,token) {
+        var pic = img;
+        var url = upurl;
+        //var url = "http://up.qiniu.com/putb64/-1/key/test"
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                alert(xhr.responseText);
+            }
+        }
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/octet-stream");
+        xhr.setRequestHeader("Authorization","UpToken "+token);
+        xhr.send(pic);
+    }
 });

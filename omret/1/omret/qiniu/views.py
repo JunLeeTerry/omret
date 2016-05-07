@@ -8,6 +8,8 @@ import qiniu.config
 from omret import settings
 import uuid
 from django.views.decorators.csrf import csrf_protect,csrf_exempt
+from omret.omretuser.views import hasUserSession, getUserFromSession
+import hashlib
 
 
 QINIU_BUCKET_DOMAIN = settings.QINIU_BUCKET_DOMAIN
@@ -29,7 +31,7 @@ def imageupload(req):
 def token(req):
     q = Auth(ACCESS_KEY,SECRET_KEY)
 
-    key = uuid.uuid1()
+    #key = uuid.uuid1()
     #print BUKET_NAME
     token = q.upload_token(BUKET_NAME)
 
@@ -37,7 +39,19 @@ def token(req):
 
 @csrf_exempt
 def headupload(req):
-    file = req.POST.get('file',None)
-    print 'file:'+str(file)
+    try:
+        user = getUserFromSession(req)
+    except Exception,e:
+        return HttpResponseRedirect('/')
 
-    return HttpResponse(json.dumps({}))
+    file = req.POST.get('file',None)
+    q = Auth(ACCESS_KEY,SECRET_KEY)
+    key = user.uid
+    token = q.upload_token(BUKET_NAME)
+
+    #url = QINIU_BUCKET_DOMAIN+"putb64/20264"
+    url = "http://up.qiniu.com/putb64/-1/"
+    print url
+    #print 'file:'+str(file)
+
+    return HttpResponse(json.dumps({"token":token,"url":url}))
