@@ -6,3 +6,4 @@ settings.py
 *.wsgic
 .idea/
 .idea/*
+inserttopic.py

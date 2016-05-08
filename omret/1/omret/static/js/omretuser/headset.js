@@ -55,7 +55,7 @@ $(function () {
                     data: {},
                     dataType: "json",
                     success: function (data) {
-                        putb64(arr[1], data.url, data.token)
+                        putb64(arr[1], data.url, data.token,data.key)
                     }
                 });
             });
@@ -64,7 +64,7 @@ $(function () {
         }
     )
 
-    function putb64(img, upurl, token) {
+    function putb64(img, upurl, token,key) {
         var pic = img;
         var url = upurl;
         //var url = "http://up.qiniu.com/putb64/-1/key/test"
@@ -76,10 +76,10 @@ $(function () {
                 $.ajax({
                     type: "GET",
                     url: "/recordhead/",
-                    data: {},
+                    data: {key:key},
                     dataType: "json",
                     success: function (data) {
-
+                        window.location.reload()
                     }
                 });
             }

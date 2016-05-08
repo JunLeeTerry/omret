@@ -1,11 +1,11 @@
 #-*- coding:utf-8 -*-
 from django.shortcuts import render_to_response,RequestContext
 from omret.logreg.models import User
-from omret.omretuser.models import UserProfile,UserHeadImg
+from omret.omretuser.models import UserProfile
 from django.http import HttpResponse,HttpResponseRedirect
 from omret.omretuser.forms import UserProfileSetForm,UserSecuritySetForm
 from omret.logreg.pwencryption import pwEncryption
-
+from omret import settings
 
 from django.views.decorators.csrf import csrf_protect,csrf_exempt
 ##------default head image url------
@@ -70,7 +70,7 @@ def profileset(req):
             except:
                 change_status = 'error'
 
-    response = render_to_response('profileset.html',{'change_status':change_status,'username':user.name,'profile_form':profileform},context_instance=RequestContext(req))
+    response = render_to_response('profileset.html',{'change_status':change_status,'user':user,'profile_form':profileform},context_instance=RequestContext(req))
 
     return response
 
@@ -127,7 +127,7 @@ def securityset(req):
                     change_status = 'error4'
 
 
-    response = render_to_response('securityset.html',{'change_status':change_status,'username':user.name,'security_form':securityform},context_instance=RequestContext(req))
+    response = render_to_response('securityset.html',{'change_status':change_status,'user':user,'security_form':securityform},context_instance=RequestContext(req))
     return response
 
 ##-------upload user header image--------
@@ -138,18 +138,7 @@ def headset(req):
 
     user = getUserFromSession(req)
 
-    '''
-    get user head url
-    if there is no record -> user has not uploaded head
-    '''
-    try:
-        userhead = UserHeadImg.objects.get(user=user)
-        url = userhead.url
-    except Exception,e:
-        url = DEFAULT_HEAD_URL
-
-
-    response = render_to_response('headset.html',{"username":user.name,"headurl":url})
+    response = render_to_response('headset.html',{"user":user})
     return response
 
 ##--------click omret brand-------

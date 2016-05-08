@@ -18,9 +18,9 @@ class UserProfile(models.Model):
         return self.user.name
 
 ##----user head img table------
-class UserHeadImg(models.Model):
-    user = models.OneToOneField(logreg_models.User)
-    url = models.CharField(max_length=3000)
+#class UserHeadImg(models.Model):
+#    user = models.OneToOneField(logreg_models.User)
+#    url = models.CharField(max_length=3000)
 
 ##------user relationship------
 #class UserRelationship(models.Model):

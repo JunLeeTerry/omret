@@ -4,6 +4,7 @@ import hashlib
 from django.core.mail import send_mail,EmailMultiAlternatives
 from pwencryption import pwEncryption
 from sendEmailThread import EmailThread
+from omret import settings
 
 # Create your models here.
 class User(models.Model):
@@ -11,6 +12,7 @@ class User(models.Model):
     name = models.CharField(max_length=50,unique = True)
     password = models.CharField(max_length=200)
     email = models.EmailField(blank=False,unique = True)
+    headurl = models.CharField(max_length=3000,default=settings.DEFAULT_HEAD_URL)
     is_active = models.BooleanField()
 
     def __str__(self):

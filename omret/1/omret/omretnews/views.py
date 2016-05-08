@@ -39,7 +39,7 @@ def index(req):
     ##-------get notification of user--------
     notilist = Notification.objects.filter(user=user)
 
-    response = render_to_response('index.html', {'username': user.name, 'topiclist': topicandNum, 'newslist': news,
+    response = render_to_response('index.html', {'user': user,'topiclist': topicandNum, 'newslist': news,
                                                  'numboxdata': numboxdata,'notilist':notilist}, context_instance=RequestContext(req))
     return response
 
@@ -128,7 +128,7 @@ def postarti(req):
             except Exception, e:
                 print e
 
-    response = render_to_response('postarti.html', {'username': user.name, "artiform": artiform},
+    response = render_to_response('postarti.html', {'user': user, "artiform": artiform},
                                   context_instance=RequestContext(req))
     return response
 
@@ -226,7 +226,7 @@ def artiindex(req, index):
     chats = NewCommentsChats.objects.filter(article_id=index).order_by("-chat_time")
     commentchatList = __getCommentsChats(comments, chats)
 
-    response = render_to_response('newindex.html', {'username': user.name, 'new': new, 'commentform': commentform,
+    response = render_to_response('newindex.html', {'user': user, 'new': new, 'commentform': commentform,
                                                     'chatform': chatform, 'commentchatlist': commentchatList, },
                                   context_instance=RequestContext(req))
 
