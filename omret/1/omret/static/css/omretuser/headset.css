@@ -23,13 +23,17 @@
     height:100px;
 }
 
-.file-btn input[type="file"] {
+/*.file-btn input[type="file"] {
     height: 100%;
     left: 0;
     opacity: 0;
     position: absolute;
     top: 0;
     width: 100%;
+}*/
+
+#headchooserinput{
+    display:none;
 }
 
 .headbutton{

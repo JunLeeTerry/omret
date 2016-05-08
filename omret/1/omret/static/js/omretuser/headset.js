@@ -30,7 +30,7 @@ $(function () {
      },
      });*/
 
-    $('#upload').on('change', function () {
+    $('#headchooserinput').on('change', function () {
         readFile(this);
     });
 
@@ -55,7 +55,7 @@ $(function () {
                     data: {},
                     dataType: "json",
                     success: function (data) {
-                        putb64(arr[1],data.url,data.token)
+                        putb64(arr[1], data.url, data.token)
                     }
                 });
             });
@@ -64,19 +64,34 @@ $(function () {
         }
     )
 
-    function putb64(img,upurl,token) {
+    function putb64(img, upurl, token) {
         var pic = img;
         var url = upurl;
         //var url = "http://up.qiniu.com/putb64/-1/key/test"
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4) {
-                alert(xhr.responseText);
+                //alert(xhr.responseText);
+                console.log(xhr.responseText);
+                $.ajax({
+                    type: "GET",
+                    url: "/recordhead/",
+                    data: {},
+                    dataType: "json",
+                    success: function (data) {
+
+                    }
+                });
             }
         }
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/octet-stream");
-        xhr.setRequestHeader("Authorization","UpToken "+token);
+        xhr.setRequestHeader("Authorization", "UpToken " + token);
         xhr.send(pic);
     }
+
+    $('#headchooserbutton').click(function () {
+        $('#headchooserinput').trigger('click');
+    })
 });
+
