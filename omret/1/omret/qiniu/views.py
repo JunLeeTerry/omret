@@ -48,6 +48,7 @@ def headupload(req):
     file = req.POST.get('file', None)
     q = Auth(ACCESS_KEY, SECRET_KEY)
     key = "usrhead/"+str(uuid.uuid1())
+    #key = "userhead/" + user.name
     token = q.upload_token(BUKET_NAME)
 
     # url = QINIU_BUCKET_DOMAIN+"putb64/20264"
