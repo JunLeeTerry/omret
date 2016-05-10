@@ -47,10 +47,8 @@ urlpatterns = patterns('',
     url(r'^postarti/$',omretnews_views.postarti),
     url(r'^arti(\d+)/$',omretnews_views.artiindex),
 
-	##-----test aboutUs---------
+	##-----footer---------
     url(r'^aboutus/$',views.aboutus),
-	
-	##-----test protocol---------
     url(r'^protocol/$',views.protocol),
 	
 	##---------validateok---------
