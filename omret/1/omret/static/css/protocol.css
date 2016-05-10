@@ -1,0 +1,53 @@
+ body {
+	color: #333;
+	font-family: "klk_sansregular",Arial,Helvetica,sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 2;
+}
+
+.container {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.terms-sidenav {
+    font-size: 14px;
+    list-style: outside none none;
+    position: fixed;
+	top: 30px;
+}
+
+.terms-sidenav ol{
+    list-style: outside none none;
+	line-height: 1.7;
+}
+
+.terms-sidenav li{
+	line-height: 2;
+}
+
+.terms-sidenav li a{
+	text-decoration:none;
+}
+.terms-content {
+    float: right;
+    width: 835px;
+	margin-top: 15px;
+}
+
+.terms-content ol ol {
+	list-style-type: lower-alpha;
+}
+
+.terms-content h1, .terms-content h2, .terms-content p, .terms-content li {
+	margin-bottom: 1em;
+}
+
+.terms-content h1, .terms-content h2 {
+	font-weight: bold;
+	font-size: 16px;
+}

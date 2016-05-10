@@ -5,3 +5,6 @@ def test(request):
 	
 def aboutus(request):
 	return render_to_response("aboutus.html",{});
+	
+def protocol(request):
+	return render_to_response("protocol.html",{});
