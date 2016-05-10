@@ -50,6 +50,9 @@ urlpatterns = patterns('',
 	##-----test aboutUs---------
     url(r'^aboutus/$',views.aboutus),
 	
+	##-----test protocol---------
+    url(r'^protocol/$',views.protocol),
+	
 	##---------validateok---------
     url(r'^validateok/$',logreg_views.validateok),
 	
