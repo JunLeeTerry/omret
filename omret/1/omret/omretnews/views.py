@@ -19,8 +19,17 @@ def index(req):
     user = getUserFromSession(req)
     ##-------get all topics from sql--------
     topics = Topic.objects.all()
-    ##------get all omretnews from sql------
-    news = OmretNews.objects.all()
+
+    ##-----get filter topic-------
+    if(req.GET.has_key('topic')):
+        try:
+            filter_topic = Topic.objects.get(name=req.GET.get('topic'))
+            news = OmretNews.objects.filter(topic=filter_topic)
+        except Exception,e:
+            news = OmretNews.objects.all()
+    else:
+        ##------get all omretnews from sql------
+        news = OmretNews.objects.all()
     ##------get topic list and num-------
     topicandNum = __comNumofTopic(news, topics)
 

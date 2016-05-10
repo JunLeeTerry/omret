@@ -20,17 +20,19 @@
         <div id="datapart" class="col-md-2 col-xs-2">
             <div id="signal_list">
                 <ul>
+                    <li class="row">
+                        <div class="colorsignal pull-left" style="background:#0662a6"></div>
+                        <div id="topicname" class="pull-left">
+                            <a href="/index/"><p>显示所有</p></a>
+                        </div>
+                    </li>
                     {% for topic in topiclist %}
-
                         <li class="row">
-
                             <div class="colorsignal pull-left" style="background:{{ topic.0.color }}"></div>
                             <div id="topicname" class="pull-left">
                                 <a href="/index/?topic={{ topic.0.name }}"><p>{{ topic.0.name }}</p></a>
                             </div>
-
                         </li>
-
                     {% endfor %}
                 </ul>
             </div>
