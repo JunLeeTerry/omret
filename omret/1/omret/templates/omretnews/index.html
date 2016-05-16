@@ -56,7 +56,7 @@
                 <div>
                     {% autopaginate newslist 10 %}
                     {% for new in newslist %}
-                        <div id="newitem-container">
+                        <div class="shadow" id="newitem-container">
                             <a id="newslink" href="/arti{{ new.id }}/" target="_blank">
                                 <div class="row">
                                     <div class="col-md-1 col-xs-1" id="newstag-container">
@@ -70,9 +70,14 @@
                             </a>
 
                             <div class="row">
-                                <p class="col-md-4 col-xs-4" id="newauthor">作者:{{ new.author }}</p>
+                                <p class="col-md-4 col-xs-4" id="newauthor">
+                                    <img class="userhead" src="{{ new.author.headurl }}">
+                                    {{ new.author }}
+                                </p>
 
-                                <p class="col-md-8 col-xs-8" id="newsubtime">{{ new.subtime|date:"Y-m-d G:i" }}</p>
+                                <p class="col-md-8 col-xs-8" id="newsubtime">
+                                    {{ new.subtime|date:"Y-m-d G:i" }}
+                                </p>
                             </div>
                         </div>
                     {% endfor %}
