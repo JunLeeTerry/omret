@@ -182,8 +182,9 @@ body {
     background: #ffffff;
 }
 
-#newstag-container {
-
+.newcolortag {
+    width:20px;
+    height:80px;
 }
 
 #newstag {

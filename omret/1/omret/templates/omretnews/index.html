@@ -28,6 +28,7 @@
                     </li>
                     {% for topic in topiclist %}
                         <li class="row">
+
                             <div class="colorsignal pull-left" style="background:{{ topic.0.color }}"></div>
                             <div id="topicname" class="pull-left">
                                 <a href="/index/?topic={{ topic.0.name }}"><p>{{ topic.0.name }}</p></a>
@@ -56,13 +57,16 @@
                 <div>
                     {% autopaginate newslist 10 %}
                     {% for new in newslist %}
-                        <div class="shadow" id="newitem-container">
+                        <div class="shadow" id="newitem-container"
+                             style="border-left-width: 6px;border-left-color: {{ new.topic.color }};">
                             <a id="newslink" href="/arti{{ new.id }}/" target="_blank">
                                 <div class="row">
+                                    <!--
                                     <div class="col-md-1 col-xs-1" id="newstag-container">
                                         <div id="newstag" style="background:{{ new.topic.color }}">
                                         </div>
                                     </div>
+                                    -->
                                     <div>
                                         <p class="col-md-11 col-xs-11" id="newtitle">{{ new.title }}</p>
                                     </div>
