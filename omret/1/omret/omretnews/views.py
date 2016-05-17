@@ -24,12 +24,12 @@ def index(req):
     if(req.GET.has_key('topic')):
         try:
             filter_topic = Topic.objects.get(name=req.GET.get('topic'))
-            news = OmretNews.objects.filter(topic=filter_topic)
+            news = OmretNews.objects.filter(topic=filter_topic).order_by('-subtime')
         except Exception,e:
             news = OmretNews.objects.all()
     else:
         ##------get all omretnews from sql------
-        news = OmretNews.objects.all()
+        news = OmretNews.objects.all().order_by('-subtime')
     ##------get topic list and num-------
     topicandNum = __comNumofTopic(news, topics)
 
@@ -41,8 +41,9 @@ def index(req):
         numboxdata = __comDataofNumbox(personnews)
     except:
         numboxdata = [0, 0, 0]
-    end = time.time()
+
     # -----test the numboxdata and run time-----
+    #end = time.time()
     #print str(numboxdata) + ' run time:' + str(end - start)
 
     ##-------get notification of user--------

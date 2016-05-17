@@ -1,3 +1,8 @@
+body {
+    background-image: url(/static/img/b3.png);
+    background-repeat: repeat;
+}
+
 #content-part {
     margin-left:100px;
     margin-right:500px;
