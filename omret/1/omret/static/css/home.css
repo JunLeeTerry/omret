@@ -1,15 +1,23 @@
-body {
-    padding-top:5px;
+.container {
+	width:1170px;
 }
-
 #navbar {
     padding-bottom:0px;
     margin-bottom:0px;
 }
 
+#navbar form{
+	margin-top:10px;
+	margin-right: 30px;
+}
+
 #middle {
     margin-top:5px;
     margin-bottom:5px;
+}
+
+#navbar a {
+	margin-left: 50px;
 }
 
 #address {
@@ -25,6 +33,93 @@ body {
 }
 
 #rememberme {
-    color:white;
+    color:#000;
     font-weight:400;
+}
+
+.container-fluid {
+	padding:0px;
+}
+
+.jumbotron-div {
+	background: url("/static/img/home-bg.jpg");
+	box-shadow: 0 3px 7px rgba(100, 0, 0, 0.2) inset, 0 -3px 7px rgba(0, 0, 0, 0.2) inset;
+	text-align: center;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 0, 0, 0.075);
+	color: white;
+	height:450px;
+	border-radius:0px;
+}
+
+.jumbotron-div h1 {
+	font-size: 100px;
+	font-family: "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+}
+
+.jumbotron-div h2 {
+	font-size: 30px;
+}
+
+.jumbotron-div a {
+	margin-top: 40px;
+	font-size: 18px;
+	padding: 10px 35px;
+}
+
+.featurette {
+	height : 100px;
+	border-bottom : 1px solid #ddd;
+}
+.featurette .columns {
+    max-width: 1020px;
+	margin:0 auto;
+}
+
+.columns h3 {
+	line-height: 1.2;
+	margin-top: 20px;
+	font-size: 22px;
+}
+
+.columns p {
+	margin-top: 25px;
+}
+
+.one-third {
+    width: 33.3333%;
+}
+
+.two-thirds {
+    width: 66.6667%;
+}
+
+.column {
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.projects-header {
+	margin: 40px auto 30px;
+	text-align: center;
+}
+
+.btn-primary.btn-shadow {
+    border: 0 none;
+    box-shadow: 0 -4px 0 #2a6496 inset;
+    color: #fff;
+}
+
+.project-div {
+	width: 275px;
+	float: left;
+	margin-right: 10px
+}
+
+.thumbnail {
+	text-align:center;
+} 
+
+.thumbnail a {
+	text-decoration:none;
 }

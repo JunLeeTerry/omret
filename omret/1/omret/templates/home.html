@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="/static/css/home.css">
 <link rel="stylesheet" href="/static/other/bootstrap-3.3.5/css/buttons.css">
 <link rel="stylesheet" href="/static/other/poshytip/tip-violet/tip-violet.css">
+<link rel="stylesheet" href="/static/css/omretuser/userbase.css">
 
 
 {% endblock %}
@@ -17,69 +18,137 @@ omret
 {% block body %}
 <div id="status">{{status}}</div>
 <div class="container-fluid">
-    <div class="row-fluid">
-	<div class="span12">
-	    <div class="navbar navbar-inverse navbar-default" id="navbar">
-		<div class="container">
-		    <div class="navbar-header">
-			<a class="navbar-brand" href="/userhome/"><strong>Omret</strong>&nbsp;<small>beta</small></a>
-		    </div>
-		    <div class="collapse navbar-collapse">
-			<form class="navbar-form navbar-right" method="post">
-			  {% csrf_token %}
-			    <!-- this is login form -->
-			    <!--
-			    <div class="form-group">
-				<input type="text" placeholder="Email or Username" class="form-control">
-			    </div>
-			    <div class="form-group">
-				<input type="password" placeholder="Password" class="form-control">
-			    </div>
-			    -->
-			    <div class="form-group">
-				{{login_form.account}}
-			    </div>
-			    <div class="form-group">
-				{{login_form.password}}
-			    </div>
-			    <label id="rememberme" class="checkbox">
-				<input type="checkbox" name="rmbme" value="rmbme"/>
-				记住我
-			    </label>
-			    
-			    <button id="login_button" type="submit" class="btn btn-success">登陆</button>
-			</form>
-		    </div>
-		</div>
-	    </div>
-	    <!-- this is middle part -->
-	    <div class="jumbotron" id="middle">
-		<h1>Welcome to Omret!<br></h1>
-		<p><br>Let's have FUN!!</p>
-		<a href="/signup/" class="button button-3d button-primary button-rounded" id="signupbutton">Sign Up</a>
-	    </div>
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="navbar" id="navbar">
+				<div class="container">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="/userhome/"><strong>Omret</strong>&nbsp;<small>beta</small></a>
+					</div>
+					<div class="collapse navbar-collapse">
+						<form class="navbar-form navbar-right" method="post">
+							{% csrf_token %}
+							<!-- this is login form -->
+							<!--
+							<div class="form-group">
+							<input type="text" placeholder="Email or Username" class="form-control">
+							</div>
+							<div class="form-group">
+							<input type="password" placeholder="Password" class="form-control">
+							</div>
+							-->
+							<div class="form-group">
+							{{login_form.account}}
+							</div>
+							<div class="form-group">
+							{{login_form.password}}
+							</div>
+							<label id="rememberme" class="checkbox">
+								<input type="checkbox" name="rmbme" value="rmbme"/>
+								记住我
+							</label>
+					
+							<button id="login_button" type="submit" class="btn btn-success">登陆</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+			<!-- this is middle part -->
+			<div class="jumbotron-div jumbotron" id="middle">
+				<h1>Omret</h1>
+				<h2>沟通更方便、分享更简单、交流更愉快</h2>
+				<a href="/signup/" class="btn btn-success btn-shadow" id="signupbutton">注册（It's free）</a>
+			</div>
 
-	    <!-- this is bottom part -->
-	    <div class="row">
-		<div class="col-md-6">
-	
-		    <div id="aboutus">
-			<h3>About Us</h3>
-			<p>Programmer: Terry</p>
-			<p>Art Designer: Monnie</p>
-		    </div>
+			<div class="featurette">
+				<div class="columns">
+					<div class="one-third column">
+						<h3 style="line-height: 1.2;" class="display-heading-3">Introducing unlimited <br class="d-none-sm-dn">private repositories</h3>
+					</div>
+					<div class="two-thirds column">
+						<p class="mt-2 mb-0">All of our paid plans on omret.com now include unlimited private repositories. <a href="/signup/">Sign&nbsp;up</a>&nbsp;to get started or read more about this change on our blog.</p>
+					</div>
+				</div>
+			</div>
+			
+			<!-- this is bottom part -->
+			<div class="container projects">
+				<div class="projects-header">
+					<h2>Omret相关模块介绍</h2>
+					<p>Omret模块包括：</p>
+				</div>
+
+				<div class="row">
+					<div class="project-div">
+						<div class="thumbnail" style="height: 336px;">
+							<a ><img width="300" height="150" alt="Headroom.js"  src="http://static.bootcss.com/www/assets/img/codeguide.png" class="lazy"></a>
+							<div class="caption">
+								<h3>
+									<a title="Bootstrap 编码规范：编写灵活、稳定、高质量的 HTML 和 CSS 代码的规范。">Bootstrap 编码规范<br><small>by @mdo</small></a>
+								</h3>
+								<p>
+									Bootstrap 编码规范：编写灵活、稳定、高质量的 HTML 和 CSS 代码的规范。
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="project-div">
+						<div class="thumbnail" style="height: 336px;">
+							<a title="jQuery API 中文文档/手册"><img width="300" height="150" alt="jQuery API 中文文档/手册" src="http://static.bootcss.com/www/assets/img/jqueryapi.png" class="lazy"></a>
+							<div class="caption">
+								<h3>
+									<a title="jQuery API 中文文档/手册">jQuery API <br><small>中文手册</small></a>
+								</h3>
+								<p>
+									根据最新的 jQuery 1.11.x 和 2.1.x 版本翻译的 jQuery API 中文文档/手册。
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="project-div">
+						<div class="thumbnail" style="height: 336px;">
+							<a title="w3schools 原版国内镜像"><img width="300" height="150" alt="w3schools 原版国内镜像"src="http://static.bootcss.com/www/assets/img/w3schools.png" class="lazy"></a>
+							<div class="caption">
+								<h3>
+									<a title="w3schools 原版国内镜像">w3schools<br><small>原版国内镜像</small></a>
+								</h3>
+								<p>w3schools.com 是最受欢迎的前端技术教程网站，但是国内用户一直不能访问，并且国内的中文翻译版本十分陈旧。因此做了个镜像，希望英文好的同学直接去看原版教程吧！
+								</p>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="project-div">
+						<div class="thumbnail" style="height: 336px;">
+							<a  title="Bootstrap优站精选"><img alt="Bootstrap优站精选" src="http://static.bootcss.com/www/assets/img/expo.png" class="lazy"></a>
+							<div class="caption">
+								<h3>
+									<a title="Bootstrap优站精选">优站精选<br><small>Bootstrap网站实例</small></a>
+								</h3>
+								<p>Bootstrap优站精选频道收集了众多基于 Bootstrap 构建、设计精美的、有创意的网站。
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="col-md-6">
-		    <div id="address">
-			<h3>Address</h3>
-			<address><strong>Terry</strong><br>
-			    Soochow,China<br>
-			    <abbr title="Email">Email:</abbr>terry_love_c@sina.com
-			</address>
-		    </div>
-		</div>
-	    </div>
 	</div>
+</div>
+<div id="footer">
+    <div class="row">
+        <div id="footer-left" class="col-md-5 col-xs-5">
+            <p>&copy; 2015-2016 Omret&nbsp;&nbsp;审查号 XXXXXXXXX</p>
+        </div>
+        <img id="footer-logo" src="/static/img/footerlogo.jpg" width="32px" height="32px">
+
+        <div id="footer-right" class="col-md-5 col-xs-5">
+            <p><a href="/index/">首页</a> | <a href="#">关于我们</a> | <a href="Mailto:terry_love_c@sina.com">意见反馈</a> | <a href="/protocol/">Omret协议</a></p>
+        </div>
     </div>
 </div>
 <script type="text/javascript" src="static/other/poshytip/jquery.poshytip.min.js"></script>
