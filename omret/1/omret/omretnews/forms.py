@@ -7,7 +7,7 @@ class NewsArtiForm(forms.Form):
     # print Topic.objects.all()
 
     ##-------the form of title------------
-    title = forms.CharField(required=False,
+    title = forms.CharField(required=True,
                             widget=forms.TextInput(
                                 attrs={"id": "titleform",
                                        "class": "form-control"}
@@ -22,14 +22,14 @@ class NewsArtiForm(forms.Form):
     print TOPIC_CHOICE
 
     ##-------the form of topic---------
-    topic = forms.CharField(required=False,
+    topic = forms.CharField(required=True,
                             widget=forms.Select(
                                 attrs={"id": "topicselector",
                                        "class": "select form-control"},
                                 choices=TOPIC_CHOICE
                             ))
 
-    content = forms.CharField(required=False,
+    content = forms.CharField(required=True,
                               widget=forms.Textarea(
                                   attrs={"id": "omrettinymce"}
                               ))

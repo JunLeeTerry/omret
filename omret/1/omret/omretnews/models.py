@@ -10,8 +10,8 @@ class OmretNews(models.Model):
     subtime = models.DateTimeField(auto_now_add=True)
     # subday = models.DateField(auto_now_add=True)
     topic = models.ForeignKey('Topic')
-    title = models.CharField(max_length=30)
-    content = models.CharField(max_length=5000)
+    title = models.CharField(max_length=30,null=False)
+    content = models.CharField(max_length=5000,null=False)
 
 
 class Topic(models.Model):
@@ -26,7 +26,7 @@ class NewComments(models.Model):
     article = models.ForeignKey('OmretNews')
     # comments under the comment
     comment = models.ForeignKey('NewComments', null=True)
-    comment_content = models.CharField(max_length=200)
+    comment_content = models.CharField(max_length=200,null=False)
     comment_time = models.DateTimeField(auto_now_add=True)
     comment_user = models.ForeignKey(logreg_models.User)
     # comment_chats = models.ForeignKey('NewCommentsChats')
@@ -39,7 +39,7 @@ class NewComments(models.Model):
 class NewCommentsChats(models.Model):
     article = models.ForeignKey('OmretNews')
     comment = models.ForeignKey('NewComments')
-    chat_content = models.CharField(max_length=200)
+    chat_content = models.CharField(max_length=200,null=False)
     chat_time = models.DateTimeField(auto_now_add=True)
     chat_user = models.ForeignKey(logreg_models.User)
 
