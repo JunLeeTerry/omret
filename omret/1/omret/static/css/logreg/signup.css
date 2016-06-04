@@ -2,6 +2,13 @@
     margin-left:60px;
 }
 
+.page-contain {
+	background:#fff url(/static/img/signup-bg.jpg) no-repeat center;
+	margin-bottom: 0px;
+	padding:auto 80px;
+	background-size:cover;
+}
+
 #formtitle{
     font-weight:bold;
     margin-left:100px;
@@ -14,4 +21,13 @@
 #formgroup{
     margin-left:100px;
     width:400px;
+}
+
+.btn-submit {
+	padding: 10px 35px 6px; 
+	border-bottom-width: 6px;
+	font-size:16px;
+	font-weight: 400;
+	color:#fff;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }

@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="/static/other/bootstrap-3.3.5/css/buttons.css">
 <!-- <script src="/static/js/logreg/signup.js"></script> -->
 <link rel="stylesheet" href="/static/other/poshytip/tip-violet/tip-violet.css">
+<link rel="stylesheet" href="/static/css/omretuser/userbase.css">
 
 {% endblock %}
 
@@ -14,42 +15,55 @@ Sign Up
 
 {% block body %} 
 <div class="container-fluid">
-    <div class="row-fluid">
-	<div class="span12">
-	    <div class="page-header">
-		<h1 id="header">
-		    注册&nbsp;&nbsp;&nbsp<small>立即注册加入Omret!</small>
-		</h1>
-	    </div>
-	    <div class="jumbotron">
-		<h3 id="formtitle">Create a Omret Account</h3>
-		<form class="form-horizontal" method="post">
-		  {% csrf_token %}
-		    <div class="control-group" id="formgroup">
-			<label class="control-label">姓名</label>
-			<div class="form-group">
-			    {{signup_form.name}}
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="page-header">
+				<h1 id="header">
+					注册&nbsp;&nbsp;&nbsp<small>立即注册加入Omret!</small>
+				</h1>
 			</div>
-			<label class="control-label">邮箱</label>
-			<div class="form-group">
-			  {{signup_form.email}}
-			</div>
-			<label class="control-label">密码</label>
-			<div class="form-group">
-			  {{signup_form.password}}
-			</div>
-			<label class="control-label">确认密码</label>
-			<div class="form-group">
-			  {{signup_form.confirm_password}}
-			</div>
+			<div class="page-contain jumbotron">
+				<h3 id="formtitle"> Create a Omret Account </h3>
+				<form class="form-horizontal" method="post">
+					{% csrf_token %}
+					<div class="control-group" id="formgroup">
+						<label class="control-label">姓名</label>
+						<div class="form-group">
+							{{signup_form.name}}
+						</div>
+						<label class="control-label">邮箱</label>
+						<div class="form-group">
+						  {{signup_form.email}}
+						</div>
+						<label class="control-label">密码</label>
+						<div class="form-group">
+						  {{signup_form.password}}
+						</div>
+						<label class="control-label">确认密码</label>
+						<div class="form-group">
+						  {{signup_form.confirm_password}}
+						</div>
 
-			<button id="signupbutton" type="submit" class="button button-3d button-royal button-rounded button-jumbo">Sign Up!</button>
-		    </div>
-		</form>   
-	    </div>
+						<button id="signupbutton" type="submit" class="btn btn-success btn-submit">Sign Up!</button>
+					</div>
+				</form>   
+			</div>
+		</div>
 	</div>
+</div>
+<div id="footer">
+	<div class="row">
+        <div id="footer-left" class="col-md-5 col-xs-5">
+            <p>&copy; 2015-2016 Omret&nbsp;&nbsp;审查号 XXXXXXXXX</p>
+        </div>
+        <img id="footer-logo" src="/static/img/footerlogo.jpg" width="32px" height="32px">
+
+        <div id="footer-right" class="col-md-5 col-xs-5">
+            <p><a href="/index/">首页</a> | <a href="#">关于我们</a> | <a href="Mailto:terry_love_c@sina.com">意见反馈</a> | <a href="/protocol/">Omret协议</a></p>
+        </div>
     </div>
 </div>
+
 <script src="/static/other/poshytip/jquery.poshytip.min.js"></script>
 <script src="/static/js/logreg/signup.js"></script>
 
