@@ -45,6 +45,6 @@ class UserActivationCode(models.Model):
         msg = EmailMultiAlternatives(subject,text_content,from_email,[to_email])
         msg.attach_alternative(html_content,'text/html')
         EmailThread(msg).start()
-        
-        
+    
+      
     
