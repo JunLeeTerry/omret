@@ -120,7 +120,8 @@ def signup(req):
             try:
                 user.save()
             except Exception,e:
-                return render_to_response('validatemail.html',{'username':user})
+                return render_to_response('signup.html',{'signup_form':signup_form},context_instance=RequestContext(req))
+                #return render_to_response('validatemail.html',{'username':user})
 
             ##-------gen activation code--------- 
             code = uuid.uuid1().hex
@@ -202,7 +203,7 @@ def login(req):
             #print account_type
             if account_type == 0:
                 try:
-                    user = User.objects.get(name=account,password=encrypted_password)
+                    user = User.objects.filter(name=account,password=encrypted_password)
                     status = u'success'
                 except Exception,e:
                     status = u'error'
@@ -210,7 +211,7 @@ def login(req):
                     #print e
             elif account_type == 1:
                 try:
-                    user = User.objects.get(email=account,password=encrypted_password)
+                    user = User.objects.filter(email=account,password=encrypted_password)
                     status = u'success'
                 except:
                     status = u'error'
@@ -222,11 +223,14 @@ def login(req):
 
                 ##-----gen the session and store into the cookie------
                 ##-----the session type is set in the settings.py-------
-                uid = uuid.uuid1().hex
-                req.session['uid'] = uid
-                user.uid = uid
+                useruid = uuid.uuid1().hex
+                req.session['uid'] = useruid
+                #user.uid = useruid
                 #print uid
-                user.save()
+
+                ##------use update , avoid using save function---------
+                user.update(uid=useruid)
+                #user.save()
                 #print req.session.get('uid')
               
                 #print rmbme                
