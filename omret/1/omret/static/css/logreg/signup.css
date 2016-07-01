@@ -15,7 +15,7 @@
 }
 
 #signupbutton{
-    margin-top:20px;
+	margin-left: 20px;
 }
 
 #formgroup{
@@ -31,3 +31,11 @@
 	color:#fff;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+
+#signup-confirmpassword {
+	margin-bottom: 20px;
+}
+
+.control-group span {
+	margin-left: 20px;
+} 
